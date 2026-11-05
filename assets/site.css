@@ -389,3 +389,14 @@ footer .legal .privacy-link:hover{opacity:1;text-decoration:underline}
 
 /* The privacy headings follow the reading side, not the centred section style */
 section.block.legal-page h2,section.block.legal-page h1{text-align:start}
+
+/* A calmer bar: one accent (the expert button), the waiting list as quiet text,
+   and the language switch as one word naming the language you can switch to */
+.bar-actions{gap:22px}
+.bar-link{color:var(--ink-2)}
+.bar-link:hover{color:var(--ink)}
+header.top .switch{background:none;padding:0;border-inline-start:1px solid var(--line);padding-inline-start:18px;border-radius:0}
+header.top .switch button[aria-pressed="true"]{display:none}
+header.top .switch button{padding:6px 2px;font-size:14px;color:var(--ink-2);box-shadow:none}
+header.top .switch button:hover{color:var(--ink)}
+header.top .switch button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
