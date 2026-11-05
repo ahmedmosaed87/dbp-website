@@ -59,7 +59,9 @@
       var r = s.getBoundingClientRect();
       // Grows over the first stretch of the stage scrolling past, then holds full size while it stays pinned.
       // The growth starts only once the visitor scrolls, not while the stage is just peeking.
-      var p = (vh * 0.66 - r.top) / (vh * 0.62);
+      // Each stage sets how long its growth lasts (in screen heights), so the moment is given its time.
+      var span = parseFloat(s.getAttribute('data-span')) || 0.62;
+      var p = (vh * 0.66 - r.top) / (vh * span);
       p = Math.max(0, Math.min(1, p));
       p = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
       s.style.setProperty('--p', p.toFixed(4));

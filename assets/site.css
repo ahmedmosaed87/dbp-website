@@ -1530,3 +1530,7 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
   box-shadow:0 0 0 1px rgba(255,255,255,calc(.14 * (1 - var(--p)))),0 0 80px -10px rgba(79,214,222,calc(.30 * (1 - var(--p)))),0 40px 90px -40px rgba(11,31,63,calc(.55 * var(--p)))}
 .stage-scroll.dark{--q:0;background:color-mix(in srgb,#102a50 calc((1 - var(--q)) * 100%),#eef2f8)}
 @media (prefers-reduced-motion:reduce){.stage-scroll.dark{--q:1}}
+/* The moments are given their time: a slower growth, then a held full-screen view before the page moves on */
+.stage-scroll{height:210vh}
+.stage-scroll.dark{height:250vh}
+@media (max-width:860px){ .stage-scroll{height:170vh} .stage-scroll.dark{height:190vh} }
