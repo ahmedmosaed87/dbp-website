@@ -1332,3 +1332,34 @@ section[id^="parts-"] h2{max-width:none}
   .carry.band li + li,.fit.strip > li + li{border-inline-start:0;border-top:1px solid #edf1f6}
   .fit.strip > li + li::after{display:none}
 }
+
+/* The logo stage: a card under the hero that grows to the full screen as the visitor scrolls */
+.stage-scroll{--p:0;position:relative;height:175vh;overflow-x:clip;margin-top:-2px}
+.stage-sticky{position:sticky;top:0;height:100vh;display:grid;place-items:center}
+.stage-panel{display:grid;place-items:center;
+  width:calc(min(1100px,92vw) + (100vw - min(1100px,92vw)) * var(--p));
+  height:calc(62vh + 38vh * var(--p));
+  border-radius:calc(36px * (1 - var(--p)));
+  background:radial-gradient(1100px 520px at 50% 40%,rgba(79,214,222,.16),transparent 65%),radial-gradient(900px 480px at 50% 110%,rgba(42,79,246,.12),transparent 70%),#f7f9fc;
+  box-shadow:0 1px 2px rgba(12,31,61,.04),0 calc(40px * (1 - var(--p))) 80px -40px rgba(12,31,61,.25)}
+.stage-panel .merge{margin:0;transform:scale(calc(.82 + .6 * var(--p)));transform-origin:center}
+@media (max-width:860px){
+  .stage-scroll{height:150vh}
+  .stage-panel{height:calc(54vh + 30vh * var(--p))}
+  .stage-panel .merge{transform:scale(calc(.9 + .25 * var(--p)))}
+}
+@media (prefers-reduced-motion:reduce){ .stage-scroll{height:auto} .stage-sticky{position:static;height:auto;padding-block:40px} }
+.stage-panel .merge{transform:scale(calc(.82 + .46 * var(--p)))}
+/* The stage peeks at the bottom of the first screen, inviting the scroll */
+.stage-sticky{place-items:start center;padding-top:calc(8px * (1 - var(--p)))}
+.stage-panel{height:calc(70vh + 30vh * var(--p))}
+main > .hero:first-child{padding-bottom:clamp(28px,4vw,48px)}
+
+/* The COACTA page: the same scroll stage, on navy, growing the product picture to the full screen */
+.stage-scroll.dark{background:linear-gradient(180deg,#0b1d3f,#0a1836 70%,#ffffff 70%)}
+.stage-scroll.dark .stage-panel{background:radial-gradient(1000px 520px at 50% 0%,rgba(79,214,222,.16),transparent 65%),linear-gradient(170deg,#0e2550,#0a1836);box-shadow:0 0 0 1px rgba(255,255,255,.06),0 calc(40px * (1 - var(--p))) 90px -40px rgba(0,0,0,.6)}
+.stage-scroll.dark .hero-frame{margin:0;width:min(1120px,86vw);transform:scale(calc(.84 + .2 * var(--p)));transform-origin:center}
+.stage-scroll.dark .hero-frame img{max-height:calc(64vh + 26vh * var(--p));width:100%;object-fit:contain}
+.stage-scroll.dark .stage-sticky{place-items:center}
+.hero.coacta{padding-bottom:clamp(28px,4vw,48px)}
+.stage-scroll{height:150vh}

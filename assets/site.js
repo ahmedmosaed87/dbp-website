@@ -43,3 +43,30 @@
     if (e.key === '/' && ov.hidden && !/input|textarea/i.test((document.activeElement || {}).tagName || '')) { e.preventDefault(); open(); }
   });
 })();
+
+/* The logo stage grows as the visitor scrolls: from a card under the hero to the full screen. */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var stages = document.querySelectorAll('.stage-scroll');
+  if (!stages.length) return;
+  if (reduce) { stages.forEach(function (s) { s.style.setProperty('--p', 1); }); return; }
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var vh = window.innerHeight;
+    stages.forEach(function (s) {
+      if (s.offsetParent === null) return;
+      var r = s.getBoundingClientRect();
+      // Grows over the first stretch of the stage scrolling past, then holds full size while it stays pinned.
+      var p = (vh - r.top) / (vh * 0.6);
+      p = Math.max(0, Math.min(1, p));
+      p = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+      s.style.setProperty('--p', p.toFixed(4));
+    });
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  document.addEventListener('click', function () { setTimeout(update, 50); });
+  update();
+})();
