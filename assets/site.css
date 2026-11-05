@@ -984,3 +984,65 @@ section[id^="parts-"] h2{max-width:none}
 @keyframes fin-beat-1{0%,17.5%{width:28px;background:var(--blue)}19%,96%{width:8px;background:rgba(12,31,61,.14)}98%,100%{width:28px;background:var(--blue)}}
 @keyframes fin-beat-2{0%,18%{width:8px;background:rgba(12,31,61,.14)}20%,38.5%{width:28px;background:var(--teal)}40%,100%{width:8px;background:rgba(12,31,61,.14)}}
 @keyframes fin-beat-3{0%,40%{width:8px;background:rgba(12,31,61,.14)}42%,83%{width:28px;background:var(--navy)}85%,100%{width:8px;background:rgba(12,31,61,.14)}}
+
+/* COACTA, anywhere: three signature moments drawn in the brand, then COACTA Mobile in real phone frames */
+.anywhere{background:linear-gradient(180deg,#f7f9fc,#ffffff 40%)}
+.moments{list-style:none;margin:44px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.moments > li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.moments strong{font-size:21px;font-weight:600;color:var(--navy);margin-top:18px}
+.moments > li > span{color:var(--ink-2);font-size:16px}
+.scene{position:relative;width:100%;height:300px;border-radius:24px;background:#fff;border:1px solid #e3e9f2;box-shadow:0 1px 2px rgba(12,31,61,.04),0 20px 44px -26px rgba(12,31,61,.28);display:grid;place-items:center;overflow:hidden}
+
+/* The watch: the target ring on the wrist */
+.watch{position:relative;width:170px;height:206px;border-radius:52px;background:#0b1f3f;box-shadow:inset 0 0 0 3px #1b3460,0 20px 40px -16px rgba(11,31,63,.55)}
+.watch::before,.watch::after{content:"";position:absolute;left:34px;right:34px;height:60px;background:linear-gradient(180deg,#e9eef5,#d5dde9);z-index:-1}
+.watch::before{top:-52px;border-radius:14px 14px 0 0}.watch::after{bottom:-52px;border-radius:0 0 14px 14px}
+.watch-face{position:absolute;inset:14px;border-radius:40px;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#fff;overflow:hidden}
+.watch-face .ring{position:absolute;top:22px;width:104px;height:104px;border-radius:50%;background:conic-gradient(var(--green) calc(var(--p)*1%),#24406b 0);-webkit-mask:radial-gradient(circle,transparent 58%,#000 60%);mask:radial-gradient(circle,transparent 58%,#000 60%)}
+.watch-face .w-l{position:absolute;top:6px;font-size:10.5px;color:#bfd3ea;white-space:nowrap}
+.watch-face .w-v{position:absolute;top:56px;font-size:30px;font-weight:600}
+.watch-face .w-s{position:absolute;bottom:26px;font-size:11.5px;color:#fff}
+.watch-face .w-c{position:absolute;bottom:10px;font-size:11.5px;color:#5fb6f7}
+
+/* Driving: voice only */
+.scene-car{align-content:center;gap:12px;padding:24px}
+.bubble{display:inline-block;max-width:84%;padding:12px 16px;font-size:16px;line-height:1.45;border-radius:18px}
+.bubble.ask{justify-self:end;background:var(--blue);color:#fff;border-end-end-radius:6px}
+.bubble.reply{justify-self:start;background:#eef4fc;border:1px solid #c7dbf3;color:var(--navy);border-end-start-radius:6px}
+.wave{display:flex;align-items:center;justify-content:center;gap:6px;height:44px;margin-top:6px}
+.wave i{display:block;width:6px;border-radius:3px;background:var(--blue);height:12px}
+.wave i:nth-child(2),.wave i:nth-child(8){height:22px}.wave i:nth-child(3),.wave i:nth-child(7){height:32px}
+.wave i:nth-child(4),.wave i:nth-child(6){height:26px}.wave i:nth-child(5){height:40px}
+@media (prefers-reduced-motion:no-preference){ .wave i{animation:wave 1.4s ease-in-out infinite} .wave i:nth-child(2n){animation-delay:.2s} .wave i:nth-child(3n){animation-delay:.4s} }
+@keyframes wave{0%,100%{transform:scaleY(.55)}50%{transform:scaleY(1)}}
+
+/* In a meeting: the order drafted on the phone, a person confirms */
+.mini-phone{width:200px;height:270px;margin-top:40px;border-radius:30px;background:#0b1f3f;padding:9px;display:flex;flex-direction:column;gap:10px;background-clip:padding-box;box-shadow:0 20px 40px -16px rgba(11,31,63,.55)}
+.mini-phone{background:linear-gradient(#f5f7fa,#f5f7fa) padding-box,#0b1f3f border-box;border:9px solid transparent;padding:12px}
+.mini-phone .bubble{font-size:13.5px;max-width:100%;padding:10px 12px}
+.order{display:grid;gap:4px;padding:12px;border-radius:14px;background:#fff;border:1.5px solid #c7dbf3;text-align:start}
+.o-flow{font-size:12.5px;font-weight:600;color:var(--blue)}
+.o-name{font-size:15px;font-weight:600;color:var(--navy)}
+.o-state{justify-self:start;font-size:12px;padding:2px 10px;border-radius:999px;background:#fff4de;color:#7a4e00}
+.o-btn{margin-top:8px;text-align:center;font-size:13px;font-weight:600;color:#fff;background:var(--navy);border-radius:10px;padding:7px 0}
+
+/* COACTA Mobile: the six moments in phone frames */
+.mobile-h{margin:72px 0 6px;text-align:center;font-size:clamp(26px,3vw,36px);font-weight:600;color:var(--navy)}
+.mobile-p{text-align:center;color:var(--ink-2);margin:0 auto 34px;max-width:52ch}
+.phones{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 28px}
+.phones figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:16px}
+.phone{width:min(240px,100%);padding:9px;border-radius:40px;background:#0b1f3f;box-shadow:0 1px 2px rgba(12,31,61,.05),0 28px 56px -28px rgba(11,31,63,.55)}
+.phone img{display:block;width:100%;height:auto;border-radius:32px}
+.phones figcaption{max-width:28ch;text-align:center;font-size:16px;font-weight:600;color:var(--navy);line-height:1.45}
+@media (max-width:860px){
+  .moments{grid-template-columns:1fr}
+  .phones{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 18px}
+}
+@media (max-width:520px){ .phone{border-radius:30px;padding:7px} .phone img{border-radius:24px} .phones figcaption{font-size:14.5px} }
+/* Watch strap visible above and below the case; Arabic ring fills right to left; chat sides follow the reading direction */
+.watch{isolation:isolate;margin:18px 0}
+.watch::before,.watch::after{z-index:-1;left:40px;right:40px}
+.scene-watch{overflow:hidden}
+[dir="rtl"] .watch-face .ring{transform:scaleX(-1)}
+[dir="rtl"] .bubble.ask{justify-self:start;border-end-end-radius:18px;border-end-start-radius:6px}
+[dir="rtl"] .bubble.reply{justify-self:end;border-end-start-radius:18px;border-end-end-radius:6px}
