@@ -400,3 +400,8 @@ header.top .switch button[aria-pressed="true"]{display:none}
 header.top .switch button{padding:6px 2px;font-size:14px;color:var(--ink-2);box-shadow:none}
 header.top .switch button:hover{color:var(--ink)}
 header.top .switch button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+/* The COACTA hero picture: a campaign frame, navy on navy, so the page opens on the product */
+.hero-frame{margin:clamp(40px,5vw,64px) auto 0;max-width:1120px}
+.hero-frame img{display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 40px 90px -30px rgba(0,0,0,.6)}
+.hero-frame figcaption{margin-top:14px;font-size:13px;color:#8fa3c4;text-align:center}
