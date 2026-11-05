@@ -732,3 +732,14 @@ section[id^="parts-"] h2{max-width:none}
   53%,84%{opacity:1;transform:translateY(0)}
   90%,100%{opacity:0;transform:translateY(-10px)}}
 @media (prefers-reduced-motion:reduce){ .merge .cap-m{opacity:0} }
+
+/* The signature line: governance that unlocks and protects innovation, a calm navy band with a shield */
+.gov-band{background:radial-gradient(800px 360px at 50% 0%,rgba(47,208,160,.18),transparent 70%),linear-gradient(160deg,#071431,#0c1f3d 60%,#0a1a36);color:#fff;text-align:center;padding-block:clamp(64px,8vw,104px)}
+.gov-band .wrap{display:grid;justify-items:center;gap:6px}
+.gov-icon{display:grid;place-items:center;width:64px;height:64px;border-radius:20px;margin-bottom:14px;color:var(--green);background:rgba(47,208,160,.10);box-shadow:0 0 0 1px rgba(47,208,160,.35)}
+.gov-band .kicker{color:var(--green);text-align:center!important}
+.gov-line{margin:0;max-width:22ch;font-size:clamp(32px,4.4vw,56px);font-weight:600;line-height:1.15;letter-spacing:-.02em;color:#fff;text-wrap:balance}
+[lang="ar"] .gov-line{letter-spacing:0;line-height:1.4}
+.gov-line em{font-style:normal;background:linear-gradient(90deg,var(--cyan),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+[dir="rtl"] .gov-line em{background:linear-gradient(270deg,var(--cyan),var(--green));-webkit-background-clip:text;background-clip:text}
+.gov-sub{margin:18px auto 0;max-width:56ch;font-size:clamp(17px,1.8vw,20px);line-height:1.6;color:#b9c9e4}
