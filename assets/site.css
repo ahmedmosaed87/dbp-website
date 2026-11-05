@@ -1951,3 +1951,19 @@ nav.pages a{white-space:nowrap}
 /* Sample-data notes under product designs. */
 .sample-note{margin:22px auto 0;text-align:center;font-size:13.5px;color:var(--ink-3);max-width:none}
 .stage-scroll.dark .sample-note{color:#9fb1cf}
+
+/* decisions-wa */
+/* WhatsApp: a link in the footer and one quiet floating button, clear of the phone's safe area. */
+.wa-link{display:inline-flex;align-items:center;gap:8px}
+.wa-link .wa-ic{color:#1fa855}
+.wa-float{position:fixed;inset-inline-end:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:40;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:#25d366;color:#fff;box-shadow:0 12px 28px -10px rgba(10,60,30,.55);transition:transform .2s}
+.wa-float:hover{transform:translateY(-2px);text-decoration:none}
+.wa-float .wa-ic{width:28px;height:28px}
+@media print{ .wa-float{display:none} }
+/* Startup Support: who qualifies, one tap to open. */
+.qualify{margin:0 0 16px;border-radius:12px;background:rgba(255,255,255,.06);padding:10px 14px}
+.qualify summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--green);list-style-position:inside}
+.qualify ul{margin:10px 0 8px;padding-inline-start:18px;display:grid;gap:6px;font-size:14px;color:#dbe4f3}
+.qualify p{margin:0;font-size:13.5px;line-height:1.6;color:#b9c7e2}
+/* Ways to pay: who equity and revenue share suit. */
+.ways-note{margin:12px auto 0;max-width:72ch;text-align:center;font-size:13.5px;line-height:1.65;color:#b9c7e2}
