@@ -1920,3 +1920,11 @@ footer .reg b{font-weight:600;color:var(--ink);margin-inline-end:10px}
 .st-impact .st-impact-line{font-size:18px;font-weight:600;color:#fff}
 @media (max-width:900px){ .stories{grid-template-columns:1fr} }
 @media (max-width:560px){ .story{padding:24px 20px 0} .st-impact{margin:0 -20px;padding:20px} .st-steps > div{grid-template-columns:1fr;gap:4px} }
+
+/* stories-3 */
+.stories{grid-template-columns:repeat(3,minmax(0,1fr))}
+.story{padding:28px 26px 0}
+.st-impact{margin:0 -26px;padding:20px 26px}
+.st-steps > div{grid-template-columns:1fr;gap:4px}
+.st-steps dd{font-size:14.5px}
+@media (max-width:1080px){ .stories{grid-template-columns:1fr;max-width:720px;margin-inline:auto} }
