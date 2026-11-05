@@ -1363,3 +1363,11 @@ main > .hero:first-child{padding-bottom:clamp(28px,4vw,48px)}
 .stage-scroll.dark .stage-sticky{place-items:center}
 .hero.coacta{padding-bottom:clamp(28px,4vw,48px)}
 .stage-scroll{height:150vh}
+/* A more compact COACTA hero, so the product stage peeks in the first screen and invites the scroll */
+.hero.coacta{padding-top:clamp(40px,6vw,76px)}
+.hero.coacta h1{font-size:clamp(38px,5.4vw,70px);max-width:18ch;margin-bottom:14px}
+.hero.coacta .wordmark{margin-bottom:12px}
+.hero.coacta .lead{margin-bottom:22px}
+.stage-scroll.dark .stage-sticky{place-items:start center;padding-top:calc(8px * (1 - var(--p)))}
+.stage-scroll.dark .stage-panel{height:calc(70vh + 30vh * var(--p))}
+.hero.coacta h1{font-size:clamp(36px,min(5.4vw,7.6vh),70px)}
