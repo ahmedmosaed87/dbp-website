@@ -703,3 +703,9 @@ section[id^="parts-"] h2{max-width:none}
   .parts .pi{width:40px;height:40px;border-radius:12px}
   .parts strong{font-size:16.5px}
 }
+
+/* Offices on one line: the flag says the country, the city stands beside it; the country name stays for screen readers */
+.office{padding:18px 22px}
+.office .country{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.office > div{position:relative}
+.office strong{font-size:18px}
