@@ -1584,3 +1584,32 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 }
 @media (max-width:560px){ .pillars.four.iconed{grid-template-columns:1fr} }
 .experience .exp-text .exp-lead{font-size:clamp(19px,1.9vw,23px);color:var(--ink);font-weight:500;margin-bottom:14px}
+
+/* The journey as chapters: five cards on a fine progress line, then COACTA as the next chapter */
+.chapters{position:relative;list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.chapters::before{content:"";position:absolute;top:0;inset-inline:6px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--teal),var(--green))}
+[dir="rtl"] .chapters::before{background:linear-gradient(270deg,var(--blue),var(--teal),var(--green))}
+.chapters li{position:relative;display:flex;flex-direction:column;gap:8px;margin-top:26px;padding:26px 22px 24px;border-radius:20px;background:#fff;
+  box-shadow:0 1px 1px rgba(12,31,61,.03),0 18px 40px -26px rgba(12,31,61,.30)}
+.ch-dot{position:absolute;top:-33px;inset-inline-start:22px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px var(--blue)}
+.chapters li:nth-child(n+3) .ch-dot{box-shadow:0 0 0 3px var(--teal)}
+.chapters li:nth-child(5) .ch-dot{box-shadow:0 0 0 3px var(--green)}
+.chapters strong{font-size:clamp(28px,2.6vw,36px);font-weight:600;line-height:1;letter-spacing:-.02em;
+  background:linear-gradient(135deg,var(--navy),var(--blue) 75%);-webkit-background-clip:text;background-clip:text;color:transparent}
+[lang="ar"] .chapters strong{letter-spacing:0;font-size:clamp(24px,2.3vw,32px);line-height:1.3}
+.chapters b{margin-top:6px;font-size:17px;font-weight:600;color:var(--navy)}
+.chapters li > span:last-child{font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+.next-chapter{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:22px;padding:30px 36px;border-radius:24px;color:#fff;
+  background:radial-gradient(520px 260px at 85% 0%,rgba(123,92,240,.45),transparent 70%),radial-gradient(520px 260px at 15% 120%,rgba(47,208,160,.35),transparent 70%),linear-gradient(120deg,#0b1a38,#132c63);
+  box-shadow:0 30px 70px -32px rgba(11,31,63,.65)}
+[dir="rtl"] .next-chapter{background:radial-gradient(520px 260px at 15% 0%,rgba(123,92,240,.45),transparent 70%),radial-gradient(520px 260px at 85% 120%,rgba(47,208,160,.35),transparent 70%),linear-gradient(240deg,#0b1a38,#132c63)}
+.nc-text{display:grid;gap:4px}
+.nc-when{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+[lang="ar"] .nc-when{letter-spacing:0;font-size:15px}
+.next-chapter strong{font-size:clamp(28px,3vw,40px);font-weight:600;letter-spacing:.06em;color:#fff}
+[lang="ar"] .next-chapter strong{letter-spacing:0}
+.next-chapter p{margin:2px 0 0;font-size:clamp(17px,1.7vw,20px);color:#c9d6ee;max-width:none}
+.btn.nc-btn{flex:none;background:#fff;color:var(--navy)}
+@media (max-width:980px){ .chapters{grid-template-columns:repeat(2,minmax(0,1fr))} .chapters::before{display:none} .ch-dot{display:none} .chapters li{margin-top:0} }
+@media (max-width:620px){ .chapters{grid-template-columns:1fr} .next-chapter{flex-direction:column;align-items:flex-start} }
+[lang="ar"] .chapters strong{white-space:nowrap;font-size:clamp(20px,1.9vw,28px)}
