@@ -670,3 +670,7 @@ header.top .bar nav.pages{justify-self:start;margin-inline-start:clamp(16px,3vw,
 /* Footer offices: the flag beside the city and its country */
 .office{display:flex;align-items:center;gap:14px}
 .office .flag{flex:none;width:32px;height:24px;border-radius:4px;object-fit:cover;box-shadow:0 0 0 1px rgba(12,31,61,.08)}
+
+/* Each milestone: the date, a sharp title, one line */
+.timeline b{display:block;font-size:17px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.timeline span{font-size:15px}
