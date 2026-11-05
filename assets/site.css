@@ -1842,3 +1842,17 @@ footer .reg b{font-weight:600;color:var(--ink);margin-inline-end:10px}
 .cur button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .cur-note{margin:0;font-size:13.5px;color:#b9c7e2;text-align:center;max-width:62ch}
 @media (max-width:640px){ .cur span{width:100%;text-align:center;padding:2px 0 4px} }
+
+/* pricing-tabs */
+/* Product tabs on the pricing band: each product is one tab, with a line saying who runs the finance. */
+.ptabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:8px auto 26px}
+.ptabs button{display:grid;gap:2px;text-align:center;min-width:220px;padding:12px 22px;border-radius:16px;border:0;cursor:pointer;font-family:var(--font);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);color:#dfe8f8}
+.ptabs button strong{font-size:16px;font-weight:600}
+.ptabs button span{font-size:13px;color:#9fb1cf}
+.ptabs button:hover{background:rgba(255,255,255,.09)}
+.ptabs button[aria-selected="true"]{background:#fff;color:#0b1a38;box-shadow:0 14px 34px -18px rgba(0,0,0,.6)}
+.ptabs button[aria-selected="true"] span{color:#4a5468}
+.ptabs button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.ptab-lead{margin:0 auto 34px;max-width:64ch;text-align:center;font-size:15.5px;line-height:1.7;color:#c9d6ee}
+.plans.saas{grid-template-columns:repeat(3,minmax(0,1fr));max-width:1000px;margin-inline:auto}
+@media (max-width:640px){ .ptabs button{min-width:0;flex:1 1 100%} }
