@@ -1830,3 +1830,15 @@ body{font-weight:400}
 footer .reg{margin:18px 0 0;display:grid;gap:6px}
 footer .reg p{margin:0;font-size:13px;line-height:1.7;color:var(--ink-2);max-width:none}
 footer .reg b{font-weight:600;color:var(--ink);margin-inline-end:10px}
+
+/* currency-switch */
+/* The currency switcher on the dark pricing band: quiet, one tap, the chosen currency clearly marked. */
+.cur-wrap{display:grid;justify-items:center;gap:10px;margin:6px 0 48px}
+.cur{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.cur span{font-size:13px;color:#b9c7e2;padding:0 10px}
+.cur button{font:500 13px var(--font);color:#dfe8f8;background:transparent;border:0;border-radius:999px;padding:6px 12px;cursor:pointer;min-height:32px}
+.cur button:hover{background:rgba(255,255,255,.08)}
+.cur button[aria-pressed="true"]{background:#fff;color:#0b1a38;font-weight:600}
+.cur button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.cur-note{margin:0;font-size:13.5px;color:#b9c7e2;text-align:center;max-width:62ch}
+@media (max-width:640px){ .cur span{width:100%;text-align:center;padding:2px 0 4px} }
