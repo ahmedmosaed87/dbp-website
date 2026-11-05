@@ -423,3 +423,238 @@ header.top .switch button:focus-visible{outline:2px solid var(--cyan);outline-of
 
 /* The BUILD steps carry the brand in their numbers */
 .steps li::before{background:linear-gradient(135deg,var(--blue),var(--cyan))!important;color:#fff!important}
+
+/* ===== The company profile deck, on the website (Nov 2026) ===== */
+:root{--teal:#12a383;--green:#2fd0a0;--violet:#7b5cf0;--amber:#b7791f;--sky:#3aa0f0}
+.kicker{display:block;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+[lang="ar"] .kicker{letter-spacing:0;text-transform:none;font-size:15px}
+.kicker.muted{color:var(--ink-3);text-align:center;margin:-24px 0 20px}
+section.block > .wrap > .kicker{text-align:center}
+
+/* Cards in the deck's style: white, soft shadow, a colour bar on top */
+.deck-cards{display:grid;gap:22px;margin:0;padding:0;list-style:none}
+.deck-cards.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.deck-cards.two{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:28px}
+.deck-cards > li{position:relative;background:#fff;border-radius:18px;padding:30px 28px 28px;box-shadow:0 1px 2px rgba(12,31,61,.05),0 14px 34px -18px rgba(12,31,61,.22);overflow:hidden}
+.deck-cards > li::before{content:"";position:absolute;inset-inline:0;top:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--green))}
+[dir="rtl"] .deck-cards > li::before{background:linear-gradient(270deg,var(--blue),var(--green))}
+.deck-cards .tone-1::before{background:var(--blue)!important}.deck-cards .tone-2::before{background:var(--teal)!important}
+.deck-cards .tone-3::before{background:var(--violet)!important}.deck-cards .tone-4::before{background:var(--sky)!important}
+.deck-cards .tone-5::before{background:var(--amber)!important}.deck-cards .tone-6::before{background:var(--green)!important}
+.deck-cards h3{font-size:20px;font-weight:600;margin:0 0 10px;color:var(--navy)}
+.deck-cards p{margin:0;color:var(--ink-2);font-size:16px;line-height:1.6}
+.deck-cards p.big{font-size:21px;font-weight:600;color:var(--navy);line-height:1.4}
+.deck-cards.lettered h3{display:flex;align-items:baseline;gap:14px}
+.deck-cards.lettered h3 b{font-size:28px;font-weight:600;color:var(--blue)}
+.deck-cards.lettered .tone-2 h3 b{color:var(--teal)}.deck-cards.lettered .tone-3 h3 b{color:var(--violet)}
+.deck-cards.lettered .tone-4 h3 b{color:var(--sky)}.deck-cards.lettered .tone-5 h3 b{color:var(--amber)}.deck-cards.lettered .tone-6 h3 b{color:var(--green)}
+.deck-cards.numbered{counter-reset:dk}
+.deck-cards.numbered > li{counter-increment:dk}
+.deck-cards.numbered > li::after{content:counter(dk);position:absolute;top:24px;inset-inline-start:28px;font-size:38px;font-weight:400;color:var(--green);line-height:1}
+[lang="ar"] .deck-cards.numbered > li::after{content:counter(dk,arabic-indic)}
+.deck-cards.numbered h3{margin-top:52px}
+.deck-cards.powers > li::before{display:none}
+.deck-cards.powers > li:last-child{background:linear-gradient(135deg,var(--blue),#1f8fb8 60%,var(--teal));color:#fff}
+.deck-cards.powers > li:last-child h3,.deck-cards.powers > li:last-child p{color:#fff}
+.deck-cards.powers > li:last-child::after{color:#fff}
+
+/* The values, five numbered cards in a row */
+.value-cards.deck{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;counter-reset:val;text-align:start}
+.value-cards.deck > li{position:relative;counter-increment:val;background:#fff;border-radius:18px;padding:30px 24px 26px;box-shadow:0 1px 2px rgba(12,31,61,.05),0 14px 34px -18px rgba(12,31,61,.22);overflow:hidden}
+.value-cards.deck > li::before{content:"";position:absolute;inset-inline:0;top:0;height:5px;background:linear-gradient(90deg,var(--blue),var(--green))}
+[dir="rtl"] .value-cards.deck > li::before{background:linear-gradient(270deg,var(--blue),var(--green))}
+.value-cards.deck > li h3::before{content:counter(val);display:block;font-size:34px;font-weight:500;color:var(--green);line-height:1;margin-bottom:16px}
+[lang="ar"] .value-cards.deck > li h3::before{content:counter(val,arabic-indic)}
+.value-cards.deck > li h3{font-size:19px;font-weight:600;color:var(--navy);margin:0 0 12px}
+.value-cards.deck > li > p{font-size:15.5px;color:var(--ink-2);line-height:1.6}
+.value-cards.deck .quals{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;padding:0;list-style:none}
+.value-cards.deck .quals li{font-size:12.5px;padding:3px 10px;border-radius:999px;background:rgba(18,163,131,.09);color:var(--teal)}
+
+/* The mission, on navy, as in the deck */
+.mission-band{background:radial-gradient(900px 420px at 80% 0%,rgba(42,79,246,.35),transparent 70%),linear-gradient(160deg,#071431,#0c1f3d 60%,#0a1a36);color:#fff}
+.mission-band .kicker{color:var(--green);text-align:start!important}
+.mission-text{font-size:clamp(28px,3.6vw,46px);font-weight:600;line-height:1.25;letter-spacing:-.015em;max-width:24ch;margin:0 0 26px;color:#fff;text-wrap:balance}
+[lang="ar"] .mission-text{letter-spacing:0;line-height:1.5}
+.mission-text em{font-style:normal;color:var(--green)}
+.mission-sub{font-size:clamp(17px,1.8vw,21px);color:#b9c9e4;max-width:60ch;margin:0 0 40px}
+.mission-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.mission-cards > div{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);border-radius:16px;padding:22px 24px}
+.mission-cards span{display:block;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8fc4ff;margin-bottom:8px}
+[lang="ar"] .mission-cards span{letter-spacing:0;font-size:15px}
+.mission-cards p{margin:0;color:#e6edf8;font-size:17px;line-height:1.6}
+
+/* Our journey, as a timeline */
+.timeline{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0}
+.timeline li{position:relative;padding-top:70px;padding-inline-end:24px}
+.timeline li::before{content:"";position:absolute;top:44px;inset-inline:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--green))}
+[dir="rtl"] .timeline li::before{background:linear-gradient(270deg,var(--blue),var(--green))}
+.timeline li::after{content:"";position:absolute;top:37px;inset-inline-start:0;width:16px;height:16px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px #fff}
+.timeline li:last-child::after{background:var(--green)}
+.timeline strong{position:absolute;top:0;inset-inline-start:0;font-size:24px;font-weight:600;color:var(--navy)}
+.timeline span{display:block;color:var(--ink-2);font-size:15.5px;line-height:1.6}
+
+/* Eight parts, one subscription */
+.parts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.parts li{position:relative;background:#fff;border-radius:16px;padding:26px 22px 22px;box-shadow:0 1px 2px rgba(12,31,61,.05),0 14px 34px -18px rgba(12,31,61,.22);overflow:hidden;display:flex;flex-direction:column;gap:8px}
+.parts li::before{content:"";position:absolute;inset-inline:0;top:0;height:4px;background:var(--navy)}
+.parts li:nth-child(2)::before{background:var(--teal)}.parts li:nth-child(3)::before{background:var(--amber)}.parts li:nth-child(4)::before{background:var(--blue)}
+.parts li:nth-child(5)::before{background:var(--green)}.parts li:nth-child(7)::before{background:var(--sky)}.parts li:nth-child(8)::before{background:var(--violet)}
+.parts strong{font-size:19px;font-weight:600;color:var(--navy)}
+.parts span{font-size:15px;color:var(--ink-2)}
+.parts li.digital{background:linear-gradient(150deg,var(--blue),#1f8fb8 55%,var(--teal))}
+.parts li.digital::before{display:none}
+.parts li.digital strong,.parts li.digital span{color:#fff}
+.parts .chips{display:flex;flex-wrap:wrap;gap:6px}
+.parts .chips em{font-style:normal;font-size:12.5px;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.18);color:#fff}
+.equals-band{margin-top:28px;border-radius:20px;padding:34px 36px;background:linear-gradient(150deg,#0b1a38,#12295a);display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center}
+.equals-band > p{margin:0;color:#fff;font-size:clamp(24px,2.6vw,34px);font-weight:600;line-height:1.3;text-wrap:balance;max-width:none}
+.equals-band > p em{font-style:normal;color:var(--green)}
+.orgchart{display:grid;justify-items:center;gap:14px}
+.orgchart b{padding:8px 26px;border-radius:10px;border:1px solid rgba(47,208,160,.6);color:#fff;font-weight:600;background:rgba(47,208,160,.08)}
+.orgchart div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:100%}
+.orgchart i{font-style:normal;text-align:center;padding:8px 10px;border-radius:10px;border:1px solid rgba(47,208,160,.45);color:#dff7ef;font-size:14.5px}
+.band-foot{text-align:center;font-weight:600;color:var(--navy);margin:22px auto 0}
+.band-foot.small{font-weight:400;font-size:13px;color:var(--ink-3)}
+
+/* What you never have to carry */
+.kicker.carry-h{color:#c0392b;margin-top:40px;text-align:start!important}
+.carry{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.carry li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-weight:600;color:var(--navy);font-size:16px}
+
+/* The DBP finance organisation, in three layers and a cornerstone */
+.layers{display:grid;gap:14px}
+.layer{display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:center;border-radius:18px;padding:22px 24px}
+.layer-head{display:grid;gap:12px;justify-items:start}
+.layer-head strong{font-size:20px;font-weight:600}
+.layer .plan{font-size:14px;font-weight:600;padding:6px 18px;border-radius:999px}
+.layer ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.layer li{text-align:center;padding:9px 10px;border-radius:999px;font-size:14.5px;font-weight:600}
+.layer-1{background:linear-gradient(150deg,#0b1a38,#143066);color:#fff}
+.layer-1 .plan{background:var(--green);color:#0b1a38}
+.layer-1 li{border:1px solid rgba(47,208,160,.6);background:rgba(255,255,255,.08);color:#fff}
+.layer-2{background:#fff;border:1px solid #d7e3f4;color:var(--navy)}
+.layer-2 .plan{background:var(--teal);color:#fff}
+.layer-2 li{border:1px solid rgba(18,163,131,.5);background:rgba(18,163,131,.07);color:var(--navy)}
+.layer-3{background:#eaf1fb;color:var(--navy)}
+.layer-3 .plan{background:var(--blue);color:#fff}
+.layer-3 li{border:1px solid rgba(42,79,246,.45);background:#fff;color:var(--navy)}
+.stone{display:grid;grid-template-columns:1fr 1.3fr;gap:24px;align-items:center;border-radius:18px;padding:26px 28px;background:linear-gradient(110deg,var(--teal),#1781b8 60%,var(--blue));color:#fff}
+[dir="rtl"] .stone{background:linear-gradient(250deg,var(--teal),#1781b8 60%,var(--blue))}
+.stone .kicker{color:rgba(255,255,255,.85);margin-bottom:6px;text-align:start!important}
+.stone strong{font-size:clamp(24px,2.6vw,32px);font-weight:600}
+.stone p{margin:0;color:#eef8ff;font-size:16px;line-height:1.6;max-width:none}
+
+/* From accountant to value analyst */
+.paths{display:grid;gap:16px;margin-top:8px}
+.path{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:34px}
+.path li{position:relative;display:grid;place-items:center;text-align:center;min-height:64px;padding:10px 14px;border-radius:14px;background:#fff;border:1px solid #d7e3f4;font-weight:600;color:var(--navy);font-size:15.5px}
+.path li:not(:last-child)::after{content:"\2192";position:absolute;inset-inline-end:-26px;top:50%;transform:translateY(-50%);color:#90a4c8;font-size:20px;font-weight:400}
+[dir="rtl"] .path li:not(:last-child)::after{content:"\2190"}
+.path-1 li:last-child{background:var(--teal);border-color:var(--teal);color:#fff}
+.path-2 li:last-child{background:var(--blue);border-color:var(--blue);color:#fff}
+.paths-line{color:var(--ink-2);margin:18px 0 0;max-width:none}
+.deck-cards.two .kicker{margin-bottom:10px;text-align:start!important}
+.deck-cards.two .tone-6 .kicker{color:var(--violet)}
+.deck-cards.two .tone-6::before{background:var(--violet)!important}
+
+/* Deep BUILD band */
+.build-band{margin-top:22px;border-radius:18px;padding:22px 28px;background:linear-gradient(150deg,#0b1a38,#12295a);display:grid;gap:4px}
+.build-band .kicker{color:#f2c46d;margin:0;text-align:start!important}
+.build-band strong{color:#fff;font-size:clamp(19px,2vw,24px);font-weight:600}
+
+/* Deepers: how we are organised */
+.org-board{border-radius:18px;padding:22px 28px;background:linear-gradient(110deg,#0b1a38,#143066);color:#fff;display:grid;gap:6px}
+.org-board strong{font-size:21px;font-weight:600}.org-board span{color:#c9d6ee}
+.org-cofe{margin:14px 0 18px;border-radius:18px;padding:20px 28px;background:#e7f6f0;border:1px solid rgba(18,163,131,.55);display:grid;gap:4px}
+.org-cofe strong{font-size:20px;font-weight:600;color:var(--navy)}.org-cofe span{color:var(--ink-2)}
+.org-teams h3{margin-bottom:16px}
+.org-scale{margin:22px 0 0;color:var(--ink-2);font-size:17px;max-width:none}
+
+/* Pricing */
+.pricing-band{background:radial-gradient(1000px 460px at 50% -10%,rgba(42,79,246,.32),transparent 70%),linear-gradient(170deg,#071431,#0b1d3f);color:#fff;padding-block:clamp(56px,7vw,96px)}
+.pricing-band .kicker{color:var(--green);text-align:start!important}
+.pricing-band h1{font-size:clamp(34px,4.6vw,60px);line-height:1.1;margin:0 0 18px;color:#fff;text-align:start}
+.pricing-band h1 .accent{background:linear-gradient(90deg,var(--cyan),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.formula{color:#c9d6ee;font-size:16px;margin:0 0 56px;max-width:none}
+.formula i{font-style:normal;color:var(--green);margin:0 4px}.formula b{color:#fff}
+.plans{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;align-items:stretch}
+.plans > li{position:relative;display:flex;flex-direction:column;border-radius:18px;padding:24px 18px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
+.plans > li::before{content:"";width:28px;height:3px;border-radius:2px;margin-bottom:14px;background:var(--green)}
+.plans .plan-2::before,.plans .plan-3::before{background:var(--sky)}.plans .plan-5::before{background:#a78bfa}.plans .plan-6::before{background:#f2c46d}
+.plans h3{font-size:18px;font-weight:600;color:#fff;margin:0 0 6px}
+.plans .price{font-size:clamp(28px,2.6vw,36px);font-weight:600;margin:0;line-height:1.1;color:var(--sky)}
+.plans .plan-1 .price{color:var(--green)}.plans .plan-5 .price{color:#a78bfa}.plans .plan-6 .price{color:#f2c46d}
+.plans .per{font-size:13px;color:#9fb1cf;margin:4px 0 12px}
+.plans .tag{font-size:14.5px;font-weight:600;margin:0 0 14px;color:var(--sky);padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12)}
+.plans .plan-1 .tag{color:var(--green)}.plans .plan-5 .tag{color:#a78bfa}.plans .plan-6 .tag{color:#f2c46d}
+.plans > li > ul{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:10px;align-content:start;font-size:14.5px;color:#dbe4f3;flex:1}
+.plans .runs{border-radius:12px;padding:10px 12px;background:rgba(255,255,255,.07)}
+.plans .runs span{display:block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+[lang="ar"] .plans .runs span{letter-spacing:0;font-size:12.5px}
+.plans .runs strong{font-size:14px;color:#fff}
+.plans .rec{background:linear-gradient(170deg,#1f5fe0,#1a8fb8 55%,#16b48f);border-color:transparent;box-shadow:0 24px 60px -24px rgba(47,208,160,.6);transform:translateY(-10px)}
+.plans .rec .price,.plans .rec .tag,.plans .rec .per{color:#fff}.plans .rec::before{background:#fff}
+.plans .rec .runs{background:rgba(0,0,0,.14)}.plans .rec .runs span{color:#fff}
+.rec-tag{position:absolute;top:-30px;inset-inline:0;text-align:center;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+[lang="ar"] .rec-tag{letter-spacing:0;font-size:14px}
+.pay{color:#e6edf8;margin:34px 0 6px;max-width:none}
+.price-note{color:#9fb1cf;font-size:14px;margin:0 0 30px;max-width:none}
+.pricing-band .actions{justify-content:flex-start}
+.btn.ghost.light{color:#fff;border-color:rgba(255,255,255,.4)}
+
+@media (max-width:1100px){
+  .plans{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:40px}
+  .plans .rec{transform:none}
+  .value-cards.deck{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .parts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:860px){
+  .deck-cards.three,.deck-cards.two,.mission-cards,.equals-band,.stone{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr;gap:0}
+  .timeline li{padding:0 0 26px;padding-inline-start:34px}
+  .timeline li::before{top:8px;bottom:-8px;height:auto;width:2px;inset-inline-start:7px;inset-inline-end:auto}
+  .timeline li::after{top:4px}
+  .timeline strong{position:static;display:block;font-size:20px;margin-bottom:4px}
+  .layer{grid-template-columns:1fr}
+  .layer ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .carry{grid-template-columns:1fr 1fr}
+  .path{grid-template-columns:1fr;gap:22px}
+  .path li:not(:last-child)::after{inset-inline-end:auto;inset-inline-start:50%;top:auto;bottom:-22px;transform:translateX(-50%) rotate(90deg)}
+  [dir="rtl"] .path li:not(:last-child)::after{transform:translateX(50%) rotate(-90deg)}
+  .value-cards.deck{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .plans,.value-cards.deck,.parts,.carry{grid-template-columns:1fr}
+  .orgchart div{grid-template-columns:1fr 1fr}
+}
+
+/* Values: the colour bar spans the card, and the row gets room so each value reads easily */
+.value-cards.deck > li::before{width:auto;margin:0;border-radius:0}
+.values-block > .wrap{max-width:1320px}
+
+/* Room between a section heading and the cards that follow it */
+section.block > .wrap > h2 + .deck-cards, section.block > .wrap > h2 + .paths{margin-top:40px}
+
+/* The "led by" line sits clear below the organisation heading */
+.kicker.muted{margin:10px 0 30px!important}
+
+/* Pricing: room for six plans, and the heading on two lines */
+.pricing-band > .wrap{max-width:1360px}
+.pricing-band h1{max-width:none;text-wrap:balance}
+
+/* Pricing: the starting point is said before every price */
+.plans .from{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#9fb1cf;margin:0 0 2px}
+[lang="ar"] .plans .from{letter-spacing:0;font-size:13.5px}
+.plans .rec .from{color:rgba(255,255,255,.85)}
+.plans .price small{font-size:14px;font-weight:500;color:#9fb1cf;margin-inline-start:6px}
+.plans .rec .price small{color:rgba(255,255,255,.85)}
+.plans .price + .per{margin-top:6px}
+
+/* Footer: each office names its country, and the email and mobile carry icons like LinkedIn */
+.office .country{display:block;margin-top:4px;font-size:14px;font-weight:400;color:var(--ink-3)}
+.reach a.ltr{display:inline-flex;align-items:center;gap:8px}
+.reach .ic{flex:none;color:var(--blue)}
+
+/* The period sits on its own line under the price, so no price ever wraps */
+.plans .price small{display:block;margin:6px 0 0;font-size:13px;line-height:1.2}
+.plans .price + .tag{margin-top:12px}
