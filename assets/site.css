@@ -190,34 +190,6 @@ header.top .brand img{height:48px;width:auto}
 /* The real DBP sign under the opening, sized so the original file stays sharp */
 .hero-art{width:min(360px,72%);height:auto}
 
-/* The DBP sign in motion: the customer's shape and DBP's shape interlock, then their circle appears */
-.merge{margin:52px auto 0;max-width:420px}
-.merge-stage{position:relative;width:min(380px,76vw);aspect-ratio:524/345;margin:0 auto}
-.merge-stage img{position:absolute;inset:0;width:100%;height:100%}
-.merge figcaption{position:relative;height:32px;margin-top:22px;font-size:17px;font-weight:400}
-.merge figcaption > span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:10px}
-.merge .who.customer{color:#2fb9c1}
-.merge .who.dbp{color:var(--blue)}
-.merge .plus{color:var(--ink-3)}
-.merge .cap-b{color:var(--ink);font-weight:500}
-.merge .replay{margin-top:10px;border:0;background:transparent;color:var(--ink-3);font:400 13px var(--font);cursor:pointer;padding:4px 10px;border-radius:999px}
-.merge .replay:hover{color:var(--blue);background:rgba(44,85,245,.06)}
-@media (prefers-reduced-motion:no-preference){
-  .merge.play .m-customer{animation:m-in-start 1.5s cubic-bezier(.22,.9,.25,1) .25s both}
-  .merge.play .m-dbp{animation:m-in-end 1.5s cubic-bezier(.22,.9,.25,1) .25s both}
-  .merge.play .m-dot{animation:m-dot .9s cubic-bezier(.3,1.5,.5,1) 1.9s both;transform-origin:8.7% 85.9%}
-  .merge.play .cap-a{animation:cap-a 2.6s ease .2s both}
-  .merge.play .cap-b{animation:cap-b .8s ease 2.3s both}
-}
-@keyframes m-in-start{from{transform:translateX(-42%);opacity:0}60%{opacity:1}to{transform:none;opacity:1}}
-@keyframes m-in-end{from{transform:translateX(42%);opacity:0}60%{opacity:1}to{transform:none;opacity:1}}
-@keyframes m-dot{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
-@keyframes cap-a{0%{opacity:0;transform:translateY(6px)}15%,70%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-6px)}}
-@keyframes cap-b{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-/* Without motion, or before the story plays, the sign is shown whole with its closing line */
-.merge .cap-a{opacity:0}
-@media (prefers-reduced-motion:reduce){ .merge .replay{display:none} }
-
 /* The values: each with its confirmed meaning and its qualities */
 .culture{font-size:clamp(20px,2.2vw,26px);font-weight:400;color:var(--ink-2);text-align:center;margin:0 auto 44px;max-width:none}
 .value-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:0 0 8px;padding:0;list-style:none;text-align:start}
@@ -271,3 +243,60 @@ header.top .brand img{height:48px;width:auto}
 .cards.four{grid-template-columns:repeat(4,1fr)}
 @media (max-width:1080px){ .cards.four{grid-template-columns:repeat(2,1fr)} }
 @media (max-width:600px){ .cards.four{grid-template-columns:1fr} }
+
+/* The top bar: three equal zones so the menu sits exactly in the centre */
+header.top .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;height:76px}
+header.top .brand{justify-self:start;display:flex;align-items:center}
+header.top nav.pages{justify-self:center}
+header.top .switch{justify-self:end}
+@media (max-width:860px){
+  header.top .wrap{grid-template-columns:1fr auto;height:auto;padding-block:10px;row-gap:8px}
+  header.top nav.pages{grid-column:1 / -1;grid-row:2;justify-self:stretch;justify-content:flex-start}
+}
+
+/* The DBP sign's story, on a loop of nine seconds:
+   apart (the starting state), gliding together, the circle forming (the target state), a pause, then parting */
+.merge{margin:56px auto 0;max-width:460px}
+.merge-stage{position:relative;width:min(380px,76vw);aspect-ratio:524/345;margin:0 auto}
+.merge-stage img{position:absolute;inset:0;width:100%;height:100%;will-change:transform,opacity;backface-visibility:hidden}
+.m-ring{position:absolute;left:8.66%;top:85.9%;width:16.6%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%) scale(.6);border:2px solid rgba(79,214,222,.7);opacity:0;pointer-events:none}
+.merge figcaption{position:relative;height:34px;margin-top:26px}
+.merge figcaption > span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(17px,1.8vw,20px);white-space:nowrap}
+.merge .cap-a{color:var(--ink-2);font-weight:400}
+.merge .cap-b{color:var(--ink);font-weight:500;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  .merge .m-customer{animation:story-customer 9s infinite}
+  .merge .m-dbp{animation:story-dbp 9s infinite}
+  .merge .m-dot{animation:story-dot 9s infinite;transform-origin:8.66% 85.9%}
+  .merge .m-ring{animation:story-ring 9s infinite}
+  .merge .cap-a{animation:story-cap-a 9s infinite}
+  .merge .cap-b{animation:story-cap-b 9s infinite}
+}
+/* Apart from 0 to 12%, gliding together to 40%, one until 82%, parting back by 96% */
+@keyframes story-customer{
+  0%,12%{transform:translateX(-24%) scale(.96);animation-timing-function:cubic-bezier(.65,0,.35,1)}
+  40%,82%{transform:translateX(0) scale(1);animation-timing-function:cubic-bezier(.65,0,.35,1)}
+  96%,100%{transform:translateX(-24%) scale(.96)}}
+@keyframes story-dbp{
+  0%,12%{transform:translateX(24%) scale(.96);animation-timing-function:cubic-bezier(.65,0,.35,1)}
+  40%,82%{transform:translateX(0) scale(1);animation-timing-function:cubic-bezier(.65,0,.35,1)}
+  96%,100%{transform:translateX(24%) scale(.96)}}
+@keyframes story-dot{
+  0%,40%{transform:scale(0);opacity:0;animation-timing-function:cubic-bezier(.34,1.56,.64,1)}
+  50%{transform:scale(1);opacity:1}
+  80%{transform:scale(1);opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}
+  88%,100%{transform:scale(0);opacity:0}}
+@keyframes story-ring{
+  0%,44%{transform:translate(-50%,-50%) scale(.6);opacity:0}
+  47%{opacity:.9}
+  62%,100%{transform:translate(-50%,-50%) scale(2.4);opacity:0}}
+@keyframes story-cap-a{
+  0%,30%{opacity:1;transform:translateY(0)}
+  38%,90%{opacity:0;transform:translateY(-10px)}
+  97%,100%{opacity:1;transform:translateY(0)}}
+@keyframes story-cap-b{
+  0%,40%{opacity:0;transform:translateY(10px)}
+  50%,82%{opacity:1;transform:translateY(0)}
+  90%,100%{opacity:0;transform:translateY(-10px)}}
+/* Without motion, the sign stands whole with its target line */
+@media (prefers-reduced-motion:reduce){ .merge .cap-a{opacity:0} .merge .cap-b{opacity:1} }
