@@ -1371,3 +1371,25 @@ main > .hero:first-child{padding-bottom:clamp(28px,4vw,48px)}
 .stage-scroll.dark .stage-sticky{place-items:start center;padding-top:calc(8px * (1 - var(--p)))}
 .stage-scroll.dark .stage-panel{height:calc(70vh + 30vh * var(--p))}
 .hero.coacta h1{font-size:clamp(36px,min(5.4vw,7.6vh),70px)}
+
+/* The stage stops below the top bar, so the sign is never cut */
+:root{--bar-h:77px}
+.stage-sticky{top:var(--bar-h);height:calc(100vh - var(--bar-h))}
+.stage-panel{height:calc((100vh - var(--bar-h)) * (.74 + .26 * var(--p)))}
+.stage-scroll.dark .stage-panel{height:calc((100vh - var(--bar-h)) * (.74 + .26 * var(--p)))}
+@media (max-width:1000px){ :root{--bar-h:104px} }
+
+/* The numbers: one refined band with hairline dividers, clear of the stage above */
+.stats{max-width:1100px;margin:clamp(56px,7vw,96px) auto clamp(24px,3vw,40px);padding:34px 8px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;
+  background:#fff;border-radius:24px;box-shadow:0 1px 1px rgba(12,31,61,.03),0 24px 54px -30px rgba(12,31,61,.30)}
+.stat{position:relative;text-align:center;padding:4px 12px}
+.stat + .stat::before{content:"";position:absolute;inset-block:10px;inset-inline-start:0;width:1px;background:#e6ebf3}
+.stat strong{display:block;font-size:clamp(40px,4.4vw,58px);font-weight:600;line-height:1.05;letter-spacing:-.03em;
+  background:linear-gradient(135deg,var(--navy),var(--blue) 70%,#3aa0f0);-webkit-background-clip:text;background-clip:text;color:transparent}
+[lang="ar"] .stat strong{letter-spacing:0}
+.stat span{display:block;margin-top:10px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+[lang="ar"] .stat span{letter-spacing:0;text-transform:none;font-size:14.5px;font-weight:500}
+@media (max-width:700px){
+  .stats{grid-template-columns:1fr 1fr;row-gap:22px;padding:26px 6px}
+  .stat:nth-child(3)::before{display:none}
+}
