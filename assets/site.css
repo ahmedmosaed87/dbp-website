@@ -877,3 +877,30 @@ section[id^="parts-"] h2{max-width:none}
 .m-glow.g-t{width:110%;background:radial-gradient(circle,transparent 30%,rgba(47,208,160,.22) 48%,rgba(42,79,246,.10) 62%,transparent 74%)}
 .merge .m-customer{filter:drop-shadow(0 18px 28px rgba(79,214,222,.20))}
 .merge .m-dbp{filter:drop-shadow(0 18px 28px rgba(42,79,246,.18))}
+
+/* The words move with the shapes (founder, 5 Nov 2026). Shape beats in the 11 s loop:
+   apart 0 to 18% · gliding 18 to 36% · they meet at 36% and the circle springs 36 to 43% · one until 84% · parting 84 to 96% · apart again.
+   Each line changes on the same beat: out as its motion ends, in as the next motion begins. */
+@media (prefers-reduced-motion:no-preference){
+  .merge .cap-a{animation:sync-cap-a 11s infinite}
+  .merge .cap-m{animation:sync-cap-m 11s infinite}
+  .merge .cap-b{animation:sync-cap-b 11s infinite}
+  .beats i:nth-child(1){animation:sync-beat-1 11s infinite}
+  .beats i:nth-child(2){animation:sync-beat-2 11s infinite}
+  .beats i:nth-child(3){animation:sync-beat-3 11s infinite}
+}
+@keyframes sync-cap-a{
+  0%,16.5%{opacity:1;transform:translateY(0)}
+  18.5%,94%{opacity:0;transform:translateY(-8px)}
+  97%,100%{opacity:1;transform:translateY(0)}}
+@keyframes sync-cap-m{
+  0%,18%{opacity:0;transform:translateY(8px)}
+  21%,34.5%{opacity:1;transform:translateY(0)}
+  36.5%,100%{opacity:0;transform:translateY(-8px)}}
+@keyframes sync-cap-b{
+  0%,36.5%{opacity:0;transform:translateY(8px)}
+  40%,83.5%{opacity:1;transform:translateY(0)}
+  86%,100%{opacity:0;transform:translateY(-8px)}}
+@keyframes sync-beat-1{0%,17.5%{width:28px;background:var(--blue)}19%,95%{width:8px;background:rgba(12,31,61,.14)}97%,100%{width:28px;background:var(--blue)}}
+@keyframes sync-beat-2{0%,18%{width:8px;background:rgba(12,31,61,.14)}20%,35%{width:28px;background:var(--teal)}37%,100%{width:8px;background:rgba(12,31,61,.14)}}
+@keyframes sync-beat-3{0%,36.5%{width:8px;background:rgba(12,31,61,.14)}38.5%,84%{width:28px;background:var(--navy)}86%,100%{width:8px;background:rgba(12,31,61,.14)}}
