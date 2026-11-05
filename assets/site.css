@@ -1729,3 +1729,10 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 .loop-label.lb4{left:0;bottom:2%;text-align:right}
 .loop-label.lb1 b{color:#2a4ff6}.loop-label.lb2 b{color:#1f86d1}.loop-label.lb3 b{color:#12a383}.loop-label.lb4 b{color:#7b5cf0}
 @media (max-width:560px){ .loop-label{width:38%} .loop-label span{font-size:12px} .loop-node{width:42px;height:42px;margin:-21px 0 0 -21px;font-size:17px} }
+
+/* Strategic clients first: a still row, seen at once, above the moving logos */
+.featured-clients{list-style:none;margin:28px auto 6px;padding:0 16px;max-width:1180px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;direction:ltr}
+.featured-clients li{display:grid;place-items:center;height:116px;padding:20px 26px;border-radius:20px;background:#fff;box-shadow:0 1px 1px rgba(12,31,61,.03),0 16px 36px -22px rgba(12,31,61,.32)}
+.featured-clients img{max-width:100%;max-height:62px;width:auto;height:auto;border-radius:8px}
+@media (max-width:860px){ .featured-clients{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:520px){ .featured-clients{grid-template-columns:repeat(2,minmax(0,1fr))} .featured-clients li{height:96px} }
