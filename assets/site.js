@@ -76,3 +76,20 @@
   document.addEventListener('click', function () { setTimeout(update, 50); });
   update();
 })();
+
+/* marquee-wait: the logo wall starts moving only when the visitor reaches it, so the first logos are seen first. */
+(function () {
+  var walls = document.querySelectorAll('.marquee');
+  if (!walls.length || !('IntersectionObserver' in window)) return;
+  walls.forEach(function (w) { w.classList.add('waiting'); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        var w = e.target;
+        setTimeout(function () { w.classList.remove('waiting'); }, 1200);
+        io.unobserve(w);
+      }
+    });
+  }, { threshold: 0.6 });
+  walls.forEach(function (w) { io.observe(w); });
+})();
