@@ -1,0 +1,102 @@
+/* Deep Business Partners site: one shared style for every page. Colours from the DBP logo; COACTA's own navy on its page. */
+:root{
+  --blue:#2c55f5; --cyan:#5ee0e6; --ink:#0f1b3d; --ink-2:#44506e; --ground:#ffffff;
+  --soft:#f3f6ff; --line:#dde3f5; --coacta-navy:#102a50; --coacta-blue:#0877e8; --coacta-sky:#13b7e8; --coacta-green:#36d69a;
+  --ar:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;
+  --en:"IBM Plex Sans",system-ui,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--ar);font-size:17px;line-height:1.7}
+[lang="en"]{font-family:var(--en)}
+a{color:var(--blue)}
+img{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:24px}
+
+/* Header with logo, pages and language */
+header.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px;flex-wrap:wrap}
+header.top .brand img{height:42px;width:auto;display:block}
+nav.pages{display:flex;gap:4px;flex-wrap:wrap}
+nav.pages a{font-weight:500;font-size:15px;color:var(--ink-2);text-decoration:none;border-radius:8px;padding:6px 12px}
+nav.pages a:hover{background:var(--soft);color:var(--ink)}
+nav.pages a[aria-current="page"]{color:var(--blue);background:#e7edff}
+nav.pages a:focus-visible,.switch button:focus-visible,.btn:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+.switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.switch button{font:500 14px var(--en);border:0;background:transparent;color:var(--ink-2);padding:6px 13px;cursor:pointer}
+.switch button[lang="ar"]{font-family:var(--ar)}
+.switch button[aria-pressed="true"]{background:var(--blue);color:#fff}
+
+/* Page opening */
+.hero{background:linear-gradient(160deg,var(--soft),#fff 62%);padding-block:64px 52px;border-bottom:1px solid var(--line)}
+.hero.coacta{background:linear-gradient(160deg,#0d2346,var(--coacta-navy) 55%,#123b6e);color:#fff;border-bottom:0}
+.hero.coacta .lead{color:#c9d8ef}
+.hero.coacta .eyebrow{background:rgba(19,183,232,.15);color:var(--coacta-sky)}
+.hero .wordmark{height:34px;width:auto;filter:brightness(0) invert(1);margin-bottom:10px}
+.eyebrow{display:inline-block;font-weight:600;font-size:14px;letter-spacing:.04em;color:var(--blue);background:#e7edff;border-radius:999px;padding:4px 12px}
+h1{font-size:clamp(32px,5vw,54px);line-height:1.15;margin:16px 0 12px;text-wrap:balance}
+h1 .accent{color:var(--blue)}
+.hero.coacta h1 .accent{color:var(--coacta-sky)}
+.tagline{font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--coacta-sky);font-size:14px}
+.lead{font-size:clamp(18px,2.1vw,21px);color:var(--ink-2);max-width:62ch;margin:0}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;padding:0;list-style:none}
+.facts li{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 14px;font-size:15px;color:var(--ink-2)}
+.facts b{color:var(--ink)}
+
+/* Sections */
+section.block{padding-block:52px;border-bottom:1px solid var(--line)}
+section.block.alt{background:var(--soft)}
+h2{font-size:clamp(24px,3vw,32px);line-height:1.25;margin:0 0 14px;text-wrap:balance}
+h2::after{content:"";display:block;width:56px;height:4px;border-radius:2px;margin-top:12px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+[dir="rtl"] h2::after{background:linear-gradient(270deg,var(--blue),var(--cyan))}
+h3{font-size:19px;margin:0 0 6px}
+p{max-width:68ch}
+.statement{font-size:clamp(19px,2.2vw,23px);font-weight:500;line-height:1.55;max-width:60ch;margin:6px 0 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:22px;padding:0;list-style:none}
+.cards li{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:#fff}
+.cards li strong{display:block;font-size:17px;margin-bottom:4px}
+.cards li span{font-size:15px;color:var(--ink-2);line-height:1.6}
+.cards li.lead-card{border-color:var(--blue);background:var(--soft)}
+.cards.coacta li{border-top:3px solid var(--coacta-blue)}
+.pillars{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:22px}
+.pillar{border-inline-start:4px solid var(--blue);padding-inline-start:14px}
+.pillar p{margin:0;color:var(--ink-2);font-size:15.5px}
+.values{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;padding:0;list-style:none}
+.values li{font-weight:600;border-radius:999px;padding:6px 16px;background:#fff;color:var(--blue);border:1px solid #cbd6ff}
+.btn{display:inline-block;margin-top:18px;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;border-radius:10px;padding:12px 20px}
+.btn:hover{background:#2347d6}
+.btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue);margin-inline-start:8px}
+.hero.coacta .btn{background:var(--coacta-sky);color:var(--coacta-navy)}
+.hero.coacta .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+
+/* Contact footer on every page */
+footer{background:var(--soft);color:var(--ink-2);padding-block:40px 28px;font-size:15px;border-top:1px solid var(--line)}
+footer h2{font-size:22px}
+.offices{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:18px 0}
+.office{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.office strong{display:block;color:var(--ink)}
+.reach{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center}
+.reach a{font-weight:600;text-decoration:none}
+.reach .ltr{direction:ltr;unicode-bidi:isolate}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+.legal img{height:36px;width:auto}
+[hidden]{display:none!important}
+@media (max-width:760px){ .two{grid-template-columns:1fr} .hero{padding-block:44px 36px} header.top .brand img{height:34px} nav.pages a{padding:6px 9px;font-size:14px} }
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+
+/* Client logos, notes, problem themes, BUILD steps and the waiting list */
+.clients{display:block;width:100%;max-width:860px;height:auto;margin:22px auto 0;border-radius:12px;border:1px solid var(--line)}
+.note{font-size:13px;color:var(--ink-2);text-align:center;max-width:none}
+.themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:22px;padding:0;list-style:none}
+.themes li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.themes strong{display:block;font-size:17px;margin-bottom:6px}
+.themes .today{display:block;font-size:15px;color:#8a3a3a;margin-bottom:8px}
+.themes .answer{display:block;font-size:15px;color:var(--coacta-navy);font-weight:500}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:20px;padding:0;list-style:none}
+.steps li{counter-increment:s;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.steps li::before{content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--coacta-navy);color:#fff;font-weight:700;font-size:14px;margin-bottom:8px}
+.waitlist{background:var(--coacta-navy);color:#fff;border-radius:16px;padding:28px}
+.waitlist h2{color:#fff}
+.waitlist p{color:#c9d8ef}
+.waitlist .btn{background:var(--coacta-sky);color:var(--coacta-navy)}
