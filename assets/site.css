@@ -1710,3 +1710,22 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 .hero h1.wide{font-size:clamp(30px,3.8vw,54px);max-width:none!important;line-height:1.12}
 .hero h1.wide{text-wrap:wrap;font-size:clamp(30px,3.6vw,52px)}
 .hero:has(h1.wide) .wrap{max-width:1180px}
+
+/* The BUILD loop, v2: an open ring, numbered nodes on its diagonals, labels in the open corners */
+.loop.v2{max-width:560px}
+.loop.v2 .loop-core{width:30%}
+.loop-node{position:absolute;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;display:grid;place-items:center;font-size:20px;font-weight:700;color:#fff;
+  box-shadow:0 0 0 6px #fff,0 14px 28px -12px rgba(12,31,61,.45)}
+.loop-node.n1{left:30.2%;top:30.2%;background:linear-gradient(135deg,#2a4ff6,#1f86d1)}
+.loop-node.n2{left:69.8%;top:30.2%;background:linear-gradient(135deg,#1f86d1,#12a383)}
+.loop-node.n3{left:69.8%;top:69.8%;background:linear-gradient(135deg,#12a383,#2fd0a0)}
+.loop-node.n4{left:30.2%;top:69.8%;background:linear-gradient(135deg,#7b5cf0,#2a4ff6)}
+.loop-label{position:absolute;width:34%;display:grid;gap:4px}
+.loop-label b{font-size:clamp(19px,1.8vw,24px);font-weight:600;color:var(--navy)}
+.loop-label span{font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.loop-label.lb1{left:0;top:2%;text-align:right}
+.loop-label.lb2{right:0;top:2%;text-align:left}
+.loop-label.lb3{right:0;bottom:2%;text-align:left}
+.loop-label.lb4{left:0;bottom:2%;text-align:right}
+.loop-label.lb1 b{color:#2a4ff6}.loop-label.lb2 b{color:#1f86d1}.loop-label.lb3 b{color:#12a383}.loop-label.lb4 b{color:#7b5cf0}
+@media (max-width:560px){ .loop-label{width:38%} .loop-label span{font-size:12px} .loop-node{width:42px;height:42px;margin:-21px 0 0 -21px;font-size:17px} }
