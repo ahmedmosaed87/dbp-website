@@ -186,3 +186,6 @@ header.top .wrap{height:76px}
 header.top .brand img{height:48px;width:auto}
 .legal img{height:44px;width:auto}
 @media (max-width:860px){ header.top .brand img{height:40px} }
+
+/* The real DBP sign under the opening, sized so the original file stays sharp */
+.hero-art{width:min(360px,72%);height:auto}
