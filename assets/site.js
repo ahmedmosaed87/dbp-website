@@ -58,10 +58,14 @@
       if (s.offsetParent === null) return;
       var r = s.getBoundingClientRect();
       // Grows over the first stretch of the stage scrolling past, then holds full size while it stays pinned.
-      var p = (vh - r.top) / (vh * 0.6);
+      // The growth starts only once the visitor scrolls, not while the stage is just peeking.
+      var p = (vh * 0.66 - r.top) / (vh * 0.62);
       p = Math.max(0, Math.min(1, p));
       p = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
       s.style.setProperty('--p', p.toFixed(4));
+      // The ground stays in the hero colour most of the way, and turns light as the card reaches full size.
+      var q = Math.max(0, Math.min(1, (p - 0.55) / 0.4)); q = q * q * (3 - 2 * q);
+      s.style.setProperty('--q', q.toFixed(4));
     });
   }
   function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }

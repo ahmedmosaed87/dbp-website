@@ -1520,3 +1520,13 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 .stage-scroll.dark .stage-sticky{padding-top:calc(36px * (1 - var(--p)))}
 .stage-scroll.dark .hero-frame{width:min(1120px,calc(100% - 72px));transform:none}
 .stage-scroll.dark .hero-frame img{max-height:calc((100vh - var(--bar-h)) * (.64 + .26 * var(--p)))}
+
+/* COACTA stage, as on Rillet: the card starts inside the hero on its navy, and as it grows the ground shifts to light */
+.hero.coacta{background:radial-gradient(900px 420px at 50% 0%,rgba(19,183,232,.22),transparent 65%),linear-gradient(180deg,#0a1a33,#102a50);padding-bottom:12px}
+.stage-scroll.dark{background:color-mix(in srgb,#102a50 calc((1 - var(--p)) * 100%),#eef2f8)}
+.stage-scroll.dark .stage-sticky{padding-top:0}
+.stage-scroll.dark .stage-panel{
+  background:radial-gradient(900px 480px at 50% 0%,rgba(79,214,222,.18),transparent 65%),linear-gradient(170deg,#0d2a58,#0a1836);
+  box-shadow:0 0 0 1px rgba(255,255,255,calc(.14 * (1 - var(--p)))),0 0 80px -10px rgba(79,214,222,calc(.30 * (1 - var(--p)))),0 40px 90px -40px rgba(11,31,63,calc(.55 * var(--p)))}
+.stage-scroll.dark{--q:0;background:color-mix(in srgb,#102a50 calc((1 - var(--q)) * 100%),#eef2f8)}
+@media (prefers-reduced-motion:reduce){.stage-scroll.dark{--q:1}}
