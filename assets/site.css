@@ -1447,3 +1447,66 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 }
 @media (min-width:861px) and (max-width:1100px){ .pillars.iconed{grid-template-columns:repeat(2,minmax(0,1fr))} }
 .letter.promise.premium .close{color:transparent}
+
+/* ===== Pricing, premium pass ===== */
+.pricing-band > .wrap{max-width:1240px}
+.pricing-band .kicker,.pricing-band h1,.pricing-band .formula{text-align:center!important;margin-inline:auto}
+.pricing-band h1{max-width:20ch}
+.pricing-band .formula{margin-bottom:64px}
+
+/* Four main plans with room to breathe; one calm colour, the recommended plan carries the accent */
+.plans.main{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.plans > li{padding:30px 26px 24px;border-radius:22px;background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.10)}
+.plans > li::before{display:none}
+.plans h3{font-size:20px}
+.plans .price,.plans .plan-1 .price,.plans .plan-5 .price,.plans .plan-6 .price{color:#fff;font-size:clamp(34px,3vw,44px);letter-spacing:-.02em}
+.plans .tag,.plans .plan-1 .tag,.plans .plan-5 .tag,.plans .plan-6 .tag{color:#9fd8ff}
+.plans .rec .tag{color:#fff}
+.plans .feats{display:grid;gap:12px;margin:4px 0 24px;padding:0;list-style:none;font-size:15px;color:#dbe4f3;flex:1}
+.plans .feats li{display:flex;gap:10px;align-items:flex-start;line-height:1.45}
+.plans .feats svg{flex:none;margin-top:2px;color:var(--green)}
+.plans .rec .feats svg{color:#fff}
+.plan-cta{display:grid;place-items:center;height:46px;margin-bottom:16px;border-radius:999px;font-size:15px;font-weight:600;color:#fff;
+  background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);transition:background .2s}
+.plan-cta:hover{background:rgba(255,255,255,.16);text-decoration:none}
+.plans .rec .plan-cta{background:#fff;color:var(--navy);box-shadow:none}
+.plans .runs{padding:0;background:none;border-radius:0;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;justify-content:center;text-align:center}
+.plans .runs span{font-size:10.5px}
+.plans .runs strong{font-size:12.5px;font-weight:500;color:#c9d6ee}
+.plans .rec .runs strong{color:#fff}
+.plans .rec{transform:translateY(-12px);box-shadow:0 30px 70px -28px rgba(47,208,160,.55)}
+
+/* The two special cases, wide */
+.plans-also{text-align:center;margin:56px auto 18px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9fb1cf;max-width:none}
+[lang="ar"] .plans-also{letter-spacing:0;text-transform:none;font-size:15px}
+.plans.side{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.plans.side > li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:start}
+.plans.side > li > h3,.plans.side > li > .from,.plans.side > li > .price,.plans.side > li > .per,.plans.side > li > .tag{grid-column:1}
+.plans.side > li > .feats,.plans.side > li > .plan-cta,.plans.side > li > .runs{grid-column:2}
+.plans.side > li > .feats{grid-row:1 / span 4;margin-top:6px}
+.plans.side .tag{border-bottom:0;padding-bottom:0}
+.plans.side .from[aria-hidden="true"]{display:none}
+
+/* Ways to pay */
+.ways{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin:56px auto 10px}
+.ways-l{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9fb1cf;margin-inline-end:6px}
+[lang="ar"] .ways-l{letter-spacing:0;text-transform:none;font-size:15px}
+.way{display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.way b{font-size:14.5px;font-weight:600;color:#fff}
+.way i{font-style:normal;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#9fb1cf}
+[lang="ar"] .way i{letter-spacing:0;text-transform:none;font-size:12.5px}
+.way.now{background:rgba(47,208,160,.14);box-shadow:inset 0 0 0 1px rgba(47,208,160,.5)}
+.way.now i{color:var(--green)}
+.pricing-band .price-note{text-align:center;margin:14px auto 34px}
+.pricing-band .actions{justify-content:center}
+
+@media (max-width:1100px){ .plans.main{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px} .plans .rec{transform:none} }
+@media (max-width:760px){ .plans.side{grid-template-columns:1fr} .plans.side > li{grid-template-columns:1fr} .plans.side > li > *{grid-column:1!important;grid-row:auto!important} }
+@media (max-width:560px){ .plans.main{grid-template-columns:1fr} }
+.plans .rec .runs{background:none}
+.plans .runs{min-height:38px;align-content:center}
+.pricing-band h1{max-width:24ch}
+.way b{display:inline-block}
+.way b::first-letter{text-transform:uppercase}
+.pricing-band .formula{max-width:900px;text-wrap:balance;padding-inline:4px}
+@media (max-width:560px){.pricing-band .formula{font-size:14.5px}}
