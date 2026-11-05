@@ -1253,3 +1253,16 @@ section[id^="parts-"] h2{max-width:none}
 .why-grid > li.hub h3{font-size:19px}
 .why-grid > li.hub p{font-size:14px}
 .why-grid > li:not(.featured):not(.hub),.why-grid > li.hub{min-height:312px}
+
+/* The mission uses the full width: the statement on one side, where we start and our vision stacked beside it */
+@media (min-width:981px){
+  .mission-band .wrap{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);column-gap:clamp(40px,5vw,80px);align-items:center}
+  .mission-band .wrap > .kicker,.mission-band .mission-text,.mission-band .mission-sub{grid-column:1}
+  .mission-band .mission-text{max-width:none;margin-bottom:22px}
+  .mission-band .mission-sub{margin-bottom:0;max-width:52ch}
+  .mission-band .mission-cards{grid-column:2;grid-row:1 / span 3;grid-template-columns:1fr;gap:16px;align-self:center}
+  .mission-cards > div{padding:24px 26px;background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);backdrop-filter:blur(4px)}
+  .mission-cards > div:first-child{border-color:rgba(47,208,160,.35)}
+}
+.mission-cards span{color:#8fc4ff}
+.mission-cards > div:first-child span{color:var(--green)}
