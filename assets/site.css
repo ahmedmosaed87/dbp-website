@@ -1217,3 +1217,39 @@ section[id^="parts-"] h2{max-width:none}
 @keyframes orbit-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
 @keyframes core-glow{0%,100%{box-shadow:0 0 0 6px rgba(123,92,240,.18),0 0 22px rgba(123,92,240,.45)}50%{box-shadow:0 0 0 10px rgba(123,92,240,.10),0 0 34px rgba(123,92,240,.7)}}
 @media (max-width:980px){ .why-grid > li.hub{grid-column:1 / -1} }
+
+/* Why we built COACTA, premium pass: restraint around a single colourful heart */
+.why-grid{gap:18px;grid-auto-rows:minmax(0,auto)}
+.why-grid > li:not(.featured):not(.hub){display:flex;flex-direction:column;justify-content:center;min-height:236px;padding:30px 30px;border:0;
+  background:#fff;box-shadow:0 1px 1px rgba(12,31,61,.03),0 18px 40px -26px rgba(12,31,61,.30)}
+.why-grid > li:not(.featured):not(.hub):hover{box-shadow:0 1px 1px rgba(12,31,61,.03),0 28px 56px -26px rgba(12,31,61,.36)}
+.why-grid > li:not(.featured):not(.hub) .wi{width:44px;height:44px;border-radius:13px;color:var(--navy);background:#f1f4f9}
+.why-grid > li:not(.featured):not(.hub) h3{margin:18px 0 6px;font-size:19.5px;letter-spacing:-.01em}
+[lang="ar"] .why-grid > li:not(.featured):not(.hub) h3{letter-spacing:0}
+.why-grid > li:not(.featured):not(.hub) p{font-size:15.5px;line-height:1.55;color:var(--ink-2);max-width:30ch}
+
+/* The heart: more room, the actors off the rings, a larger core and a slower glow */
+.why-grid > li.hub{justify-content:center;min-height:236px;padding:22px 20px 26px}
+.orbit{max-width:320px;height:172px;margin-bottom:4px}
+.orbit .r1{width:132px;height:84px;border-color:rgba(143,196,255,.38)}
+.orbit .r2{display:none}
+.orbit .core{padding:11px 18px;font-size:14.5px;border-radius:16px}
+.orbit .actor{padding:5px 11px;font-size:12px;background:rgba(255,255,255,.08);backdrop-filter:blur(2px)}
+.orbit .a1{left:50%;top:7%}
+.orbit .a2{left:13%;top:36%}
+.orbit .a3{left:87%;top:36%}
+.orbit .a4{left:22%;top:84%}
+.orbit .a5{left:78%;top:84%}
+.why-grid > li.hub h3{font-size:20px;letter-spacing:-.01em;margin:8px 0 6px}
+[lang="ar"] .why-grid > li.hub h3{letter-spacing:0}
+.why-grid > li.hub p{font-size:14.5px;max-width:30ch;margin-inline:auto}
+@media (prefers-reduced-motion:no-preference){
+  .orbit .r1{animation:orbit-spin 40s linear infinite}
+  .orbit .core{animation:core-glow 6s ease-in-out infinite}
+}
+/* Every tile the same height, so the grid reads as one calm object */
+.why-grid > li:not(.featured){min-height:312px}
+.orbit{height:156px}
+.why-grid > li.hub h3{font-size:19px}
+.why-grid > li.hub p{font-size:14px}
+.why-grid > li:not(.featured):not(.hub),.why-grid > li.hub{min-height:312px}
