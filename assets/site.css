@@ -1613,3 +1613,57 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 @media (max-width:980px){ .chapters{grid-template-columns:repeat(2,minmax(0,1fr))} .chapters::before{display:none} .ch-dot{display:none} .chapters li{margin-top:0} }
 @media (max-width:620px){ .chapters{grid-template-columns:1fr} .next-chapter{flex-direction:column;align-items:flex-start} }
 [lang="ar"] .chapters strong{white-space:nowrap;font-size:clamp(20px,1.9vw,28px)}
+
+/* ===== What we do, second premium pass ===== */
+/* The headline on two lines */
+#s-1 h1,#s-5 h1{max-width:20ch}
+
+/* The eight parts: one quiet icon colour; digital innovation keeps the accent */
+.parts li.part:not(.digital) .pi{color:var(--navy)!important;background:#f1f4f9!important}
+
+/* The DBP finance organisation as a calm pyramid: strategy at the top, the foundation widest, items as quiet text */
+.layers{gap:12px;justify-items:center}
+.layer{width:100%;grid-template-columns:240px 1fr;padding:22px 28px;border:0!important;background:#fff;color:var(--navy);
+  box-shadow:0 1px 1px rgba(12,31,61,.03),0 18px 40px -26px rgba(12,31,61,.30)}
+.layer-1{max-width:76%;background:linear-gradient(120deg,#0b1a38,#143066);color:#fff}
+.layer-2{max-width:88%}
+.layer-3{max-width:100%}
+.layer ul{display:flex;flex-wrap:wrap;gap:6px 0}
+.layer li,.layer-1 li,.layer-2 li,.layer-3 li{padding:0;border:0!important;border-radius:0;background:none!important;text-align:start;font-size:15px;font-weight:500;color:inherit}
+.layer li + li::before{content:"·";margin:0 10px;color:#9fb1cf;font-weight:700}
+.layer-1 li{color:#dfe8f6}
+.layer-2 li,.layer-3 li{color:var(--ink-2)}
+.layer .plan{font-size:12.5px;padding:5px 14px}
+.layer-2 .plan,.layer-3 .plan{background:#eef2f8;color:var(--navy)}
+.layer-1 .plan{background:var(--green);color:#0b1a38}
+.stone{max-width:100%;width:100%}
+@media (max-width:860px){ .layer,.layer-1,.layer-2{max-width:100%} .layer{grid-template-columns:1fr} }
+
+/* From accountant to value analyst: two tracks, each role a step on the line, the destination highlighted */
+.paths{gap:34px;margin-top:20px}
+.path{position:relative;gap:18px;padding-top:30px}
+.path::before{content:"";position:absolute;top:8px;inset-inline:8px;height:2px;border-radius:2px;background:linear-gradient(90deg,#cfd9e8,var(--teal))}
+.path-2::before{background:linear-gradient(90deg,#cfd9e8,var(--blue))}
+[dir="rtl"] .path::before{background:linear-gradient(270deg,#cfd9e8,var(--teal))}
+[dir="rtl"] .path-2::before{background:linear-gradient(270deg,#cfd9e8,var(--blue))}
+.path li{display:block;min-height:0;padding:0;border:0!important;background:none!important;text-align:start;font-size:16px;font-weight:600;color:var(--ink-2)!important}
+.path li:not(:last-child)::after{content:none!important}
+.path li::before{content:"";position:absolute;top:2px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px #cfd9e8}
+.path li{position:relative}
+.path li::before{top:-28px;inset-inline-start:0}
+.path-1 li:last-child,.path-2 li:last-child{color:var(--navy)!important;font-size:18px}
+.path-1 li:last-child::before{width:18px;height:18px;top:-30px;background:var(--teal);box-shadow:0 0 0 5px rgba(18,163,131,.2)}
+.path-2 li:last-child::before{width:18px;height:18px;top:-30px;background:var(--blue);box-shadow:0 0 0 5px rgba(42,79,246,.2)}
+@media (max-width:860px){ .path{grid-template-columns:1fr 1fr;row-gap:44px} .path::before{display:none} }
+
+/* Deep BUILD: one quiet style, the letters in a single gradient, no colour bars */
+.deck-cards.lettered > li{border:0;box-shadow:0 1px 1px rgba(12,31,61,.03),0 18px 40px -26px rgba(12,31,61,.30)}
+.deck-cards.lettered > li::before{display:none!important}
+.deck-cards.lettered h3 b,.deck-cards.lettered .tone-2 h3 b,.deck-cards.lettered .tone-3 h3 b,.deck-cards.lettered .tone-4 h3 b,.deck-cards.lettered .tone-5 h3 b,.deck-cards.lettered .tone-6 h3 b{
+  font-size:34px;background:linear-gradient(135deg,var(--blue),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+#s-1 h1,#s-5 h1{max-width:14ch}
+.hero h1:has(.nowrap){max-width:20ch}
+.hero h1:has(.nowrap){max-width:none;font-size:clamp(38px,5.6vw,78px)}
+.hero h1:has(.nowrap) .accent{display:block}
+.hero h1.wide{max-width:none!important;font-size:clamp(36px,5.4vw,76px)}
+.hero h1.wide .accent{display:block}
