@@ -658,3 +658,11 @@ section.block > .wrap > h2 + .deck-cards, section.block > .wrap > h2 + .paths{ma
 /* The period sits on its own line under the price, so no price ever wraps */
 .plans .price small{display:block;margin:6px 0 0;font-size:13px;line-height:1.2}
 .plans .price + .tag{margin-top:12px}
+
+/* The menu sits beside the logo, where the eye starts; the actions stay at the far end */
+header.top .bar{grid-template-columns:auto 1fr auto}
+header.top .bar nav.pages{justify-self:start;margin-inline-start:clamp(16px,3vw,44px)}
+@media (max-width:1000px){
+  header.top .bar{grid-template-columns:1fr auto}
+  header.top .bar nav.pages{grid-column:1 / -1;grid-row:2;justify-self:stretch;justify-content:center;margin-inline-start:0}
+}
