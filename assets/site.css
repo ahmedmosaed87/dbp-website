@@ -1,10 +1,10 @@
 /* Deep Business Partners site: one premium style for every page.
-   The palette is the DBP logo's blue and cyan; COACTA's own navy on its page. One typeface, Readex Pro, for Arabic and English. */
+   The palette is the DBP logo's blue and cyan; COACTA's own navy on its page. One family, IBM Plex Sans with IBM Plex Sans Arabic, the same as the COACTA product (C-45). */
 :root{
   --blue:#2c55f5; --blue-ink:#1f3fd1; --cyan:#4fd6de; --ink:#0b1220; --ink-2:#4a5468; --ink-3:#7b8496;
   --ground:#ffffff; --mist:#f5f7fb; --line:rgba(11,18,32,.08);
   --navy:#0c1f3d; --navy-2:#102a50; --sky:#13b7e8; --green:#36d69a;
-  --font:"Readex Pro",system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+  --font:"IBM Plex Sans","IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
   --radius:28px; --shadow:0 1px 2px rgba(11,18,32,.04),0 12px 32px rgba(11,18,32,.06);
 }
 *{box-sizing:border-box}
@@ -1819,3 +1819,8 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
   .pyr-head strong{font-size:19px}
   .pyr-tier li{white-space:normal;font-size:13px}
 }
+
+/* type-plex: IBM Plex replaces Readex Pro (review, 6 Nov 2026). Body text at 400, never the light 300, and Arabic gets more line height. */
+body{font-weight:400}
+[dir="rtl"] body,[dir="rtl"] p{line-height:1.8}
+.num,.stat b,.price b{font-variant-numeric:tabular-nums}
