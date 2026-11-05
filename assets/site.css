@@ -1181,3 +1181,12 @@ section[id^="parts-"] h2{max-width:none}
 @media (max-width:520px){ .tphone{border-radius:36px;padding:8px} .ts{border-radius:29px;padding:42px 12px 14px} .t-v{font-size:38px} .t-time{font-size:46px} }
 .t-total{display:grid;gap:2px}.t-total b{white-space:nowrap}
 .t-pack b{text-wrap:balance}
+
+/* Acta in its own colour: violet (founder, 5 Nov 2026) */
+.acta-card{background:radial-gradient(520px 300px at 100% 0%,rgba(196,170,255,.38),transparent 70%),linear-gradient(160deg,#7b5cf0,#6a45e0 55%,#4b2fc2);box-shadow:0 30px 60px -30px rgba(107,69,224,.65)}
+[dir="rtl"] .acta-card{background:radial-gradient(520px 300px at 0% 0%,rgba(196,170,255,.38),transparent 70%),linear-gradient(200deg,#7b5cf0,#6a45e0 55%,#4b2fc2)}
+.acta-chat .r{background:rgba(35,16,92,.38)}
+.t-acta{background:linear-gradient(135deg,#8b6cf6,#6a45e0)}
+
+/* The COACTA hero: one short line under the headline, so the product picture is seen at once */
+.hero.coacta .lead{font-size:clamp(20px,2.2vw,26px);font-weight:400;color:#cfe0f5;letter-spacing:-.005em}
