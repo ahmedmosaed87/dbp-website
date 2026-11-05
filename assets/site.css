@@ -1824,3 +1824,7 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 body{font-weight:400}
 [dir="rtl"] body,[dir="rtl"] p{line-height:1.8}
 .num,.stat b,.price b{font-variant-numeric:tabular-nums}
+
+/* footer-reg */
+/* The registration line: small, quiet, always readable. */
+footer .reg{margin:18px 0 0;font-size:13px;line-height:1.7;color:var(--ink-2);max-width:none}
