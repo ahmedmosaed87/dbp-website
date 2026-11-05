@@ -1,7 +1,7 @@
 /* Deep Business Partners site: one premium style for every page.
    The palette is the DBP logo's blue and cyan; COACTA's own navy on its page. One family, IBM Plex Sans with IBM Plex Sans Arabic, the same as the COACTA product (C-45). */
 :root{
-  --blue:#2c55f5; --blue-ink:#1f3fd1; --cyan:#4fd6de; --ink:#0b1220; --ink-2:#4a5468; --ink-3:#7b8496;
+  --blue:#2c55f5; --blue-ink:#1f3fd1; --cyan:#4fd6de; --ink:#0b1220; --ink-2:#4a5468; --ink-3:#5f6878;
   --ground:#ffffff; --mist:#f5f7fb; --line:rgba(11,18,32,.08);
   --navy:#0c1f3d; --navy-2:#102a50; --sky:#13b7e8; --green:#36d69a;
   --font:"IBM Plex Sans","IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
@@ -1927,3 +1927,27 @@ footer .reg b{font-weight:600;color:var(--ink);margin-inline-end:10px}
 .st-steps > div{grid-template-columns:88px 1fr}
 @media (max-width:980px){ .stories{grid-template-columns:1fr;max-width:720px;margin-inline:auto} }
 @media (max-width:560px){ .st-steps > div{grid-template-columns:1fr;gap:4px} }
+
+/* review-fixes-a */
+/* Keyboard focus: a blue ring on light ground, white on the dark bands, always 3:1 or better. */
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.pricing-band :focus-visible,.stage-scroll.dark :focus-visible,.hero.coacta :focus-visible,.gov-band :focus-visible,.st-impact :focus-visible,.cmp-head :focus-visible{outline-color:#fff}
+main:focus{outline:none}
+/* Skip link: hidden until a keyboard user reaches it. */
+.skip{position:absolute;top:-80px;inset-inline-start:12px;z-index:100;padding:10px 16px;border-radius:10px;background:var(--ink);color:#fff;font-size:14px;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+/* Phone header: menu items never break inside, the menu scrolls sideways, and "Talk to an expert" stays. */
+nav.pages a{white-space:nowrap}
+@media (max-width:1000px){ header.top .bar nav.pages{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch} header.top .bar nav.pages::-webkit-scrollbar{display:none} }
+@media (max-width:560px){ .btn.bar-btn{display:inline-flex;padding:7px 12px;font-size:13px;min-height:34px} .bar-actions{gap:12px} header.top .switch{padding-inline-start:10px} }
+/* The pricing ladder: each step sits above its plan. */
+.ladder-lead{margin:0 auto 12px;max-width:none;text-align:center;font-size:14.5px;font-weight:600;color:#c9d6ee}
+.ladder{list-style:none;margin:0 0 54px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;position:relative}
+.ladder::before{content:"";position:absolute;inset-inline:12.5%;top:13px;height:2px;background:linear-gradient(90deg,rgba(95,227,192,.25),rgba(95,227,192,.8))}
+[dir="rtl"] .ladder::before{background:linear-gradient(270deg,rgba(95,227,192,.25),rgba(95,227,192,.8))}
+.ladder li{position:relative;display:grid;justify-items:center;gap:8px;text-align:center;font-size:14px;font-weight:600;color:#fff}
+.ladder li span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#0b1a38;box-shadow:inset 0 0 0 2px #5fe3c0;color:#5fe3c0;font-size:13px}
+@media (max-width:1000px){ .ladder{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:16px} .ladder::before{display:none} }
+/* Sample-data notes under product designs. */
+.sample-note{margin:22px auto 0;text-align:center;font-size:13.5px;color:var(--ink-3);max-width:none}
+.stage-scroll.dark .sample-note{color:#9fb1cf}
