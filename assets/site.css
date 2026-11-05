@@ -666,3 +666,7 @@ header.top .bar nav.pages{justify-self:start;margin-inline-start:clamp(16px,3vw,
   header.top .bar{grid-template-columns:1fr auto}
   header.top .bar nav.pages{grid-column:1 / -1;grid-row:2;justify-self:stretch;justify-content:center;margin-inline-start:0}
 }
+
+/* Footer offices: the flag beside the city and its country */
+.office{display:flex;align-items:center;gap:14px}
+.office .flag{flex:none;width:32px;height:24px;border-radius:4px;object-fit:cover;box-shadow:0 0 0 1px rgba(12,31,61,.08)}
