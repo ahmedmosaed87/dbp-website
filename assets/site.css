@@ -1289,3 +1289,46 @@ section[id^="parts-"] h2{max-width:none}
 .value-cards.deck .quals li + li::before{content:none}
 .value-cards.deck .quals li::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--green));transform:translateY(-2px)}
 .value-cards.deck .quals li + li::before{content:"";margin:0}
+
+/* ===== What we do, premium pass ===== */
+.nowrap{white-space:nowrap}
+.ci{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;color:var(--navy);background:#f1f4f9;flex:none}
+
+/* One card system: white, one soft shadow, a quiet icon, equal heights */
+.cards.iconed{grid-auto-rows:1fr}
+.cards.iconed > li{display:flex;flex-direction:column;gap:10px;padding:28px 26px;border:0;background:#fff!important;box-shadow:0 1px 1px rgba(12,31,61,.03),0 18px 40px -26px rgba(12,31,61,.30)!important}
+.cards.iconed > li strong{margin-top:8px;font-size:18.5px;font-weight:600;color:var(--navy);line-height:1.3}
+.cards.iconed > li span:not(.ci){font-size:15px;line-height:1.55;color:var(--ink-2)}
+.cards.iconed > li.lead-card{background:linear-gradient(150deg,var(--blue),#1f8fb8 60%,var(--teal))!important;box-shadow:0 26px 56px -26px rgba(42,79,246,.6)!important}
+.cards.iconed > li.lead-card strong,.cards.iconed > li.lead-card span:not(.ci){color:#fff}
+.cards.iconed > li.lead-card .ci{color:#fff;background:rgba(255,255,255,.18)}
+
+/* The three powers: icons in place of numbers */
+.deck-cards.powers.iconed > li{padding:30px 28px}
+.deck-cards.powers.iconed > li::after{content:none}
+.deck-cards.powers.iconed h3{margin:18px 0 8px}
+.deck-cards.powers.iconed > li:last-child .ci{color:#fff;background:rgba(255,255,255,.18)}
+
+/* What you never have to carry: one calm band, each burden checked off */
+.kicker.carry-h{color:var(--teal)!important;text-align:center!important;margin-top:48px}
+.carry.band{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:8px;border-radius:20px;background:#fff;box-shadow:0 1px 1px rgba(12,31,61,.03),0 18px 40px -26px rgba(12,31,61,.30)}
+.carry.band li{display:flex;align-items:center;gap:12px;padding:18px 20px;border:0;border-radius:0;background:none;font-size:15.5px;font-weight:600;color:var(--navy)}
+.carry.band li + li{border-inline-start:1px solid #edf1f6}
+.carry.band .ci{width:34px;height:34px;border-radius:50%;color:var(--teal);background:rgba(18,163,131,.10)}
+.carry.band .ci svg{width:20px;height:20px}
+
+/* How we deliver: lab, experiences, platform as one connected strip */
+.fit.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0 0 36px;padding:8px;list-style:none;border-radius:20px;background:#fff;box-shadow:0 1px 1px rgba(12,31,61,.03),0 18px 40px -26px rgba(12,31,61,.30);counter-reset:none}
+.fit.strip > li{position:relative;display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:4px;align-items:start;padding:22px 24px;border:0;background:none;box-shadow:none}
+.fit.strip > li::before{content:none!important;display:none!important}
+.fit.strip > li + li{border-inline-start:1px solid #edf1f6}
+.fit.strip > li .ci{grid-row:span 2;color:var(--blue);background:rgba(42,79,246,.08)}
+.fit.strip > li strong{font-size:17px;font-weight:600;color:var(--navy);margin:0}
+.fit.strip > li span:not(.ci){font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+.fit.strip > li + li::after{content:"";position:absolute;top:50%;inset-inline-start:-9px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px #e3e9f2;transform:translateY(-50%)}
+
+@media (max-width:860px){
+  .carry.band,.fit.strip{grid-template-columns:1fr}
+  .carry.band li + li,.fit.strip > li + li{border-inline-start:0;border-top:1px solid #edf1f6}
+  .fit.strip > li + li::after{display:none}
+}
