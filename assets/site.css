@@ -1046,3 +1046,60 @@ section[id^="parts-"] h2{max-width:none}
 [dir="rtl"] .watch-face .ring{transform:scaleX(-1)}
 [dir="rtl"] .bubble.ask{justify-self:start;border-end-end-radius:18px;border-end-start-radius:6px}
 [dir="rtl"] .bubble.reply{justify-self:end;border-end-start-radius:18px;border-end-end-radius:6px}
+
+/* Why we built COACTA: the purpose as the headline, the expert system featured, eight signatures around it */
+.why{background:radial-gradient(900px 380px at 50% 0%,rgba(42,79,246,.07),transparent 70%),#fff}
+.why h2{max-width:20ch;margin-inline:auto}
+.why-grid{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.why-grid > li{position:relative;padding:28px 26px 26px;border-radius:20px;background:#fff;border:1px solid rgba(12,31,61,.07);box-shadow:0 1px 2px rgba(12,31,61,.04),0 16px 36px -24px rgba(12,31,61,.28);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.why-grid > li:hover{transform:translateY(-4px);box-shadow:0 1px 2px rgba(12,31,61,.05),0 26px 50px -24px rgba(12,31,61,.32)}
+.why-grid h3{margin:14px 0 8px;font-size:19px;font-weight:600;color:var(--navy);line-height:1.3}
+.why-grid p{margin:0;font-size:15.5px;line-height:1.6;color:var(--ink-2)}
+.wi{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;color:var(--blue);background:rgba(42,79,246,.08)}
+.w-stake .wi{color:var(--teal);background:rgba(18,163,131,.10)}
+.w-flows .wi{color:#1f86d1;background:rgba(58,160,240,.11)}
+.w-strategy .wi{color:var(--navy);background:rgba(12,31,61,.07)}
+.w-pro .wi{color:var(--amber);background:rgba(183,121,31,.11)}
+.w-foresight .wi{color:var(--violet);background:rgba(123,92,240,.10)}
+.w-econ .wi{color:#16a37a;background:rgba(47,208,160,.13)}
+.w-lead .wi{color:var(--blue);background:rgba(42,79,246,.08)}
+.w-social .wi{color:#d1456b;background:rgba(209,69,107,.09)}
+/* The expert system leads: the full width of the row, in the brand gradient */
+.why-grid > li.featured{grid-column:1 / -1;display:grid;grid-template-columns:auto 1fr;column-gap:22px;align-items:center;padding:30px 32px;border:0;color:#fff;
+  background:radial-gradient(600px 220px at 85% 0%,rgba(47,208,160,.35),transparent 70%),linear-gradient(120deg,#0b1a38,#143066 55%,#1a5fb0);box-shadow:0 28px 60px -30px rgba(11,31,63,.65)}
+[dir="rtl"] .why-grid > li.featured{background:radial-gradient(600px 220px at 15% 0%,rgba(47,208,160,.35),transparent 70%),linear-gradient(240deg,#0b1a38,#143066 55%,#1a5fb0)}
+.why-grid > li.featured .wi{grid-row:span 2;width:64px;height:64px;border-radius:20px;color:var(--green);background:rgba(47,208,160,.12);box-shadow:0 0 0 1px rgba(47,208,160,.35)}
+.why-grid > li.featured .wi svg{width:32px;height:32px}
+.why-grid > li.featured h3{margin:0 0 6px;font-size:clamp(22px,2.3vw,28px);color:#fff}
+.why-grid > li.featured p{color:#c9d6ee;font-size:16.5px;max-width:70ch}
+@media (prefers-reduced-motion:reduce){.why-grid > li{transition:none}.why-grid > li:hover{transform:none}}
+@media (max-width:980px){ .why-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:620px){ .why-grid{grid-template-columns:1fr} .why-grid > li.featured{grid-template-columns:1fr} .why-grid > li.featured .wi{grid-row:auto;margin-bottom:12px} }
+
+/* The intelligence inside COACTA: Acta leads, the agentic team, the Enterprise Brain, digital twins and document intelligence beside it */
+.intel{background:linear-gradient(180deg,#f3f6fb,#f7f9fc)}
+.intel-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-template-rows:auto auto;gap:20px}
+.acta-card{grid-row:span 2;position:relative;display:flex;flex-direction:column;gap:10px;padding:34px 32px;border-radius:24px;color:#fff;overflow:hidden;
+  background:radial-gradient(520px 300px at 100% 0%,rgba(79,214,222,.35),transparent 70%),linear-gradient(160deg,#1f4fe8,#1a7fc4 55%,#14a98b);box-shadow:0 30px 60px -30px rgba(31,79,232,.6)}
+[dir="rtl"] .acta-card{background:radial-gradient(520px 300px at 0% 0%,rgba(79,214,222,.35),transparent 70%),linear-gradient(200deg,#1f4fe8,#1a7fc4 55%,#14a98b)}
+.acta-mark{display:grid;place-items:center;width:56px;height:56px;border-radius:18px;background:rgba(255,255,255,.18);box-shadow:0 0 0 1px rgba(255,255,255,.3);font-size:26px;font-weight:700;color:#fff}
+.acta-card h3{margin:10px 0 0;font-size:clamp(28px,3vw,36px);font-weight:600;color:#fff}
+.acta-card > p{margin:0;font-size:16.5px;line-height:1.6;color:#e6f1ff}
+.acta-chat{margin-top:auto;padding-top:22px;display:grid;gap:10px}
+.acta-chat span{display:block;max-width:90%;padding:12px 15px;font-size:15px;line-height:1.5;border-radius:16px}
+.acta-chat .q{justify-self:end;background:rgba(255,255,255,.95);color:var(--navy);border-end-end-radius:5px}
+.acta-chat .r{justify-self:start;background:rgba(7,20,49,.35);color:#fff;border:1px solid rgba(255,255,255,.22);border-end-start-radius:5px}
+[dir="rtl"] .acta-chat .q{border-end-end-radius:16px;border-end-start-radius:5px}
+[dir="rtl"] .acta-chat .r{border-end-start-radius:16px;border-end-end-radius:5px}
+.intel-item{padding:28px 26px;border-radius:20px;background:#fff;border:1px solid rgba(12,31,61,.07);box-shadow:0 1px 2px rgba(12,31,61,.04),0 16px 36px -24px rgba(12,31,61,.28);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.intel-item:hover{transform:translateY(-4px);box-shadow:0 1px 2px rgba(12,31,61,.05),0 26px 50px -24px rgba(12,31,61,.32)}
+.intel-item h3{margin:14px 0 8px;font-size:19px;font-weight:600;color:var(--navy)}
+.intel-item p{margin:0;font-size:15.5px;line-height:1.6;color:var(--ink-2)}
+.ii{display:grid;place-items:center;width:46px;height:46px;border-radius:14px}
+.i-agents .ii{color:var(--blue);background:rgba(42,79,246,.08)}
+.i-brain .ii{color:var(--violet);background:rgba(123,92,240,.10)}
+.i-twin .ii{color:var(--teal);background:rgba(18,163,131,.10)}
+.i-docs .ii{color:var(--amber);background:rgba(183,121,31,.11)}
+@media (prefers-reduced-motion:reduce){.intel-item{transition:none}.intel-item:hover{transform:none}}
+@media (max-width:980px){ .intel-grid{grid-template-columns:1fr 1fr} .acta-card{grid-column:1 / -1;grid-row:auto} }
+@media (max-width:620px){ .intel-grid{grid-template-columns:1fr} }
