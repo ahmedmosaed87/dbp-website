@@ -180,3 +180,9 @@ section.block > .wrap > h2 + .cards, section.block > .wrap > h2 + .pillars{margi
 .wrap.center p{font-size:clamp(18px,1.9vw,21px);color:var(--ink-2)}
 footer{background:#fff;border-top:1px solid var(--line)}
 footer .office{background:var(--mist);box-shadow:none}
+
+/* The DBP logo at its true proportions and a confident size: never small, never compressed */
+header.top .wrap{height:76px}
+header.top .brand img{height:48px;width:auto}
+.legal img{height:44px;width:auto}
+@media (max-width:860px){ header.top .brand img{height:40px} }
