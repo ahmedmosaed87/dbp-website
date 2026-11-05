@@ -405,3 +405,6 @@ header.top .switch button:focus-visible{outline:2px solid var(--cyan);outline-of
 .hero-frame{margin:clamp(40px,5vw,64px) auto 0;max-width:1120px}
 .hero-frame img{display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 40px 90px -30px rgba(0,0,0,.6)}
 .hero-frame figcaption{margin-top:14px;font-size:13px;color:#8fa3c4;text-align:center}
+
+/* A marketing image: the parts that prove the point, at a size that reads, on the COACTA backdrop */
+.screen.mkt a{background:#0d2048;max-height:none}
