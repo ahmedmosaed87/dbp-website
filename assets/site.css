@@ -1534,3 +1534,53 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 .stage-scroll{height:210vh}
 .stage-scroll.dark{height:250vh}
 @media (max-width:860px){ .stage-scroll{height:170vh} .stage-scroll.dark{height:190vh} }
+
+/* ===== Who we are, premium pass ===== */
+/* The symbiotic enterprise: statement beside its orbit */
+.symbiotic.premium .sym-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(36px,6vw,80px);align-items:center;max-width:1120px}
+.symbiotic.premium .sym-text{text-align:start}
+.symbiotic.premium .sym-text h2{text-align:start;margin-inline:0;font-size:clamp(34px,4vw,52px)}
+.symbiotic.premium .sym-text p{text-align:start;margin-inline:0;font-size:clamp(17px,1.7vw,20px);line-height:1.65;color:var(--ink-2);max-width:48ch}
+.sym-orbit{display:grid;place-items:center;aspect-ratio:1.25;border-radius:32px;
+  background:radial-gradient(320px 240px at 50% 40%,rgba(123,92,240,.40),transparent 70%),radial-gradient(360px 260px at 50% 110%,rgba(47,208,160,.28),transparent 70%),linear-gradient(160deg,#0b1a38,#132c63);
+  box-shadow:0 30px 70px -32px rgba(11,31,63,.6)}
+.orbit.big{max-width:420px;width:88%;height:auto;aspect-ratio:1.6}
+.orbit.big .r1{width:46%;height:46%;border:1px dashed rgba(143,196,255,.4)}
+.orbit.big .r2{display:block;width:92%;height:84%;border:1px solid rgba(143,196,255,.16)}
+.orbit.big .core{font-size:15px;padding:12px 20px;letter-spacing:.02em}
+[lang="ar"] .orbit.big .core{letter-spacing:0}
+.orbit.big .actor{font-size:12.5px;padding:6px 12px}
+.orbit.big .a1{left:50%;top:6%}
+.orbit.big .a2{left:13%;top:34%}
+.orbit.big .a3{left:87%;top:34%}
+.orbit.big .a4{left:24%;top:88%}
+.orbit.big .a5{left:76%;top:88%;border-color:rgba(47,208,160,.55);color:#8ff0cd}
+
+/* DEEP and the principles: one quiet card style with icons */
+.pillars.four.iconed{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.deck-cards.quiet > li{padding:28px 26px;border:0;box-shadow:0 1px 1px rgba(12,31,61,.03),0 18px 40px -26px rgba(12,31,61,.30)}
+.deck-cards.quiet > li::before{display:none}
+.deck-cards.quiet h3{margin:16px 0 8px;font-size:18.5px}
+.deck-cards.quiet p{font-size:15px;line-height:1.55}
+.deck-cards.quiet > li:nth-child(4){background:linear-gradient(150deg,#0b1a38,#143066 60%,#1a5fb0)}
+.deck-cards.quiet > li:nth-child(4) h3{color:#fff}
+.deck-cards.quiet > li:nth-child(4) p{color:#c9d6ee}
+.deck-cards.quiet > li:nth-child(4) .ci{color:var(--green);background:rgba(47,208,160,.14)}
+
+/* Real-world experience: the story beside industries and platforms */
+.experience .exp-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,6vw,80px);align-items:center;max-width:1120px}
+.experience .exp-text h2{text-align:start;margin-inline:0}
+.experience .exp-text p{text-align:start;margin-inline:0;font-size:clamp(17px,1.7vw,20px);line-height:1.65;color:var(--ink-2);max-width:46ch}
+.exp-facts{padding:30px;border-radius:24px;background:#fff;box-shadow:0 1px 1px rgba(12,31,61,.03),0 20px 46px -28px rgba(12,31,61,.32)}
+.exp-facts .kicker{text-align:start!important;margin:0 0 12px}
+.exp-facts .chips + .kicker{margin-top:26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{padding:7px 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--navy);background:#f1f4f9}
+.chips.plat li{font-weight:700;letter-spacing:.01em;background:#fff;box-shadow:inset 0 0 0 1px #dfe6f0;direction:ltr}
+
+@media (max-width:980px){ .pillars.four.iconed{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:860px){
+  .symbiotic.premium .sym-grid,.experience .exp-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){ .pillars.four.iconed{grid-template-columns:1fr} }
+.experience .exp-text .exp-lead{font-size:clamp(19px,1.9vw,23px);color:var(--ink);font-weight:500;margin-bottom:14px}
