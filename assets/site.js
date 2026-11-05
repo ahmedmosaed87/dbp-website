@@ -13,7 +13,8 @@
   }
   bAr.addEventListener('click', function () { show('ar'); });
   bEn.addEventListener('click', function () { show('en'); });
-  // Start with the visitor's last choice, else their browser language.
+  // Start with a language named in the link (?lang=ar or ?lang=en), else the visitor's last choice, else their browser language.
+  var asked = (location.search.match(/[?&]lang=(ar|en)\b/) || [])[1];
   var saved = null; try { saved = localStorage.getItem('dbp-lang'); } catch (e) {}
-  show(saved || ((navigator.language || '').toLowerCase().indexOf('ar') === 0 ? 'ar' : 'en'));
+  show(asked || saved || ((navigator.language || '').toLowerCase().indexOf('ar') === 0 ? 'ar' : 'en'));
 })();
