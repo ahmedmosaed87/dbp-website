@@ -14,7 +14,7 @@
 </head>
 <body>
 <header class="top">
-  <div class="wrap">
+  <div class="bar">
     <a class="brand" href="index.html"><img src="assets/dbp-logo.png" alt="Deep Business Partners · دييب بزنس بارتنرز" width="951" height="349"></a>
     <nav class="pages" aria-label="Pages">
       <a href="index.html"><span data-lang="ar">من نحن</span><span data-lang="en" hidden>Who we are</span></a>
@@ -22,17 +22,28 @@
       <a href="coacta.html"><span data-lang="ar">كو أكتا</span><span data-lang="en" hidden>COACTA</span></a>
       <a href="deepers.html"><span data-lang="ar">دييبرز</span><span data-lang="en" hidden>Deepers</span></a>
     </nav>
-    <div class="switch" role="group" aria-label="Language"><button type="button" id="btn-ar" aria-pressed="true" lang="ar">العربية</button><button type="button" id="btn-en" aria-pressed="false" lang="en">English</button></div>
+    <div class="bar-actions">
+      <button type="button" class="icon-btn" id="search-open" aria-label="Search · بحث"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      <a class="bar-link" data-lang="ar" href="coacta.html?lang=ar#waitlist-ar">قائمة انتظار كو أكتا</a><a class="bar-link" data-lang="en" hidden href="coacta.html?lang=en#waitlist-en">Join the waiting list</a>
+      <a class="btn bar-btn" href="https://outlook.office.com/bookwithme/user/956fda55a02d4e0395dc4618bb60b095@deep-bp.com?anonymous&amp;ep=bwmEmailSignature" target="_blank" rel="noopener"><span data-lang="ar">تحدّث مع خبير</span><span data-lang="en" hidden>Talk to an expert</span></a>
+      <div class="switch" role="group" aria-label="Language"><button type="button" id="btn-ar" aria-pressed="true" lang="ar">العربية</button><button type="button" id="btn-en" aria-pressed="false" lang="en">English</button></div>
+    </div>
   </div>
 </header>
+<div class="search-overlay" id="search" hidden>
+  <div class="search-box" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-field"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input id="search-input" type="search" autocomplete="off" placeholder=""><button type="button" class="search-close" id="search-close" aria-label="Close">Esc</button></div>
+    <ul class="search-results" id="search-results"></ul>
+  </div>
+</div>
 
 <main id="ar" lang="ar" dir="rtl">
-  <section class="hero"><div class="wrap">
+  <section class="hero" id="s-1"><div class="wrap">
     <span class="eyebrow">منتجاتنا</span>
     <h1>خبرة الشركات الكبرى، <span class="accent">من اليوم الأول</span></h1>
     <p class="lead">خدمات باشتراك تناسب كل مرحلة من مراحل شركتك، من الفكرة إلى التوسّع، مع استشارات تبني القرار على أرقام موثوقة.</p>
   </div></section>
-  <section class="block alt"><div class="wrap">
+  <section class="block alt" id="s-2"><div class="wrap">
     <h2>تجاربنا</h2>
     <p>نصمّم تجارب متكاملة من البداية إلى النهاية: كل تجربة قدرةٌ كاملة تُقدَّم كمنتج، بنتائج لا بساعات عمل.</p>
     <ol class="fit">
@@ -49,7 +60,7 @@
   </div></section>
 
 
-  <section class="block"><div class="wrap">
+  <section class="block" id="s-3"><div class="wrap">
     <h2>خدمات كخدمة (X-as-a-Service)</h2>
     <ul class="cards four">
       <li class="lead-card"><strong>المالية كخدمة</strong><span>إدارة مالية ومحاسبية متكاملة: الدفاتر والضريبة والفوترة الإلكترونية والإقفال والتقارير، لكل مرحلة من مراحل الشركة.</span></li>
@@ -63,7 +74,7 @@
     </ul>
   </div></section>
 
-  <section class="block alt"><div class="wrap">
+  <section class="block alt" id="s-4"><div class="wrap">
     <h2>الاستشارات والتحول</h2>
     <ul class="cards four">
       <li><strong>إدارة القيمة</strong><span>تحويل الابتكار والنمو إلى قيمة قابلة للقياس، وتحسين استخدام رأس المال.</span></li>
@@ -76,12 +87,12 @@
 </main>
 
 <main id="en" lang="en" dir="ltr" hidden>
-  <section class="hero"><div class="wrap">
+  <section class="hero" id="s-5"><div class="wrap">
     <span class="eyebrow">What we do</span>
     <h1>Corporate-grade expertise, <span class="accent">from day zero</span></h1>
     <p class="lead">Subscription services for every stage of your company, from idea to expansion, with advisory that bases each decision on numbers you can trust.</p>
   </div></section>
-  <section class="block alt"><div class="wrap">
+  <section class="block alt" id="s-6"><div class="wrap">
     <h2>Experiences</h2>
     <p>We design end-to-end experiences: each one is a whole capability delivered as a product, with results, not hours.</p>
     <ol class="fit">
@@ -98,7 +109,7 @@
   </div></section>
 
 
-  <section class="block"><div class="wrap">
+  <section class="block" id="s-7"><div class="wrap">
     <h2>X-as-a-Service</h2>
     <ul class="cards four">
       <li class="lead-card"><strong>Finance-as-a-Service</strong><span>Complete finance and accounting: the books, tax and e-invoicing, the close and reporting, for every stage of the company.</span></li>
@@ -112,7 +123,7 @@
     </ul>
   </div></section>
 
-  <section class="block alt"><div class="wrap">
+  <section class="block alt" id="s-8"><div class="wrap">
     <h2>Advisory and transformation</h2>
     <ul class="cards four">
       <li><strong>Value Management</strong><span>Turning innovation and growth into measurable value, and making better use of capital.</span></li>
@@ -140,6 +151,7 @@
   </div>
   <div class="legal"><img src="assets/dbp-logo.png" alt="Deep Business Partners" width="951" height="349"><span lang="en">© 2026 Deep Business Partners</span></div>
 </div></footer>
+<script src="assets/search-index.js"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>

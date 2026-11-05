@@ -18,3 +18,28 @@
   var saved = null; try { saved = localStorage.getItem('dbp-lang'); } catch (e) {}
   show(asked || saved || ((navigator.language || '').toLowerCase().indexOf('ar') === 0 ? 'ar' : 'en'));
 })();
+
+/* Searches every page's headings and card titles in the language being read; opens with the icon or the "/" key. */
+(function () {
+  var ov = document.getElementById('search'), input = document.getElementById('search-input'), list = document.getElementById('search-results');
+  if (!ov || !window.DBP_SEARCH) return;
+  var lang = function () { return document.documentElement.lang === 'ar' ? 'ar' : 'en'; };
+  var norm = function (s) { return (s || '').toLowerCase().replace(/[\u064B-\u0652\u0640]/g, '').replace(/[أإآ]/g, 'ا').replace(/ة/g, 'ه').replace(/ى/g, 'ي'); };
+  function render() {
+    var q = norm(input.value.trim()), l = lang(), html = '';
+    var hits = window.DBP_SEARCH.filter(function (r) { return r.l === l && (!q || norm(r.t + ' ' + r.x).indexOf(q) >= 0); }).slice(0, q ? 12 : 8);
+    hits.forEach(function (r) { html += '<li><a href="' + r.u + '"><span class="r-page">' + r.p + '</span><strong>' + r.t + '</strong>' + (r.x ? '<span class="r-text">' + r.x + '</span>' : '') + '</a></li>'; });
+    list.innerHTML = html || '<li class="none">' + (l === 'ar' ? 'لا نتائج' : 'No results') + '</li>';
+  }
+  function open() { input.placeholder = lang() === 'ar' ? 'ابحث في الموقع' : 'Search the site'; ov.hidden = false; input.value = ''; render(); setTimeout(function () { input.focus(); }, 0); }
+  function close() { ov.hidden = true; }
+  document.getElementById('search-open').addEventListener('click', open);
+  document.getElementById('search-close').addEventListener('click', close);
+  ov.addEventListener('click', function (e) { if (e.target === ov) close(); });
+  input.addEventListener('input', render);
+  list.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !ov.hidden) close();
+    if (e.key === '/' && ov.hidden && !/input|textarea/i.test((document.activeElement || {}).tagName || '')) { e.preventDefault(); open(); }
+  });
+})();
