@@ -1747,3 +1747,20 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 .letter.promise.premium.long p{font-size:clamp(17px,1.6vw,19.5px);line-height:2}
 .letter.promise.premium.long p + p{margin-top:16px}
 .letter.promise.premium.long .close{font-size:clamp(20px,2vw,24px);line-height:1.8}
+
+/* The promise is signed with both logos: Deep Business Partners and COACTA */
+.letter.promise.premium .sign{flex-wrap:wrap;row-gap:18px}
+.sign-logos{display:flex;align-items:center;gap:18px;margin-inline-start:auto}
+.sign-logos > img{height:44px;width:auto}
+.sign-logos > i{width:1px;height:34px;background:#dfe6f0}
+.coacta-lockup{display:flex;align-items:center;gap:9px;direction:ltr}
+.coacta-lockup img:first-child{height:24px;width:auto}
+.coacta-lockup img:last-child{height:15px;width:auto}
+@media (max-width:620px){ .sign-logos{margin-inline-start:0} }
+.letter.promise.premium .sign .sign-logos{display:flex;flex-direction:row;align-items:center;gap:18px;font-size:inherit}
+.letter.promise.premium .sign .coacta-lockup{display:flex;flex-direction:row;align-items:center;gap:9px}
+.letter.promise.premium .sign .sign-logos img{width:auto;border-radius:0;box-shadow:none;object-fit:contain}
+.letter.promise.premium .sign .sign-logos > img{height:44px}
+.letter.promise.premium .sign .coacta-lockup img:first-child{height:24px}
+.letter.promise.premium .sign .coacta-lockup img:last-child{height:15px}
+.marquee .track > li.lead{margin-inline-start:0}
