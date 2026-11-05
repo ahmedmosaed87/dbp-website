@@ -100,3 +100,21 @@ footer h2{font-size:22px}
 .waitlist h2{color:#fff}
 .waitlist p{color:#c9d8ef}
 .waitlist .btn{background:var(--coacta-sky);color:var(--coacta-navy)}
+
+/* Moving client logos: two rows in opposite directions; they stop when hovered and stay still for reduced motion */
+.clients-block{padding-bottom:36px}
+.marquee{overflow:hidden;margin-top:18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee .track{display:flex;gap:40px;width:max-content;margin:0;padding:8px 0;list-style:none;animation:slide 60s linear infinite}
+.marquee.reverse .track{animation-direction:reverse}
+.marquee:hover .track{animation-play-state:paused}
+.marquee li{flex:none;display:grid;place-items:center;height:72px}
+.marquee img{height:64px;width:auto;max-width:200px;object-fit:contain;border-radius:8px}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){ .marquee{-webkit-mask-image:none;mask-image:none} .marquee .track{animation:none;flex-wrap:wrap;width:auto;justify-content:center} .marquee li[aria-hidden="true"]{display:none} }
+/* The founder card and the letter */
+.founder{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:center}
+.founder-mark{width:200px;height:auto}
+.letter{background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px clamp(20px,4vw,48px);max-width:760px}
+.letter p{font-size:17.5px;line-height:1.85}
+.letter .sign{margin-top:24px;color:var(--ink-2)}
+@media (max-width:760px){ .founder{grid-template-columns:1fr} .founder-mark{width:160px} }
