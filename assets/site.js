@@ -18,3 +18,16 @@
   var saved = null; try { saved = localStorage.getItem('dbp-lang'); } catch (e) {}
   show(asked || saved || ((navigator.language || '').toLowerCase().indexOf('ar') === 0 ? 'ar' : 'en'));
 })();
+
+/* Plays the DBP sign's story once on opening, and again whenever Replay is pressed. */
+(function () {
+  document.querySelectorAll('.merge').forEach(function (fig) {
+    function play() { fig.classList.remove('play'); void fig.offsetWidth; fig.classList.add('play'); }
+    var btn = fig.querySelector('.replay'); if (btn) btn.addEventListener('click', play);
+    play();
+  });
+  // When the language changes, play the story of the version now shown.
+  ['btn-ar', 'btn-en'].forEach(function (id) { var b = document.getElementById(id); if (b) b.addEventListener('click', function () {
+    document.querySelectorAll('.merge').forEach(function (fig) { fig.classList.remove('play'); void fig.offsetWidth; fig.classList.add('play'); });
+  }); });
+})();
