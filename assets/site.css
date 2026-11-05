@@ -1510,3 +1510,13 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 .way b::first-letter{text-transform:uppercase}
 .pricing-band .formula{max-width:900px;text-wrap:balance;padding-inline:4px}
 @media (max-width:560px){.pricing-band .formula{font-size:14.5px}}
+
+/* COACTA hero: two lines, and a light stage so the navy panel is seen growing to the full screen */
+.hero.coacta h1{max-width:none;font-size:clamp(32px,min(4.4vw,6.6vh),62px);line-height:1.1}
+.hero.coacta h1 .accent{display:block}
+.stage-scroll.dark{background:#f4f7fb}
+.stage-scroll.dark .stage-panel{width:calc(min(980px,86vw) + (100vw - min(980px,86vw)) * var(--p));border-radius:calc(40px * (1 - var(--p)));
+  box-shadow:0 calc(50px * (1 - var(--p))) 90px -40px rgba(11,31,63,.55)}
+.stage-scroll.dark .stage-sticky{padding-top:calc(36px * (1 - var(--p)))}
+.stage-scroll.dark .hero-frame{width:min(1120px,calc(100% - 72px));transform:none}
+.stage-scroll.dark .hero-frame img{max-height:calc((100vh - var(--bar-h)) * (.64 + .26 * var(--p)))}
