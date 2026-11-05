@@ -10,6 +10,17 @@
     bAr.setAttribute('aria-pressed', String(isAr)); bEn.setAttribute('aria-pressed', String(!isAr));
     document.documentElement.lang = lang; document.documentElement.dir = isAr ? 'rtl' : 'ltr';
     try { localStorage.setItem('dbp-lang', lang); } catch (e) {}
+    // Give search engines and the browser tab the title, description and address of the language being read.
+    var pm = document.getElementById('page-meta');
+    if (pm) {
+      try {
+        var m = JSON.parse(pm.textContent)[lang];
+        document.title = m.t;
+        var d = document.querySelector('meta[name="description"]'); if (d) d.setAttribute('content', m.d);
+        var base = document.querySelector('link[hreflang="x-default"]'), c = document.querySelector('link[rel="canonical"]');
+        if (base && c) c.setAttribute('href', base.getAttribute('href') + '?lang=' + lang);
+      } catch (e) { /* the page still reads correctly */ }
+    }
   }
   bAr.addEventListener('click', function () { show('ar'); });
   bEn.addEventListener('click', function () { show('en'); });
