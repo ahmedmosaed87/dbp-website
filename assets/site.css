@@ -1900,3 +1900,23 @@ footer .reg b{font-weight:600;color:var(--ink);margin-inline-end:10px}
 .eco-card h3{margin:14px 0 8px;font-size:19px;font-weight:600;color:var(--ink)}
 .eco-card p{margin:0;font-size:15.5px;line-height:1.65;color:var(--ink-2)}
 @media (max-width:860px){ .eco-cards{grid-template-columns:1fr} }
+
+/* stories */
+/* Client stories: each card reads signal, decision, outcome, and ends on its impact. */
+.stories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:32px;align-items:stretch}
+.story{display:flex;flex-direction:column;border-radius:24px;padding:30px 30px 0;background:#fff;box-shadow:0 0 0 1px #e1e8f3,0 30px 60px -44px rgba(11,26,56,.4);overflow:hidden}
+.st-theme{align-self:flex-start;font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:#e9f8f3;border-radius:999px;padding:5px 12px}
+[dir="rtl"] .st-theme{letter-spacing:0;font-size:13.5px}
+.story h3{margin:16px 0 6px;font-size:clamp(22px,2.2vw,28px);font-weight:600;line-height:1.25;color:var(--ink)}
+.st-who{margin:0 0 20px;font-size:15px;line-height:1.6;color:var(--ink-2)}
+.st-steps{margin:0 0 24px;display:grid;gap:14px;flex:1}
+.st-steps > div{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:baseline}
+.st-steps dt{font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+[dir="rtl"] .st-steps dt{letter-spacing:0;font-size:14px}
+.st-steps dd{margin:0;font-size:15px;line-height:1.65;color:var(--ink)}
+.st-impact{margin:0 -30px;padding:22px 30px;display:flex;align-items:baseline;gap:14px;background:linear-gradient(120deg,#0b1a38,#1f4596);color:#fff}
+.st-impact strong{font-size:clamp(34px,3.4vw,46px);font-weight:600;line-height:1;color:#5fe3c0;white-space:nowrap}
+.st-impact span{font-size:16px;line-height:1.5;color:#dfe8f8}
+.st-impact .st-impact-line{font-size:18px;font-weight:600;color:#fff}
+@media (max-width:900px){ .stories{grid-template-columns:1fr} }
+@media (max-width:560px){ .story{padding:24px 20px 0} .st-impact{margin:0 -20px;padding:20px} .st-steps > div{grid-template-columns:1fr;gap:4px} }
