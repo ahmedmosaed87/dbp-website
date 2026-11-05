@@ -1827,4 +1827,6 @@ body{font-weight:400}
 
 /* footer-reg */
 /* The registration line: small, quiet, always readable. */
-footer .reg{margin:18px 0 0;font-size:13px;line-height:1.7;color:var(--ink-2);max-width:none}
+footer .reg{margin:18px 0 0;display:grid;gap:6px}
+footer .reg p{margin:0;font-size:13px;line-height:1.7;color:var(--ink-2);max-width:none}
+footer .reg b{font-weight:600;color:var(--ink);margin-inline-end:10px}
