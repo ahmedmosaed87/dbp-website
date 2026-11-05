@@ -1742,3 +1742,8 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 .featured-clients{display:none}
 .marquee .track > li.lead{margin-inline-start:150px}
 @media (max-width:860px){.marquee .track > li.lead{margin-inline-start:24px}}
+
+/* The longer promise: comfortable reading size, prose rather than verse */
+.letter.promise.premium.long p{font-size:clamp(17px,1.6vw,19.5px);line-height:2}
+.letter.promise.premium.long p + p{margin-top:16px}
+.letter.promise.premium.long .close{font-size:clamp(20px,2vw,24px);line-height:1.8}
