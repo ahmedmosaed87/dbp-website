@@ -915,3 +915,72 @@ section[id^="parts-"] h2{max-width:none}
 [dir="rtl"] .timeline li.coacta-moment b{background:linear-gradient(270deg,var(--blue),var(--teal));-webkit-background-clip:text;background-clip:text}
 .timeline li.coacta-moment span{color:var(--navy);font-weight:500}
 @media (max-width:1100px) and (min-width:861px){ .timeline.six{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px} }
+
+/* The sign, crisp and true to the brand (founder, 5 Nov 2026):
+   no colour haze around or inside it; the circle at its exact place (centre 43.91, 298.92; radius 40.98 of 524 x 345);
+   the circle arrives with the third line and leaves with it, before the shapes part. */
+.m-glow{display:none}
+.merge .m-customer,.merge .m-dbp{filter:none}
+.m-ring{left:8.38%;top:86.64%;width:15.64%}
+@media (prefers-reduced-motion:no-preference){
+  .merge .m-customer{animation:fin-customer 11s infinite}
+  .merge .m-dbp{animation:fin-dbp 11s infinite}
+  .merge .m-dot{animation:fin-dot 11s infinite}
+  .merge .m-ring{animation:fin-ring 11s infinite}
+  .merge .m-ring.r2{animation:fin-ring2 11s infinite}
+  .m-sheen{animation:fin-sheen 11s infinite}
+  .merge .cap-a{animation:fin-cap-a 11s infinite}
+  .merge .cap-m{animation:fin-cap-m 11s infinite}
+  .merge .cap-b{animation:fin-cap-b 11s infinite}
+  .beats i:nth-child(1){animation:fin-beat-1 11s infinite}
+  .beats i:nth-child(2){animation:fin-beat-2 11s infinite}
+  .beats i:nth-child(3){animation:fin-beat-3 11s infinite}
+}
+/* Shapes: apart and breathing 0 to 18%, glide 18 to 36%, one until 86%, part 86 to 96% */
+@keyframes fin-customer{
+  0%{transform:translate(-27%,0) rotate(-3deg) scale(.95)}
+  9%{transform:translate(-27%,-1.6%) rotate(-3deg) scale(.95)}
+  18%{transform:translate(-27%,0) rotate(-3deg) scale(.95);animation-timing-function:cubic-bezier(.76,0,.24,1)}
+  36%,86%{transform:translate(0,0) rotate(0) scale(1);animation-timing-function:cubic-bezier(.65,0,.35,1)}
+  96%,100%{transform:translate(-27%,0) rotate(-3deg) scale(.95)}}
+@keyframes fin-dbp{
+  0%{transform:translate(27%,0) rotate(3deg) scale(.95)}
+  9%{transform:translate(27%,1.6%) rotate(3deg) scale(.95)}
+  18%{transform:translate(27%,0) rotate(3deg) scale(.95);animation-timing-function:cubic-bezier(.76,0,.24,1)}
+  36%,86%{transform:translate(0,0) rotate(0) scale(1);animation-timing-function:cubic-bezier(.65,0,.35,1)}
+  96%,100%{transform:translate(27%,0) rotate(3deg) scale(.95)}}
+/* The circle: with the third line, from 40% to 83% */
+@keyframes fin-dot{
+  0%,40%{transform:scale(0);opacity:0;transform-origin:8.38% 86.64%;animation-timing-function:cubic-bezier(.34,1.56,.64,1)}
+  45%{transform:scale(1.1);opacity:1;transform-origin:8.38% 86.64%}
+  48%,82%{transform:scale(1);opacity:1;transform-origin:8.38% 86.64%;animation-timing-function:cubic-bezier(.65,0,.35,1)}
+  85%,100%{transform:scale(0);opacity:0;transform-origin:8.38% 86.64%}}
+@keyframes fin-ring{
+  0%,41%{transform:translate(-50%,-50%) scale(.6);opacity:0}
+  43%{opacity:.9}
+  58%,100%{transform:translate(-50%,-50%) scale(2.6);opacity:0}}
+@keyframes fin-ring2{
+  0%,45%{transform:translate(-50%,-50%) scale(.6);opacity:0}
+  47%{opacity:.6}
+  64%,100%{transform:translate(-50%,-50%) scale(3.4);opacity:0}}
+@keyframes fin-sheen{
+  0%,54%{background-position:160% 0;opacity:0}
+  56%{opacity:1}
+  70%{background-position:-60% 0;opacity:1}
+  72%,100%{background-position:-60% 0;opacity:0}}
+/* Words on the same beats: the third line arrives with the circle (40%) and leaves with it (83%) */
+@keyframes fin-cap-a{
+  0%,16.5%{opacity:1;transform:translateY(0)}
+  18.5%,95%{opacity:0;transform:translateY(-8px)}
+  98%,100%{opacity:1;transform:translateY(0)}}
+@keyframes fin-cap-m{
+  0%,18%{opacity:0;transform:translateY(8px)}
+  21%,37.5%{opacity:1;transform:translateY(0)}
+  39.5%,100%{opacity:0;transform:translateY(-8px)}}
+@keyframes fin-cap-b{
+  0%,40%{opacity:0;transform:translateY(8px)}
+  43.5%,82%{opacity:1;transform:translateY(0)}
+  85%,100%{opacity:0;transform:translateY(-8px)}}
+@keyframes fin-beat-1{0%,17.5%{width:28px;background:var(--blue)}19%,96%{width:8px;background:rgba(12,31,61,.14)}98%,100%{width:28px;background:var(--blue)}}
+@keyframes fin-beat-2{0%,18%{width:8px;background:rgba(12,31,61,.14)}20%,38.5%{width:28px;background:var(--teal)}40%,100%{width:8px;background:rgba(12,31,61,.14)}}
+@keyframes fin-beat-3{0%,40%{width:8px;background:rgba(12,31,61,.14)}42%,83%{width:28px;background:var(--navy)}85%,100%{width:8px;background:rgba(12,31,61,.14)}}
