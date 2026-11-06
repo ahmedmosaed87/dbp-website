@@ -2184,3 +2184,24 @@ section.block.compare-block > .wrap > h2 + p.sol-lead{margin:14px auto 0;max-wid
 .st-vis.bars.alert .sv-row b{color:var(--ink-2)}
 .st-vis.bars.alert .sv-row:first-of-type i{background:#ff8a72}
 .st-vis.bars.alert .sv-row:first-of-type b{color:#e5603f}
+
+/* svp */
+/* The spend value proposition: three stacked layers, growth on top, value destroyed at the base. */
+section.block.svp-block > .wrap > h2 + p.svp-lead{margin:14px auto 0;max-width:62ch;text-align:center}
+.svp-layers{list-style:none;margin:36px auto 0;padding:0;display:grid;gap:10px;max-width:860px}
+.svp-layers li{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;border-radius:20px;padding:20px 24px}
+.svp-layers h3{margin:0 0 4px;font-size:19px;font-weight:600}
+.svp-layers p{margin:0;font-size:15px;line-height:1.6;max-width:none}
+.svp-n{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;font-weight:600;font-size:15px}
+.svp-act{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;white-space:nowrap}
+[dir="rtl"] .svp-act{letter-spacing:0;font-size:14px}
+.svp-l3{background:linear-gradient(120deg,#0b1a38,#1f4596);color:#fff;margin-inline:0}
+.svp-l3 p{color:#cfdcf4}.svp-l3 .svp-n{background:#5fe3c0;color:#0b1a38}.svp-l3 .svp-act{background:#5fe3c0;color:#0b1a38}
+.svp-l2{background:#eef3ff;color:var(--navy);margin-inline:28px}
+.svp-l2 p{color:var(--ink-2)}.svp-l2 .svp-n{background:#fff;color:var(--blue);box-shadow:inset 0 0 0 1.5px #c9d7f5}.svp-l2 .svp-act{background:#fff;color:var(--blue);box-shadow:inset 0 0 0 1px #c9d7f5}
+.svp-l1{background:#fff3f0;color:#7a2a18;margin-inline:56px}
+.svp-l1 p{color:#9a4a38}.svp-l1 .svp-n{background:#fff;color:#e5603f;box-shadow:inset 0 0 0 1.5px #f6c3b6}.svp-l1 .svp-act{background:#e5603f;color:#fff}
+.svp-l1 h3{text-decoration:line-through;text-decoration-color:rgba(229,96,63,.5)}
+.svp-proof{margin:26px auto 0;text-align:center;font-size:15.5px;max-width:none}
+.svp-proof a{font-weight:600;color:var(--blue)}
+@media (max-width:700px){ .svp-layers li{grid-template-columns:auto 1fr;margin-inline:0!important} .svp-act{grid-column:2;justify-self:start} }
