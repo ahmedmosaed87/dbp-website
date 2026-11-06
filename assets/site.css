@@ -2289,3 +2289,16 @@ section.block.svp-block > .wrap > h2 + p.svp-lead{margin:14px auto 0;max-width:6
 [lang="ar"] .kicker{font-size:16px;font-weight:600}
 [lang="ar"] .chapter{font-size:15px}
 [lang="ar"] .strip-h{font-size:17px}
+
+/* round-3-fixes */
+/* Pricing on phones: the comparison scrolls inside its own frame and never widens the page. */
+.ptab-panel,.plan-compare,.pc-scroll{min-width:0;max-width:100%}
+.plan-compare{width:100%}
+.pricing-band .wrap{min-width:0}
+@media (max-width:700px){ .plan-compare.v2 table{min-width:620px} .pc-scroll{overscroll-behavior-x:contain} }
+/* Stories: the impact band always sits at the bottom of its card. */
+.story .st-impact{margin-top:auto}
+/* Contact heading in ink, like every other heading. */
+footer h2{color:var(--ink)}
+/* Why us: a real chapter heading. */
+.wu-h{margin:0 0 6px;text-align:center}
