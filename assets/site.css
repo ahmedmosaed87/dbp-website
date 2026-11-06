@@ -2637,3 +2637,47 @@ section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;
 .ph-3 h3{color:#fff}
 .ph-3 p{color:#c9d6ee}
 @media (max-width:860px){ .ph-track{grid-template-columns:1fr;max-width:560px} .ph-track::before{display:none} }
+
+/* human-capital: the founding team's hours, lost to chores, then given back to growth. */
+.hc-apps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.hc-apps li{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);text-align:start}
+.hc-ic{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:12px;color:#fff}
+.hc-sheet .hc-ic{background:#1f9e5a}
+.hc-mail .hc-ic{background:#2c55f5}
+.hc-chat .hc-ic{background:#25a366}
+.hc-app{display:block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#9fb1cf}
+[dir="rtl"] .hc-app{letter-spacing:0;font-size:13px}
+.hc-apps b{display:block;margin:2px 0 4px;font-size:15.5px;font-weight:600;color:#fff}
+.hc-apps p{margin:0;font-size:15px;color:#ffb4a3}
+.hc-week{gap:14px;width:100%}
+.hc-row{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center;width:100%;max-width:420px}
+.hc-k{font-size:14px;font-weight:600;color:#dbe6fb;text-align:start}
+.hc-bar{display:flex;height:22px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.08)}
+.hc-bar i{display:block;height:100%;transition:flex-basis 1.1s cubic-bezier(.6,0,.2,1)}
+.hc-c{background:#ff9e8a}
+.hc-g{background:#5fe3c0}
+.hc-now .hc-c{flex-basis:72%}.hc-now .hc-g{flex-basis:28%}
+.hc-with .hc-c{flex-basis:12%}.hc-with .hc-g{flex-basis:88%}
+.night.armed:not(.played) .hc-with .hc-c{flex-basis:72%}
+.night.armed:not(.played) .hc-with .hc-g{flex-basis:28%}
+.hc-key{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;font-size:13.5px;color:#c9d6ee}
+.hc-key li{display:flex;align-items:center;gap:7px}
+.hc-key i{width:10px;height:10px;border-radius:3px}
+@media (prefers-reduced-motion:no-preference){
+  .night.playing .hc-apps li{animation:np-in .5s both;animation-delay:calc(var(--d) * .5s)}
+}
+
+/* six-capitals: DBP allocates all six capitals; the team's time (human) is the one the scene showed. */
+.six-caps{margin:clamp(48px,6vw,72px) auto 0;max-width:1080px;text-align:center}
+.sc-kick{display:inline-block;padding:5px 14px;border-radius:999px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5fe3c0;background:rgba(95,227,192,.1);box-shadow:inset 0 0 0 1px rgba(95,227,192,.3)}
+[dir="rtl"] .sc-kick{letter-spacing:0;font-size:14px}
+.six-caps h3{margin:16px auto 0;max-width:26ch;font-size:clamp(24px,2.6vw,32px);line-height:1.3;color:#fff;text-wrap:balance}
+.six-caps ul{list-style:none;margin:30px 0 0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.six-caps li{display:grid;justify-items:center;gap:6px;padding:20px 12px 18px;border-radius:18px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.sc-ic{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;color:#9fd8ff;background:rgba(159,216,255,.1)}
+.six-caps b{font-size:16px;color:#fff}
+.six-caps li > span:last-child{font-size:13.5px;line-height:1.45;color:#b7c6e2}
+.six-caps .sc-hum{background:linear-gradient(160deg,rgba(95,227,192,.22),rgba(95,227,192,.06));box-shadow:inset 0 0 0 1px rgba(95,227,192,.55)}
+.six-caps .sc-hum .sc-ic{color:#0b1a38;background:#5fe3c0}
+@media (max-width:980px){ .six-caps ul{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:520px){ .six-caps ul{grid-template-columns:repeat(2,minmax(0,1fr))} }
