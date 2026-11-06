@@ -2472,3 +2472,24 @@ header.top .switch{border-inline-start:0;padding-inline-start:0}
 header.top .switch button{font-size:14px;font-weight:500;color:var(--ink-2)}
 header.top .switch button:hover{color:var(--ink)}
 @media (max-width:1000px){ header.top .bar{grid-template-columns:1fr auto} header.top .bar nav.pages{grid-column:1 / -1;grid-row:2;justify-self:stretch;margin-inline-end:0} }
+
+/* pricing-top: headline, terms, one control row, then the plans. */
+.pricing-band{padding-block:clamp(44px,5vw,72px)}
+.pricing-band h1{font-size:clamp(32px,3.8vw,52px);margin:0 auto 14px}
+.pr-terms{list-style:none;margin:0 auto 30px;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;font-size:15px;color:var(--ink-2)}
+.pr-terms li{display:flex;align-items:center;gap:7px}
+.pr-terms svg{color:#0f8f74}
+.pr-terms li:first-child{font-weight:600;color:#0f7a62}
+.pr-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;margin:0 auto 34px;max-width:1240px}
+.pr-bar .ptabs{margin:0;justify-content:flex-start}
+.pr-bar .ptabs button{min-width:0;padding:9px 18px;border-radius:999px;display:flex;align-items:baseline;gap:10px}
+.pr-bar .ptabs button strong{font-size:15px}
+.pr-bar .ptabs button span{font-size:12.5px}
+.pr-bar .cur-wrap{margin:0;justify-items:end;gap:6px}
+.pr-bar .cur-note{font-size:12.5px;text-align:end}
+.pricing-band .plans.main{margin-top:14px}
+@media (max-width:900px){ .pr-bar{justify-content:center} .pr-bar .cur-wrap{justify-items:center} .pr-bar .cur-note{text-align:center} .pr-bar .ptabs button span{display:none} }
+/* pricing-top-2: a tight start, the label never splits. */
+section.block.pricing-band{padding-top:clamp(32px,3.6vw,52px)}
+.pricing-band .kicker{margin-bottom:8px}
+.cur span{white-space:nowrap}
