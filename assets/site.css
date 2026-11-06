@@ -2033,3 +2033,31 @@ section.ask-block .wrap > h2{color:#fff}
 @media (max-width:640px){ .zero-fee{border-radius:18px} }
 /* COACTA status: when early access opens. */
 .status-pill{display:inline-block;margin:14px auto 0;padding:6px 16px;border-radius:999px;font-size:14px;font-weight:600;color:#5fe3c0;background:rgba(95,227,192,.12);box-shadow:inset 0 0 0 1px rgba(95,227,192,.4)}
+
+/* compare-v2 */
+/* Compare plans: grouped by the ladder, equal plan columns, prices in the header, the recommended plan lit. */
+.plan-compare.v2 .pc-sub{margin:-8px auto 22px;text-align:center;font-size:15px;color:#b9c7e2;max-width:none}
+.plan-compare.v2 .pc-scroll{border-radius:22px;background:rgba(255,255,255,.025);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.plan-compare.v2 table{table-layout:fixed;min-width:760px}
+.plan-compare.v2 .pc-col-label{width:34%}
+.plan-compare.v2 th,.plan-compare.v2 td{border-top:0;padding:14px 16px}
+.plan-compare.v2 thead th{padding:26px 12px 22px;vertical-align:bottom}
+.plan-compare.v2 thead th b{display:block;font-size:18px;font-weight:600;color:#fff}
+.plan-compare.v2 .pc-price{display:block;margin-top:6px;font-size:20px;font-weight:600;color:#fff;white-space:nowrap}
+.plan-compare.v2 .pc-price small{font-size:12px;font-weight:500;color:#9fb1cf}
+.plan-compare.v2 .pc-badge{display:inline-block;margin-bottom:8px;padding:3px 10px;border-radius:999px;font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0b1a38;background:#5fe3c0}
+[dir="rtl"] .plan-compare.v2 .pc-badge{letter-spacing:0;font-size:12.5px}
+.plan-compare.v2 .pc-rec{background:rgba(44,85,245,.14)}
+.plan-compare.v2 thead .pc-rec{border-radius:16px 16px 0 0}
+.plan-compare.v2 tbody tr:last-child .pc-rec{border-radius:0 0 16px 16px}
+.plan-compare.v2 .pc-group th{padding:22px 16px 8px;text-align:start;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5fe3c0;border-top:1px solid rgba(255,255,255,.08)}
+[dir="rtl"] .plan-compare.v2 .pc-group th{letter-spacing:0;font-size:14px}
+.plan-compare.v2 .pc-group th span{display:inline-grid;place-items:center;width:20px;height:20px;margin-inline-end:8px;border-radius:50%;box-shadow:inset 0 0 0 1.5px #5fe3c0;font-size:11px}
+.plan-compare.v2 tbody th{font-weight:500;color:#e6edf9}
+.plan-compare.v2 td svg{color:#5fe3c0}
+.plan-compare.v2 .pc-runs th,.plan-compare.v2 .pc-runs td{padding-block:18px;border-top:1px solid rgba(255,255,255,.08);font-size:13px;color:#9fb1cf}
+/* compare-v2b */
+.plan-compare.v2 .pc-price{white-space:normal;display:grid;gap:1px;justify-items:center}
+.plan-compare.v2 .pc-price small{display:block}
+.plan-compare.v2 .pc-group td{border-top:1px solid rgba(255,255,255,.08)}
+.plan-compare.v2 .pc-group th{white-space:nowrap}
