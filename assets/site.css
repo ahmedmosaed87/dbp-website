@@ -2257,3 +2257,29 @@ section.block.svp-block > .wrap > h2 + p.svp-lead{margin:14px auto 0;max-width:6
 .hero-facts.themed .hf-ic{display:grid;place-items:center;width:44px;height:44px;margin-bottom:6px;border-radius:50%;color:var(--blue);background:linear-gradient(140deg,#eef3ff,#e8f8f6);box-shadow:inset 0 0 0 1px #dbe5f7}
 .hero-facts.themed li:nth-child(2) .hf-ic{color:#0f8f74}
 .hero-facts.themed li:nth-child(3) .hf-ic{color:#1f6fd0}
+
+/* logo-story captions: one refined moving line, and a labelled three-step row that lights up with the logo. */
+.merge figcaption{height:52px;margin-top:clamp(28px,3.2vw,40px)}
+.merge figcaption > span{font-size:clamp(21px,2.3vw,30px);font-weight:500;letter-spacing:-.012em;line-height:1.2}
+[lang="ar"] .merge figcaption > span{letter-spacing:0}
+.merge .cap-a{color:var(--ink-2);font-weight:400}
+.merge .cap-m{color:#0f8f74}
+.merge .cap-b{color:var(--navy);font-weight:600}
+.cap-steps{display:flex;justify-content:center;gap:34px;margin-top:22px}
+.cap-steps span{position:relative;display:flex;align-items:center;gap:8px;padding-bottom:12px;font-size:13.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#9aa6ba}
+[lang="ar"] .cap-steps span{letter-spacing:0;font-size:15px}
+.cap-steps b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;font-size:11.5px;box-shadow:inset 0 0 0 1.5px currentColor}
+.cap-steps span::after{content:"";position:absolute;bottom:0;inset-inline-start:50%;transform:translateX(-50%);height:3px;width:8px;border-radius:3px;background:rgba(12,31,61,.14)}
+[dir="rtl"] .cap-steps span::after{transform:translateX(50%)}
+@media (prefers-reduced-motion:no-preference){
+  .cap-steps span:nth-child(1){animation:fin-lab-1 11s infinite}
+  .cap-steps span:nth-child(2){animation:fin-lab-2 11s infinite}
+  .cap-steps span:nth-child(3){animation:fin-lab-3 11s infinite}
+  .cap-steps span:nth-child(1)::after{animation:fin-beat-1 11s infinite}
+  .cap-steps span:nth-child(2)::after{animation:fin-beat-2 11s infinite}
+  .cap-steps span:nth-child(3)::after{animation:fin-beat-3 11s infinite}
+}
+@keyframes fin-lab-1{0%,17.5%{color:var(--blue)}19%,96%{color:#9aa6ba}98%,100%{color:var(--blue)}}
+@keyframes fin-lab-2{0%,18%{color:#9aa6ba}20%,38.5%{color:#0f8f74}40%,100%{color:#9aa6ba}}
+@keyframes fin-lab-3{0%,40%{color:#9aa6ba}42%,83%{color:var(--navy)}85%,100%{color:#9aa6ba}}
+@media (prefers-reduced-motion:reduce){ .cap-steps span:nth-child(3){color:var(--navy)} .cap-steps span:nth-child(3)::after{width:28px;background:var(--navy)} }
