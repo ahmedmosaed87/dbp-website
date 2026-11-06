@@ -225,8 +225,11 @@
     var k = 0; show(0);
     if (reduce) return;
     var timer = null;
-    function start() { if (!timer) timer = setInterval(function () { k = (k + 1) % steps.length; show(k); }, 3400); }
-    function stop() { clearInterval(timer); timer = null; }
+    // Each step stays long enough to read its caption: longer lines hold longer.
+    function dwell(i) { return Math.max(3400, 1600 + steps[i][2].length * 38); }
+    function next() { timer = setTimeout(function () { k = (k + 1) % steps.length; show(k); next(); }, dwell(k)); }
+    function start() { if (!timer) next(); }
+    function stop() { clearTimeout(timer); timer = null; }
     if ("IntersectionObserver" in window) { new IntersectionObserver(function (es) { es.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { threshold: 0.3 }).observe(fig); } else start();
   });
 })();
