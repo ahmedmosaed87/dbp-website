@@ -3040,3 +3040,6 @@ section.block:has(+ section.block.joined){padding-bottom:clamp(40px,5vw,72px)}
 .sol-ea a{font-size:16px;font-weight:600;color:var(--blue,#2c55f5);text-decoration:none}
 .sol-ea a:hover,.sol-ea a:focus-visible{text-decoration:underline;text-underline-offset:3px}
 .hh-scale > span:first-child,.hh-scale > span:last-child{white-space:nowrap}
+/* ways-to-pay: equity is available, chosen case by case. */
+.way.sel{background:#fff8ea;box-shadow:inset 0 0 0 1px #f0cf8a}
+.way.sel i{color:#a26a00}
