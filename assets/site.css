@@ -2515,3 +2515,9 @@ header.top .bar nav.pages{justify-self:center;margin-inline:0}
 @media (max-width:900px){ .pr-bar{flex-wrap:wrap} }
 .plans .price bdi{white-space:nowrap}
 .plans.main .price{font-size:clamp(28px,2.5vw,40px)}
+
+/* rec-badge: "Recommended" sits on the card's top edge as a pill, part of the card. */
+.plans .rec{position:relative;overflow:visible}
+.plans .rec .rec-tag{position:absolute;top:0;inset-inline-start:50%;transform:translate(-50%,-50%);margin:0;padding:6px 16px;border-radius:999px;background:#5fe3c0;color:#0b1a38;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;box-shadow:0 8px 20px -10px rgba(11,26,56,.6),0 0 0 4px #f6f8fc;z-index:2}
+[dir="rtl"] .plans .rec .rec-tag{transform:translate(50%,-50%);letter-spacing:0;font-size:13px}
+.plans .rec::before{display:none}
