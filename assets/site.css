@@ -2302,3 +2302,51 @@ section.block.svp-block > .wrap > h2 + p.svp-lead{margin:14px auto 0;max-width:6
 footer h2{color:var(--ink)}
 /* Why us: a real chapter heading. */
 .wu-h{margin:0 0 6px;text-align:center}
+
+/* night-scene */
+/* The night: a phone thread beside the runway, the line beneath. Everything is readable at rest; motion only adds drama. */
+.pain-block .scene.night{max-width:1020px;padding:34px}
+.night-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:34px;align-items:center}
+.night-phone{border-radius:30px;padding:16px 16px 20px;background:#0a1226;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 30px 60px -30px rgba(0,0,0,.7);max-width:420px;width:100%;justify-self:center}
+.np-top{display:flex;align-items:center;gap:10px;padding:4px 6px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.np-av{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#2c55f5;color:#fff;font-weight:600;font-size:14px}
+.np-top b{display:block;font-size:15px;color:#fff;font-weight:600}
+.np-top i{font-style:normal;font-size:12px;color:#5fe3c0}
+.np-thread{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:10px}
+.np-thread li{max-width:84%;display:grid;gap:4px}
+.np-thread p{margin:0;padding:10px 14px;border-radius:16px;font-size:15px;line-height:1.5;text-align:start}
+.np-thread time{font-size:11.5px;color:#7f8fb0}
+.np-in{justify-self:start}
+.np-in p{background:rgba(255,255,255,.08);color:#e6edf9;border-start-start-radius:6px}
+.np-out{justify-self:end}
+.np-out time{text-align:end}
+.np-out p{background:#2c55f5;color:#fff;border-start-end-radius:6px}
+.np-alert p{background:#e5603f}
+.night-runway{display:grid;justify-items:center;text-align:center;gap:6px}
+.nr-label{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9fb1cf}
+[dir="rtl"] .nr-label{letter-spacing:0;font-size:15px}
+.nr-figure{display:flex;align-items:baseline;gap:10px}
+.nr-figure b{font-size:clamp(96px,11vw,150px);font-weight:600;line-height:1;color:#fff;font-variant-numeric:tabular-nums;transition:color .5s}
+.nr-figure span{font-size:20px;color:#dbe6fb}
+.night.played .nr-figure b{color:#ff9e8a}
+.nr-states{display:grid;gap:4px;font-size:14px;color:#9fb1cf}
+.nr-states s{color:#c9d6ee}
+.nr-states .nr-now b{color:#ff9e8a}
+.nr-clock{display:flex;align-items:center;gap:10px;margin-top:18px;font-size:13px;color:#9fb1cf;width:100%;max-width:300px}
+.nr-clock i{flex:1;height:2px;border-radius:2px;background:linear-gradient(90deg,#2c55f5,#ff9e8a)}
+[dir="rtl"] .nr-clock i{background:linear-gradient(270deg,#2c55f5,#ff9e8a)}
+.nr-doubt{margin:4px 0 0;font-size:17px;font-weight:600;color:#ff9e8a}
+.night-line{margin:30px 0 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.night-line p{margin:0 auto;max-width:30ch;text-align:center;font-size:clamp(22px,2.4vw,30px);font-weight:600;line-height:1.35;color:#fff}
+.pain-block .scene.night figcaption{text-align:center}
+/* Motion, only when allowed: the thread arrives message by message. */
+@media (prefers-reduced-motion:no-preference){
+  .night.playing .np-thread li{animation:np-in .5s both;animation-delay:calc(var(--d) * .6s)}
+  @keyframes np-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+}
+@media (max-width:820px){ .night-grid{grid-template-columns:1fr} .pain-block .scene.night{padding:22px} }
+/* The five walls, in the founders' voice. */
+.walls.voice li{position:relative;padding-top:26px}
+.walls.voice .wall-q{font-size:18px;line-height:1.45}
+.walls.voice li::after{content:"\201C";position:absolute;top:8px;inset-inline-end:16px;font-size:64px;line-height:1;color:rgba(255,158,138,.22);font-family:Georgia,serif}
+[dir="rtl"] .walls.voice li::after{content:"\00AB";font-family:inherit;font-size:44px;top:14px}

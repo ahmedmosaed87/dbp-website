@@ -141,3 +141,20 @@
   });
   setTimeout(function () { items.forEach(function (el) { el.classList.add('in'); }); }, 4000);
 })();
+
+/* runway-countdown: when the night scene comes into view, the runway counts down 14 to 11 and the thread appears message by message. */
+(function () {
+  var figs = document.querySelectorAll('.night');
+  if (!figs.length) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function settle(f) { f.classList.add('played'); var b = f.querySelector('.nr-figure b'); if (b) b.textContent = '11'; }
+  function play(f) {
+    if (reduce) { settle(f); return; }
+    f.classList.add('playing');
+    var b = f.querySelector('.nr-figure b'), n = 14;
+    setTimeout(function step() { n -= 1; if (b) b.textContent = String(n); if (n > 11) setTimeout(step, 520); else f.classList.add('played'); }, 2600);
+  }
+  if (!('IntersectionObserver' in window)) { figs.forEach(settle); return; }
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { play(e.target); io.unobserve(e.target); } }); }, { threshold: 0.35 });
+  figs.forEach(function (f) { io.observe(f); });
+})();
