@@ -2521,3 +2521,10 @@ header.top .bar nav.pages{justify-self:center;margin-inline:0}
 .plans .rec .rec-tag{position:absolute;top:0;inset-inline-start:50%;transform:translate(-50%,-50%);margin:0;padding:6px 16px;border-radius:999px;background:#5fe3c0;color:#0b1a38;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;box-shadow:0 8px 20px -10px rgba(11,26,56,.6),0 0 0 4px #f6f8fc;z-index:2}
 [dir="rtl"] .plans .rec .rec-tag{transform:translate(50%,-50%);letter-spacing:0;font-size:13px}
 .plans .rec::before{display:none}
+
+/* door-icons: each stage has its own picture — a sprout, a rocket, rising bars. */
+.door-ic{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;color:var(--blue);background:linear-gradient(140deg,#eef3ff,#e8f8f6);box-shadow:inset 0 0 0 1px #dbe5f7}
+.door:nth-child(1) .door-ic{color:#0f8f74}
+.door:nth-child(2) .door-ic{color:#1f4596}
+.door:nth-child(3) .door-ic{color:#2c55f5}
+.door-ic svg{width:26px;height:26px}
