@@ -2253,3 +2253,7 @@ section.block.svp-block > .wrap > h2 + p.svp-lead{margin:14px auto 0;max-width:6
 .reveal.in{opacity:1;transform:none}
 /* founder-portrait: the full 4:5 portrait in Why us */
 .wu-photo img{aspect-ratio:4/5;object-position:center top}
+/* hero-icons: one fine line icon per theme, in a soft tinted circle. */
+.hero-facts.themed .hf-ic{display:grid;place-items:center;width:44px;height:44px;margin-bottom:6px;border-radius:50%;color:var(--blue);background:linear-gradient(140deg,#eef3ff,#e8f8f6);box-shadow:inset 0 0 0 1px #dbe5f7}
+.hero-facts.themed li:nth-child(2) .hf-ic{color:#0f8f74}
+.hero-facts.themed li:nth-child(3) .hf-ic{color:#1f6fd0}
