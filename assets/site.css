@@ -2762,3 +2762,22 @@ section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;
   .pr-bar .cur span{grid-column:1 / -1;width:auto;padding:4px 0 2px;text-align:center}
   .pr-bar .cur button{border-radius:12px;padding:0 6px;min-height:36px;white-space:nowrap}
 }
+/* compare-sticky: the feature column stays in place while the plans scroll beside it. */
+.plan-compare.v2 tr > :first-child{position:sticky;inset-inline-start:0;z-index:2;background:#fff}
+.plan-compare.v2 tbody tr > th:first-child,.plan-compare.v2 thead tr > th:first-child{box-shadow:inset -1px 0 0 #e1e8f3}
+[dir="rtl"] .plan-compare.v2 tbody tr > th:first-child,[dir="rtl"] .plan-compare.v2 thead tr > th:first-child{box-shadow:inset 1px 0 0 #e1e8f3}
+@media (max-width:700px){
+  .plan-compare.v2 table{min-width:0;width:max-content}
+  .plan-compare.v2 .pc-col-label{width:150px}
+  .plan-compare.v2 col:not(.pc-col-label){width:112px}
+  .plan-compare.v2 tr > :first-child{width:150px;min-width:150px;max-width:150px}
+  .plan-compare.v2 tbody th{font-size:14px;line-height:1.45;padding:12px 12px}
+  .plan-compare.v2 .pc-group th{white-space:normal;padding:20px 12px 6px}
+  .plan-compare.v2 td{padding:12px 8px}
+  .plan-compare.v2 thead th{padding:22px 8px 18px}
+  .plan-compare.v2 .pc-price{font-size:18px}
+}
+@media (max-width:700px){
+  .plan-compare.v2 .pc-sub::after{display:block;margin-top:6px;font-size:13px;font-weight:600;color:var(--blue,#2c55f5);content:"Swipe to see every plan →"}
+  [lang="ar"] .plan-compare.v2 .pc-sub::after,[dir="rtl"] .plan-compare.v2 .pc-sub::after{content:"اسحب لترى كل الخطط ←"}
+}
