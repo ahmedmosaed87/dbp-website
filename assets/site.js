@@ -9,6 +9,7 @@
     document.querySelectorAll('[data-lang]').forEach(function (n) { n.hidden = n.getAttribute('data-lang') !== lang; });
     bAr.setAttribute('aria-pressed', String(isAr)); bEn.setAttribute('aria-pressed', String(!isAr));
     document.documentElement.lang = lang; document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+    document.documentElement.classList.remove('lang-pending');
     try { localStorage.setItem('dbp-lang', lang); } catch (e) {}
     // Give search engines and the browser tab the title, description and address of the language being read.
     var pm = document.getElementById('page-meta');
