@@ -228,3 +228,31 @@
     if ("IntersectionObserver" in window) { new IntersectionObserver(function (es) { es.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { threshold: 0.3 }).observe(fig); } else start();
   });
 })();
+
+/* hunt-clock: when the "Meanwhile" panel comes into view, the clock runs from 4:31 to 8:47 pm, the bar fills, the hours spent count up and each source lights up as the founder reaches it. At rest (no motion, or no observer) it shows the end state. */
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.hh-clock').forEach(function (c) {
+    var panel = c.closest('.hc-hunt'), ar = c.getAttribute('data-lang') === 'ar';
+    var from = +c.getAttribute('data-from'), span = +c.getAttribute('data-span');
+    var time = c.querySelector('.hh-time'), bar = c.querySelector('.hh-bar i'), spent = c.querySelector('.hh-spent b');
+    var srcs = panel.querySelectorAll('[data-at]');
+    function clock(min) { var h = Math.floor(min / 60) % 12 || 12, m = min % 60; return h + ':' + (m < 10 ? '0' : '') + m + (ar ? ' م' : ' pm'); }
+    function dur(min) { var h = Math.floor(min / 60), m = min % 60; return ar ? h + ' س ' + m + ' د' : h + ' h ' + m + ' min'; }
+    function draw(k) {
+      var e = Math.round(span * k);
+      time.textContent = clock(from + e); spent.textContent = dur(e); bar.style.width = (k * 100) + '%';
+      srcs.forEach(function (s) { s.classList.toggle('hh-on', e >= +s.getAttribute('data-at')); });
+    }
+    panel.classList.add('hh-armed'); draw(0);
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return; io.disconnect();
+        var t0 = Date.now() + 300, dur0 = 5200;
+        var iv = setInterval(function () { var k = Math.max(0, Math.min(1, (Date.now() - t0) / dur0)); draw(k); if (k >= 1) { clearInterval(iv); panel.classList.add('hh-done'); } }, 40);
+      });
+    }, { threshold: 0.6 });
+    io.observe(panel);
+  });
+})();
