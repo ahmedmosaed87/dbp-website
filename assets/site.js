@@ -169,6 +169,7 @@
       var d = -90 + i * (360 / nodes.length); if (rtl) d = 180 - d;
       var a = d * Math.PI / 180; ang[n.getAttribute("data-node")] = a;
       n.style.left = (50 + R * Math.cos(a)) + "%"; n.style.top = (50 + R * Math.sin(a)) + "%";
+      var nx = 50 + R * Math.cos(a); n.classList.add(nx > 56 ? "af-r" : nx < 44 ? "af-l" : "af-c");
     });
     function pt(a, r) { return [50 + r * Math.cos(a), 50 + r * Math.sin(a)]; }
     var steps = []; try { steps = JSON.parse(fig.getAttribute("data-steps")); } catch (e) { return; }
@@ -187,7 +188,7 @@
       }
       p.setAttribute("data-k", i); lines.appendChild(p); segs.push(seg);
     });
-    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches, say = null;
     function at(seg, e) { return seg.kind === "spoke" ? pt(seg.a, seg.from + (seg.to - seg.from) * e) : pt(seg.a1 + seg.d * e, R); }
     function show(i) {
       var st = steps[i];
@@ -197,6 +198,9 @@
       if (f) f.classList.add("is-from"); if (to) to.classList.add("is-to");
       if (st[1] === "investors") { var bd = stage.querySelector("[data-node=\"board\"]"); if (bd) bd.classList.add("is-to"); }
       cap.textContent = st[2];
+      // The line also appears beside the actor who acts, where the eye already is.
+      var actor = stage.querySelector("[data-node=\"" + (st[0] === "core" ? st[1] : st[0]) + "\"]");
+      if (actor) { if (!say) { say = document.createElement("span"); say.className = "af-say"; say.setAttribute("aria-hidden", "true"); } say.textContent = st[2]; actor.appendChild(say); say.classList.remove("af-say-in"); void say.offsetWidth; say.classList.add("af-say-in"); }
       var p0 = at(segs[i], reduce ? 1 : 0); pulse.setAttribute("cx", p0[0]); pulse.setAttribute("cy", p0[1]);
       if (reduce) return;
       var t0 = null;
