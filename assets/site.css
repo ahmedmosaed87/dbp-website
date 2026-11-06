@@ -2463,3 +2463,12 @@ header.top{background:rgba(255,255,255,.94)}
 .faq p{color:var(--ink-2)}
 .pricing-band .btn.ghost{color:var(--blue);background:transparent;box-shadow:none}
 .pricing-band .btn.ghost:hover{color:var(--navy)}
+
+/* header-v3: logo at the start; pages grouped toward the end; then search, language, and one button at the far end. */
+header.top .bar{grid-template-columns:auto 1fr auto}
+header.top .bar nav.pages{justify-self:end;margin-inline-start:0;margin-inline-end:clamp(8px,1.6vw,22px)}
+.bar-actions{gap:16px}
+header.top .switch{border-inline-start:0;padding-inline-start:0}
+header.top .switch button{font-size:14px;font-weight:500;color:var(--ink-2)}
+header.top .switch button:hover{color:var(--ink)}
+@media (max-width:1000px){ header.top .bar{grid-template-columns:1fr auto} header.top .bar nav.pages{grid-column:1 / -1;grid-row:2;justify-self:stretch;margin-inline-end:0} }
