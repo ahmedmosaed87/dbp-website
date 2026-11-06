@@ -162,7 +162,7 @@
 /* actors-flow-play: place the actors on the ring; each step travels around the ring (or along a spoke to finance), the caption follows. */
 (function () {
   document.querySelectorAll(".actors-flow").forEach(function (fig) {
-    var rtl = fig.closest("[dir=\"rtl\"]") !== null, R = 38;
+    var rtl = fig.closest("[dir=\"rtl\"]") !== null, R = 42;
     var stage = fig.querySelector(".af-stage"), lines = fig.querySelector(".af-lines"), pulse = fig.querySelector(".af-pulse"), acta = fig.querySelector(".af-acta"), cap = fig.querySelector(".af-caption");
     var nodes = fig.querySelectorAll(".af-node"), ang = {};
     nodes.forEach(function (n, i) {
@@ -178,7 +178,7 @@
       var p = document.createElementNS(ns, "path"), seg;
       if (st[0] === "core" || st[1] === "core") {
         var ring = st[0] === "core" ? st[1] : st[0], a = ang[ring], out = st[0] === "core";
-        seg = { kind: "spoke", a: a, from: out ? 17 : R, to: out ? R : 17 };
+        seg = { kind: "spoke", a: a, from: out ? 12.5 : R, to: out ? R : 12.5 };
         var p1 = pt(a, seg.from), p2 = pt(a, seg.to); p.setAttribute("d", "M" + p1 + "L" + p2);
       } else {
         var a1 = ang[st[0]], a2 = ang[st[1]], dlt = Math.atan2(Math.sin(a2 - a1), Math.cos(a2 - a1));
@@ -230,7 +230,7 @@
       if (reduce) return;
       var t0 = null;
       function frame(ts) { if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / 1300), e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2, q = at(segs[i], e);
-        place(q); if (p < 1) requestAnimationFrame(frame); else if (acta) { acta.classList.add("af-rest"); } }
+        place(q); if (p > .35 && p < .75) fig.classList.add("af-gov-on"); else fig.classList.remove("af-gov-on"); if (p < 1) requestAnimationFrame(frame); else if (acta) { acta.classList.add("af-rest"); } }
       requestAnimationFrame(frame);
     }
     var k = 0; show(0);

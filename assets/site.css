@@ -2911,3 +2911,22 @@ section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;
 }
 @media (max-width:700px){ .af-brain-label{display:none} }
 @media (min-width:1024px){ .actors-flow{padding-block:40px 120px} }
+
+/* governance-layer: finance, the Enterprise Brain, Acta, then governance, which every piece of work passes through. */
+.af-gov{fill:none;stroke:rgba(243,201,105,.75);stroke-width:.55;transition:stroke .3s,stroke-width .3s}
+.actors-flow.af-gov-on .af-gov{stroke:#f3c969;stroke-width:.9}
+.af-gov-label{fill:#f3d58f}
+.af-label{font-size:2.3px;font-weight:600;paint-order:stroke;stroke:#0b1a38;stroke-width:1.1px;stroke-linejoin:round}
+[dir="rtl"] .af-label{font-size:2.6px}
+.af-brain{stroke:rgba(79,209,232,.75)}
+.af-ring{stroke:rgba(255,255,255,.18)}
+.actors-flow .af-core{width:25%}
+@media (min-width:1024px){ .actors-flow .af-stage{width:clamp(600px,48vw,840px)} .actors-flow .af-core{width:25%} }
+@media (max-width:560px){ .actors-flow .af-core{width:27%} .af-ic{width:36px;height:36px} }
+@media (max-width:700px){
+  .af-label{display:none}
+  .actors-flow::after{content:"◌ Enterprise Brain   ◌ Acta   ◌ Governance"}
+  [dir="rtl"] .actors-flow::after{content:"◌ العقل المؤسسي   ◌ أكتا   ◌ الحوكمة"}
+}
+.af-label{stroke-width:.45px;letter-spacing:.05px}
+[dir="rtl"] .af-label{stroke-width:.4px;letter-spacing:0}
