@@ -2930,3 +2930,6 @@ section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;
 }
 .af-label{stroke-width:.45px;letter-spacing:.05px}
 [dir="rtl"] .af-label{stroke-width:.4px;letter-spacing:0}
+/* joined: a section that follows another on the same background starts closer, so no double gap opens between them. */
+section.block.joined{padding-top:clamp(28px,3.5vw,52px)}
+section.block:has(+ section.block.joined){padding-bottom:clamp(40px,5vw,72px)}
