@@ -142,19 +142,6 @@
   setTimeout(function () { items.forEach(function (el) { el.classList.add('in'); }); }, 4000);
 })();
 
-/* thread-play: the investor thread plays message by message once the phone is in view, on every screen size; the cost panel and the week bars play once they are in view. */
-(function () {
-  var figs = document.querySelectorAll('.night');
-  if (!figs.length || !('IntersectionObserver' in window)) return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  figs.forEach(function (f) {
-    var phone = f.querySelector('.night-phone') || f, runway = f.querySelector('.night-runway');
-    f.classList.add('armed');
-    var io1 = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { f.classList.add('playing'); io1.disconnect(); } }); }, { threshold: 0.35 });
-    var io2 = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { setTimeout(function () { f.classList.add('played'); }, 900); io2.disconnect(); } }); }, { threshold: 0.5 });
-    io1.observe(phone); if (runway) io2.observe(runway);
-  });
-})();
 
 /* search-focus-trap: while search is open, the keyboard stays inside it, Escape closes it, and focus returns to the search button. */
 (function () {
@@ -229,30 +216,70 @@
   });
 })();
 
-/* hunt-clock: when the "Meanwhile" panel comes into view, the clock runs from 4:31 to 8:47 pm, the bar fills, the hours spent count up and each source lights up as the founder reaches it. At rest (no motion, or no observer) it shows the end state. */
+
+
+/* problem-story: the investor thread and the founder's evening, played as one story. Side by side (wide screens): the chat plays to the time marker, the clock runs 4:31 to 8:47 pm while each source lights up, then the 8:47 answer and the rest of the thread arrive. Stacked (phones): the chat and the clock each play when they come into view. Without motion everything shows at once, at its end state. */
 (function () {
   if (!('IntersectionObserver' in window)) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.querySelectorAll('.hh-clock').forEach(function (c) {
-    var panel = c.closest('.hc-hunt'), ar = c.getAttribute('data-lang') === 'ar';
-    var from = +c.getAttribute('data-from'), span = +c.getAttribute('data-span');
-    var time = c.querySelector('.hh-time'), bar = c.querySelector('.hh-bar i'), spent = c.querySelector('.hh-spent b');
-    var srcs = panel.querySelectorAll('[data-at]');
-    function clock(min) { var h = Math.floor(min / 60) % 12 || 12, m = min % 60; return h + ':' + (m < 10 ? '0' : '') + m + (ar ? ' م' : ' pm'); }
-    function dur(min) { var h = Math.floor(min / 60), m = min % 60; return ar ? h + ' س ' + m + ' د' : h + ' h ' + m + ' min'; }
-    function draw(k) {
-      var e = Math.round(span * k);
-      time.textContent = clock(from + e); spent.textContent = dur(e); bar.style.width = (k * 100) + '%';
-      srcs.forEach(function (s) { s.classList.toggle('hh-on', e >= +s.getAttribute('data-at')); });
+  document.querySelectorAll('.night').forEach(function (f) {
+    var phone = f.querySelector('.night-phone') || f, runway = f.querySelector('.night-runway');
+    var items = Array.prototype.slice.call(f.querySelectorAll('.np-thread > li'));
+    var gapAt = items.findIndex(function (li) { return li.classList.contains('np-gap'); });
+    var c = f.querySelector('.hh-clock'), panel = c ? c.closest('.hc-hunt') : null;
+    var wide = window.matchMedia('(min-width: 821px)').matches && panel && gapAt >= 0;
+
+    // The clock: a time, a filling bar, the hours spent, and the sources lit as they are reached.
+    var clockRun = null;
+    if (c) {
+      var ar = c.getAttribute('data-lang') === 'ar', from = +c.getAttribute('data-from'), span = +c.getAttribute('data-span');
+      var time = c.querySelector('.hh-time'), bar = c.querySelector('.hh-bar i'), spent = c.querySelector('.hh-spent b');
+      var srcs = panel.querySelectorAll('[data-at]'), started = false;
+      var clk = function (m) { var h = Math.floor(m / 60) % 12 || 12, mm = m % 60; return h + ':' + (mm < 10 ? '0' : '') + mm + (ar ? ' م' : ' pm'); };
+      var dur = function (m) { var h = Math.floor(m / 60), mm = m % 60; return ar ? h + ' س ' + mm + ' د' : h + ' h ' + mm + ' min'; };
+      var draw = function (k) {
+        var e = Math.round(span * k);
+        time.textContent = clk(from + e); spent.textContent = dur(e); bar.style.width = (k * 100) + '%';
+        srcs.forEach(function (s) { s.classList.toggle('hh-on', e >= +s.getAttribute('data-at')); });
+      };
+      panel.classList.add('hh-armed'); draw(0);
+      clockRun = function (done) {
+        if (started) return; started = true;
+        var t0 = Date.now(), d = 5200;
+        var iv = setInterval(function () {
+          var k = Math.min(1, (Date.now() - t0) / d); draw(k);
+          if (k >= 1) { clearInterval(iv); panel.classList.add('hh-done'); if (done) done(); }
+        }, 40);
+      };
     }
-    panel.classList.add('hh-armed'); draw(0);
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (en) {
-        if (!en.isIntersecting) return; io.disconnect();
-        var t0 = Date.now() + 300, dur0 = 5200;
-        var iv = setInterval(function () { var k = Math.max(0, Math.min(1, (Date.now() - t0) / dur0)); draw(k); if (k >= 1) { clearInterval(iv); panel.classList.add('hh-done'); } }, 40);
-      });
-    }, { threshold: 0.6 });
-    io.observe(panel);
+
+    // The chat: messages arrive one at a time.
+    f.classList.add('armed');
+    var show = function (i) { if (items[i]) items[i].classList.add('shown'); };
+    var playFrom = function (i, last, gap, done) {
+      if (i > last) { if (done) done(); return; }
+      show(i); setTimeout(function () { playFrom(i + 1, last, gap, done); }, gap);
+    };
+    var go = function () {
+      if (wide) {
+        playFrom(0, gapAt, 900, function () {
+          setTimeout(function () { clockRun(function () { setTimeout(function () { playFrom(gapAt + 1, items.length - 1, 1300); }, 400); }); }, 300);
+        });
+      } else {
+        playFrom(0, items.length - 1, 900);
+      }
+    };
+    var io1 = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { io1.disconnect(); go(); } }); }, { threshold: 0.35 });
+    io1.observe(phone);
+
+    // On phones the clock plays when its own panel comes into view.
+    if (c && !wide) {
+      var io3 = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { io3.disconnect(); setTimeout(function () { clockRun(); }, 300); } }); }, { threshold: 0.6 });
+      io3.observe(panel);
+    }
+
+    // The week bars move once the cost panel is in view.
+    var io2 = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { setTimeout(function () { f.classList.add('played'); }, 900); io2.disconnect(); } }); }, { threshold: 0.5 });
+    if (runway) io2.observe(runway);
   });
 })();

@@ -2831,3 +2831,9 @@ section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;
 .hc-hunt.hh-armed .np-hunt > span.hh-on{box-shadow:inset 0 0 0 1px rgba(255,158,138,.35)}
 .hc-hunt.hh-done .np-hunt > span{box-shadow:none}
 [dir="rtl"] .hh-time{direction:rtl}
+
+/* problem-story: each message shows when the story reaches it. */
+@media (prefers-reduced-motion:no-preference){
+  .night.armed .np-thread li{opacity:0;animation:none}
+  .night.armed .np-thread li.shown{opacity:1;animation:np-in .55s both}
+}
