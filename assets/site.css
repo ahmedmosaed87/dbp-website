@@ -2493,3 +2493,25 @@ header.top .switch button:hover{color:var(--ink)}
 section.block.pricing-band{padding-top:clamp(32px,3.6vw,52px)}
 .pricing-band .kicker{margin-bottom:8px}
 .cur span{white-space:nowrap}
+
+/* header-balance: the pages sit centred between the logo and the actions. */
+header.top .bar{grid-template-columns:1fr auto 1fr}
+header.top .bar .brand{justify-self:start}
+header.top .bar nav.pages{justify-self:center;margin-inline:0}
+.bar-actions{justify-self:end}
+@media (max-width:1000px){ header.top .bar{grid-template-columns:1fr auto} header.top .bar nav.pages{grid-column:1 / -1;grid-row:2;justify-self:stretch} }
+
+/* pr-bar-align: tabs and currency are two pills of the same height on one line; the currency note sits beneath. */
+.pr-bar{align-items:flex-start;margin-bottom:46px}
+.pr-bar .ptabs{gap:8px}
+.pr-bar .ptabs button{height:44px;padding:0 18px;align-items:center}
+.pr-bar .cur{height:44px;padding:0 5px;box-sizing:border-box}
+.pr-bar .cur button{min-height:34px;padding:0 13px}
+.pr-bar .cur-wrap{gap:8px}
+@media (max-width:900px){ .pr-bar{align-items:center} }
+/* pr-bar-fit: tab titles only, so the tabs and the currency switch share one line; prices never break. */
+.pr-bar .ptabs button span{display:none}
+.pr-bar{flex-wrap:nowrap}
+@media (max-width:900px){ .pr-bar{flex-wrap:wrap} }
+.plans .price bdi{white-space:nowrap}
+.plans.main .price{font-size:clamp(28px,2.5vw,40px)}
