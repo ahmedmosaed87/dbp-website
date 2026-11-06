@@ -176,3 +176,57 @@
     else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
   });
 })();
+
+/* actors-flow-play: place the actors on the ring; each step travels around the ring (or along a spoke to finance), the caption follows. */
+(function () {
+  document.querySelectorAll(".actors-flow").forEach(function (fig) {
+    var rtl = fig.closest("[dir=\"rtl\"]") !== null, R = 38;
+    var stage = fig.querySelector(".af-stage"), lines = fig.querySelector(".af-lines"), pulse = fig.querySelector(".af-pulse"), cap = fig.querySelector(".af-caption");
+    var nodes = fig.querySelectorAll(".af-node"), ang = {};
+    nodes.forEach(function (n, i) {
+      var d = -90 + i * (360 / nodes.length); if (rtl) d = 180 - d;
+      var a = d * Math.PI / 180; ang[n.getAttribute("data-node")] = a;
+      n.style.left = (50 + R * Math.cos(a)) + "%"; n.style.top = (50 + R * Math.sin(a)) + "%";
+    });
+    function pt(a, r) { return [50 + r * Math.cos(a), 50 + r * Math.sin(a)]; }
+    var steps = []; try { steps = JSON.parse(fig.getAttribute("data-steps")); } catch (e) { return; }
+    var ns = "http://www.w3.org/2000/svg", segs = [];
+    steps.forEach(function (st, i) {
+      var p = document.createElementNS(ns, "path"), seg;
+      if (st[0] === "core" || st[1] === "core") {
+        var ring = st[0] === "core" ? st[1] : st[0], a = ang[ring], out = st[0] === "core";
+        seg = { kind: "spoke", a: a, from: out ? 17 : R, to: out ? R : 17 };
+        var p1 = pt(a, seg.from), p2 = pt(a, seg.to); p.setAttribute("d", "M" + p1 + "L" + p2);
+      } else {
+        var a1 = ang[st[0]], a2 = ang[st[1]], dlt = Math.atan2(Math.sin(a2 - a1), Math.cos(a2 - a1));
+        seg = { kind: "arc", a1: a1, d: dlt };
+        var q1 = pt(a1, R), q2 = pt(a2, R);
+        p.setAttribute("d", "M" + q1 + "A" + R + " " + R + " 0 " + (Math.abs(dlt) > Math.PI ? 1 : 0) + " " + (dlt > 0 ? 1 : 0) + " " + q2);
+      }
+      p.setAttribute("data-k", i); lines.appendChild(p); segs.push(seg);
+    });
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function at(seg, e) { return seg.kind === "spoke" ? pt(seg.a, seg.from + (seg.to - seg.from) * e) : pt(seg.a1 + seg.d * e, R); }
+    function show(i) {
+      var st = steps[i];
+      fig.querySelectorAll(".is-from,.is-to").forEach(function (n) { n.classList.remove("is-from", "is-to"); });
+      lines.querySelectorAll("path").forEach(function (l) { l.classList.toggle("on", +l.getAttribute("data-k") === i); });
+      var f = stage.querySelector("[data-node=\"" + st[0] + "\"]"), to = stage.querySelector("[data-node=\"" + st[1] + "\"]");
+      if (f) f.classList.add("is-from"); if (to) to.classList.add("is-to");
+      if (st[1] === "investors") { var bd = stage.querySelector("[data-node=\"board\"]"); if (bd) bd.classList.add("is-to"); }
+      cap.textContent = st[2];
+      var p0 = at(segs[i], reduce ? 1 : 0); pulse.setAttribute("cx", p0[0]); pulse.setAttribute("cy", p0[1]);
+      if (reduce) return;
+      var t0 = null;
+      function frame(ts) { if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / 1300), e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2, q = at(segs[i], e);
+        pulse.setAttribute("cx", q[0]); pulse.setAttribute("cy", q[1]); if (p < 1) requestAnimationFrame(frame); }
+      requestAnimationFrame(frame);
+    }
+    var k = 0; show(0);
+    if (reduce) return;
+    var timer = null;
+    function start() { if (!timer) timer = setInterval(function () { k = (k + 1) % steps.length; show(k); }, 3400); }
+    function stop() { clearInterval(timer); timer = null; }
+    if ("IntersectionObserver" in window) { new IntersectionObserver(function (es) { es.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { threshold: 0.3 }).observe(fig); } else start();
+  });
+})();
