@@ -1,5 +1,5 @@
 # WHAT THIS DOES: Tells Cloudflare how to run the early-access receiver: its name, its code and its private database.
-# The database id is filled in once the founder's Cloudflare account creates it (wrangler d1 create dbp-early-access).
+# The database lives in Cloudflare D1 (created 7 Nov 2026, region Western Europe).
 name = "dbp-early-access"
 main = "src/index.js"
 compatibility_date = "2026-10-01"
@@ -8,4 +8,4 @@ workers_dev = true
 [[d1_databases]]
 binding = "DB"
 database_name = "dbp-early-access"
-database_id = "FILL_AFTER_CREATE"
+database_id = "33bb5218-3522-4901-affb-9542d993f1cb"
