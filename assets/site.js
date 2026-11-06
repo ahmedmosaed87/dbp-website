@@ -165,7 +165,6 @@
 (function () {
   var ov = document.getElementById("search"), opener = document.getElementById("search-open");
   if (!ov || !opener) return;
-  ov.setAttribute("role", "dialog"); ov.setAttribute("aria-modal", "true");
   var mo = new MutationObserver(function () { if (ov.hidden) opener.focus(); });
   mo.observe(ov, { attributes: true, attributeFilter: ["hidden"] });
   ov.addEventListener("keydown", function (e) {
