@@ -2967,3 +2967,37 @@ section.block:has(+ section.block.joined){padding-bottom:clamp(40px,5vw,72px)}
 .ea-done p{margin:0 0 10px;color:var(--ink-2)}
 @media (max-width:900px){ .ea-grid{grid-template-columns:1fr} }
 @media (max-width:560px){ .ea-row{grid-template-columns:1fr} .ea-submit{justify-self:stretch} }
+
+/* early-access: the branded COACTA early-access page. */
+.ea-page{background:radial-gradient(900px 420px at 85% 0%,rgba(124,92,255,.12),transparent 60%),linear-gradient(180deg,#f6f8fd,#fff)}
+.ea-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,72px);align-items:start}
+.ea-mark{height:30px;width:auto;margin-bottom:18px}
+.ea-intro h1{margin:10px 0 14px;font-size:clamp(32px,3.6vw,48px);line-height:1.15;text-wrap:balance}
+.ea-lead{font-size:18px;color:var(--ink-2);max-width:44ch}
+.ea-perks{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:12px}
+.ea-perks li{display:flex;gap:10px;align-items:flex-start;font-size:16px;color:var(--ink)}
+.ea-perks svg{flex:none;color:#0f8f74;margin-top:3px}
+.ea-card{padding:clamp(22px,3vw,34px);border-radius:24px;background:#fff;box-shadow:0 0 0 1px #e1e8f3,0 30px 70px -40px rgba(11,26,56,.35)}
+.ea-form{display:grid;gap:16px}
+.ea-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ea-form label{display:grid;gap:6px;font-size:14px;font-weight:600;color:var(--ink)}
+.ea-form input:not([type="checkbox"]),.ea-form select,.ea-form textarea{font:500 15px var(--font);color:var(--ink);padding:11px 13px;border-radius:12px;border:1px solid #d7e0ee;background:#fbfcff;width:100%;box-sizing:border-box}
+.ea-form textarea{resize:vertical;min-height:84px}
+.ea-form input:focus,.ea-form select:focus,.ea-form textarea:focus{outline:2px solid var(--blue,#2c55f5);outline-offset:1px;border-color:transparent}
+.ea-wants{border:0;margin:0;padding:0;display:grid;gap:10px}
+.ea-wants legend{font-size:15px;font-weight:700;color:var(--ink);padding:0}
+.ea-hint{margin:-4px 0 0;font-size:13.5px;color:var(--ink-3)}
+.ea-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ea-chips button{font:500 14px var(--font);padding:8px 14px;border-radius:999px;border:1px solid #d7e0ee;background:#fff;color:var(--ink-2);cursor:pointer}
+.ea-chips button[aria-pressed="true"]{background:#0b1a38;color:#fff;border-color:#0b1a38}
+.ea-consent{display:flex!important;gap:10px;align-items:flex-start;font-weight:500!important;font-size:14px!important;color:var(--ink-2)!important}
+.ea-consent input{margin-top:3px;width:18px;height:18px;flex:none}
+.ea-submit{justify-self:start;min-width:220px}
+.ea-msg{margin:0;min-height:1.4em;font-size:14px;color:var(--ink-3)}
+.ea-msg.err{color:#c2412d}
+.ea-done{display:grid;justify-items:start;gap:8px;padding:12px 4px}
+.ea-done > svg{width:34px;height:34px;color:#0f8f74}
+.ea-done h2{margin:0;font-size:26px}
+.ea-done p{margin:0 0 10px;color:var(--ink-2)}
+@media (max-width:900px){ .ea-grid{grid-template-columns:1fr} }
+@media (max-width:560px){ .ea-row{grid-template-columns:1fr} .ea-submit{justify-self:stretch} }
