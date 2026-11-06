@@ -16,32 +16,32 @@
   var LISTS = {
     USD: {
       fmt: { en: function (n) { return '$' + n; }, ar: function (n) { return '$' + n; } },
-      note: { en: 'Prices in US dollars, a month.', ar: 'الأسعار بالدولار الأمريكي شهريًا.' },
+      note: { en: 'Monthly prices in US dollars.', ar: 'الأسعار بالدولار الأمريكي شهريًا.' },
       prices: { startup: 0, core: 500, coreplus: 1000, optimize: 2000, grow: 3000 }
     },
     SAR: { // Saudi Arabia: fixed list (pegged currency)
       fmt: { en: function (n) { return 'SAR ' + n; }, ar: function (n) { return n + ' ر.س'; } },
-      note: { en: 'Prices in Saudi riyals, a month.', ar: 'الأسعار بالريال السعودي شهريًا.' },
+      note: { en: 'Monthly prices in Saudi riyals.', ar: 'الأسعار بالريال السعودي شهريًا.' },
       prices: { startup: 0, core: 1875, coreplus: 3750, optimize: 7500, grow: 11250 }
     },
     AED: { // United Arab Emirates: fixed list (pegged currency)
       fmt: { en: function (n) { return 'AED ' + n; }, ar: function (n) { return n + ' د.إ'; } },
-      note: { en: 'Prices in UAE dirhams, a month.', ar: 'الأسعار بالدرهم الإماراتي شهريًا.' },
+      note: { en: 'Monthly prices in UAE dirhams.', ar: 'الأسعار بالدرهم الإماراتي شهريًا.' },
       prices: { startup: 0, core: 1840, coreplus: 3680, optimize: 7360, grow: 11040 }
     },
     QAR: { // Qatar: fixed list (pegged currency)
       fmt: { en: function (n) { return 'QAR ' + n; }, ar: function (n) { return n + ' ر.ق'; } },
-      note: { en: 'Prices in Qatari riyals, a month.', ar: 'الأسعار بالريال القطري شهريًا.' },
+      note: { en: 'Monthly prices in Qatari riyals.', ar: 'الأسعار بالريال القطري شهريًا.' },
       prices: { startup: 0, core: 1820, coreplus: 3640, optimize: 7280, grow: 10920 }
     },
     EUR: { // Euro area: fixed list, set for the market
       fmt: { en: function (n) { return '€' + n; }, ar: function (n) { return '€' + n; } },
-      note: { en: 'Prices in euros, a month.', ar: 'الأسعار باليورو شهريًا.' },
+      note: { en: 'Monthly prices in euros.', ar: 'الأسعار باليورو شهريًا.' },
       prices: { startup: 0, core: 450, coreplus: 900, optimize: 1800, grow: 2700 }
     },
     GBP: { // United Kingdom: fixed list, set for the market
       fmt: { en: function (n) { return '£' + n; }, ar: function (n) { return '£' + n; } },
-      note: { en: 'Prices in pounds sterling, a month.', ar: 'الأسعار بالجنيه الإسترليني شهريًا.' },
+      note: { en: 'Monthly prices in pounds sterling.', ar: 'الأسعار بالجنيه الإسترليني شهريًا.' },
       prices: { startup: 0, core: 375, coreplus: 750, optimize: 1500, grow: 2250 }
     }
   };

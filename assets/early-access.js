@@ -12,7 +12,7 @@
     var msg = form.querySelector('.ea-msg'), btn = form.querySelector('button[type="submit"]');
     var T = lang === 'ar'
       ? { missing: 'أكمل الحقول المطلوبة، ووافق على أن نتواصل معك.', robot: 'لم يكتمل التحقق. أعد المحاولة بعد لحظة.', fail: 'تعذّر الإرسال الآن. أعد المحاولة، أو راسلنا على info@deep-bp.com.', sending: 'جارٍ الإرسال…' }
-      : { missing: 'Please complete the required fields and agree to be contacted.', robot: 'The human check did not complete. Please try again in a moment.', fail: 'We could not send it just now. Please try again, or email info@deep-bp.com.', sending: 'Sending…' };
+      : { missing: 'Please complete the required fields and agree to be contacted.', robot: 'The human check did not complete. Please try again in a moment.', fail: 'We couldn’t send your request. Please try again, or email info@deep-bp.com.', sending: 'Sending…' };
 
     // Suggestion chips: tap to add what you want first; your own words stay in the box below.
     form.querySelectorAll('.ea-chips button').forEach(function (c) {

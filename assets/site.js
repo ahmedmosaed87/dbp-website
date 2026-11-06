@@ -265,7 +265,14 @@
       var time = c.querySelector('.hh-time'), bar = c.querySelector('.hh-bar i'), spent = c.querySelector('.hh-spent b');
       var srcs = panel.querySelectorAll('[data-at]'), started = false;
       var clk = function (m) { var h = Math.floor(m / 60) % 12 || 12, mm = m % 60; return h + ':' + (mm < 10 ? '0' : '') + mm + (ar ? ' م' : ' pm'); };
-      var dur = function (m) { var h = Math.floor(m / 60), mm = m % 60; return ar ? h + ' س ' + mm + ' د' : h + ' h ' + mm + ' min'; };
+      var dur = function (m) {
+        var h = Math.floor(m / 60), mm = m % 60;
+        if (!ar) return h + ' h ' + mm + ' min';
+        // Say the hours and minutes the way an Arabic reader counts them: ساعة، ساعتان، 3 ساعات، 11 ساعة.
+        var hs = h === 1 ? 'ساعة' : h === 2 ? 'ساعتان' : h <= 10 ? h + ' ساعات' : h + ' ساعة';
+        var ms = mm === 1 ? 'دقيقة' : mm === 2 ? 'دقيقتان' : (mm >= 3 && mm <= 10) ? mm + ' دقائق' : mm + ' دقيقة';
+        return h === 0 ? ms : mm === 0 ? hs : hs + ' و' + ms;
+      };
       var draw = function (k) {
         var e = Math.round(span * k);
         time.textContent = clk(from + e); spent.textContent = dur(e); bar.style.width = (k * 100) + '%';
