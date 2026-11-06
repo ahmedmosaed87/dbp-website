@@ -46,7 +46,6 @@ h1 .accent{background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-bac
 .btn.ghost{background:transparent;color:var(--blue);padding-inline:6px}
 .btn.ghost::after{content:"›";font-size:20px;line-height:1}
 [dir="rtl"] .btn.ghost::after{content:"‹"}
-.hero-art{display:block;width:min(560px,90%);height:auto;margin:56px auto 0}
 
 /* The COACTA opening: deep navy, the product's own light */
 .hero.coacta{background:radial-gradient(900px 420px at 50% 0%,rgba(19,183,232,.22),transparent 65%),linear-gradient(180deg,#0a1a33,var(--navy-2));color:#fff}
@@ -68,13 +67,10 @@ section.block{padding-block:clamp(72px,9vw,120px)}
 section.block.alt{background:var(--mist)}
 h2{font-size:clamp(32px,4.4vw,56px);line-height:1.1;letter-spacing:-.02em;font-weight:600;margin:0 0 16px;text-wrap:balance}
 [lang="ar"] h2{letter-spacing:0;line-height:1.25}
-.section-head{text-align:center;max-width:820px;margin:0 auto 48px}
-.section-lead{font-size:clamp(18px,1.9vw,21px);color:var(--ink-2);margin:0 auto;max-width:56ch}
+
 h3{font-size:21px;font-weight:500;letter-spacing:-.005em;margin:0 0 8px;line-height:1.3}
 p{max-width:68ch}
-.statement{font-size:clamp(22px,2.6vw,32px);font-weight:400;line-height:1.4;letter-spacing:-.01em;max-width:30ch;margin:0;color:var(--ink)}
-.statement-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px)}
-.statement-pair .label{font-size:15px;font-weight:500;color:var(--blue);margin-bottom:14px;display:block}
+
 .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
 
 /* Cards: large, soft, no heavy borders */
@@ -123,7 +119,7 @@ section.block .cards li.lead-card{background:linear-gradient(150deg,var(--blue),
 
 /* The founder card and the letter */
 .founder{display:grid;grid-template-columns:260px 1fr;gap:clamp(32px,5vw,64px);align-items:center}
-.founder-mark{width:260px;height:auto}
+
 .letter{background:#fff;border-radius:var(--radius);padding:clamp(28px,5vw,64px);max-width:820px;margin:0 auto;box-shadow:var(--shadow)}
 .letter p{font-size:19px;line-height:1.85;color:#2a3346;max-width:none}
 .letter p:first-child{font-size:21px;color:var(--ink)}
@@ -144,11 +140,11 @@ footer h2{font-size:clamp(28px,3vw,40px)}
 [hidden]{display:none!important}
 
 @media (max-width:860px){
-  .two,.statement-pair{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr);row-gap:28px}
   .offices{grid-template-columns:repeat(2,1fr)}
   .founder{grid-template-columns:1fr}
-  .founder-mark{width:180px}
+  
   header.top .wrap{height:auto;padding-block:10px;flex-wrap:wrap}
   nav.pages{order:3;width:100%;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap}
   .reach .btn{margin-inline-start:0}
@@ -166,7 +162,7 @@ section.block > .wrap:not(.two):not(.statement-pair):not(.founder):not(.legal-te
 section.block > .wrap:not(.two):not(.statement-pair):not(.founder):not(.legal-text) > h2 + p{text-align:center;margin-inline:auto}
 section.block > .wrap:not(.two):not(.statement-pair):not(.founder):not(.legal-text) > h2 + p{font-size:clamp(18px,1.9vw,21px);color:var(--ink-2);max-width:60ch;margin-bottom:48px}
 section.block > .wrap > h2 + .cards, section.block > .wrap > h2 + .pillars{margin-top:40px}
-@media (prefers-reduced-motion:no-preference){ .hero-art{animation:float 9s ease-in-out infinite} @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}} }
+@media (prefers-reduced-motion:no-preference){  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}} }
 
 /* Four methodology points sit in one row; the values close the page centred */
 .pillars.four{grid-template-columns:repeat(4,1fr)}
@@ -188,7 +184,6 @@ header.top .brand img{height:48px;width:auto}
 @media (max-width:860px){ header.top .brand img{height:40px} }
 
 /* The real DBP sign under the opening, sized so the original file stays sharp */
-.hero-art{width:min(360px,72%);height:auto}
 
 /* The values: each with its confirmed meaning and its qualities */
 .culture{font-size:clamp(20px,2.2vw,26px);font-weight:400;color:var(--ink-2);text-align:center;margin:0 auto 44px;max-width:none}
@@ -371,8 +366,7 @@ header.top .bar nav.pages{justify-self:center}
 .legal-page li + li{margin-top:8px}
 .legal-page li strong{color:var(--ink);font-weight:500}
 .legal-page .updated{font-size:14px;color:var(--ink-3)}
-.draft-banner{background:#fff4d6;color:#6b4d00!important;border-radius:12px;padding:14px 18px;font-size:15px!important}
-mark.confirm{background:#fff4d6;color:#6b4d00;border-radius:4px;padding:0 4px}
+
 footer .legal .privacy-link{color:inherit;opacity:.85;font-size:14px}
 footer .legal .privacy-link:hover{opacity:1;text-decoration:underline}
 
@@ -380,11 +374,10 @@ footer .legal .privacy-link:hover{opacity:1;text-decoration:underline}
 .themes.story li.theme-row:nth-child(even){grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
 .screen a{aspect-ratio:auto;max-height:540px}
 .screen img{height:auto}
-.screen.tall a{height:540px}
-.screen.tall img{-webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent);mask-image:linear-gradient(to bottom,#000 82%,transparent)}
+
 @media (max-width:860px){
   .themes.story li.theme-row:nth-child(even){grid-template-columns:1fr}
-  .screen a,.screen.tall a{max-height:420px;height:auto}
+  .screen a{max-height:420px;height:auto}
 }
 
 /* The privacy headings follow the reading side, not the centred section style */
@@ -438,21 +431,13 @@ section.block > .wrap > .kicker{text-align:center}
 .deck-cards > li{position:relative;background:#fff;border-radius:18px;padding:30px 28px 28px;box-shadow:0 1px 2px rgba(12,31,61,.05),0 14px 34px -18px rgba(12,31,61,.22);overflow:hidden}
 .deck-cards > li::before{content:"";position:absolute;inset-inline:0;top:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--green))}
 [dir="rtl"] .deck-cards > li::before{background:linear-gradient(270deg,var(--blue),var(--green))}
-.deck-cards .tone-1::before{background:var(--blue)!important}.deck-cards .tone-2::before{background:var(--teal)!important}
-.deck-cards .tone-3::before{background:var(--violet)!important}.deck-cards .tone-4::before{background:var(--sky)!important}
-.deck-cards .tone-5::before{background:var(--amber)!important}.deck-cards .tone-6::before{background:var(--green)!important}
+.deck-cards .tone-2::before{background:var(--teal)!important}
+
+.deck-cards .tone-6::before{background:var(--green)!important}
 .deck-cards h3{font-size:20px;font-weight:600;margin:0 0 10px;color:var(--navy)}
 .deck-cards p{margin:0;color:var(--ink-2);font-size:16px;line-height:1.6}
 .deck-cards p.big{font-size:21px;font-weight:600;color:var(--navy);line-height:1.4}
-.deck-cards.lettered h3{display:flex;align-items:baseline;gap:14px}
-.deck-cards.lettered h3 b{font-size:28px;font-weight:600;color:var(--blue)}
-.deck-cards.lettered .tone-2 h3 b{color:var(--teal)}.deck-cards.lettered .tone-3 h3 b{color:var(--violet)}
-.deck-cards.lettered .tone-4 h3 b{color:var(--sky)}.deck-cards.lettered .tone-5 h3 b{color:var(--amber)}.deck-cards.lettered .tone-6 h3 b{color:var(--green)}
-.deck-cards.numbered{counter-reset:dk}
-.deck-cards.numbered > li{counter-increment:dk}
-.deck-cards.numbered > li::after{content:counter(dk);position:absolute;top:24px;inset-inline-start:28px;font-size:38px;font-weight:400;color:var(--green);line-height:1}
-[lang="ar"] .deck-cards.numbered > li::after{content:counter(dk,arabic-indic)}
-.deck-cards.numbered h3{margin-top:52px}
+
 .deck-cards.powers > li::before{display:none}
 .deck-cards.powers > li:last-child{background:linear-gradient(135deg,var(--blue),#1f8fb8 60%,var(--teal));color:#fff}
 .deck-cards.powers > li:last-child h3,.deck-cards.powers > li:last-child p{color:#fff}
@@ -484,14 +469,6 @@ section.block > .wrap > .kicker{text-align:center}
 .mission-cards p{margin:0;color:#e6edf8;font-size:17px;line-height:1.6}
 
 /* Our journey, as a timeline */
-.timeline{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0}
-.timeline li{position:relative;padding-top:70px;padding-inline-end:24px}
-.timeline li::before{content:"";position:absolute;top:44px;inset-inline:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--green))}
-[dir="rtl"] .timeline li::before{background:linear-gradient(270deg,var(--blue),var(--green))}
-.timeline li::after{content:"";position:absolute;top:37px;inset-inline-start:0;width:16px;height:16px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px #fff}
-.timeline li:last-child::after{background:var(--green)}
-.timeline strong{position:absolute;top:0;inset-inline-start:0;font-size:24px;font-weight:600;color:var(--navy)}
-.timeline span{display:block;color:var(--ink-2);font-size:15.5px;line-height:1.6}
 
 /* Eight parts, one subscription */
 .parts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
@@ -522,27 +499,12 @@ section.block > .wrap > .kicker{text-align:center}
 .carry li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-weight:600;color:var(--navy);font-size:16px}
 
 /* The DBP finance organisation, in three layers and a cornerstone */
-.layers{display:grid;gap:14px}
+
 .layer{display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:center;border-radius:18px;padding:22px 24px}
-.layer-head{display:grid;gap:12px;justify-items:start}
-.layer-head strong{font-size:20px;font-weight:600}
+
 .layer .plan{font-size:14px;font-weight:600;padding:6px 18px;border-radius:999px}
 .layer ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 .layer li{text-align:center;padding:9px 10px;border-radius:999px;font-size:14.5px;font-weight:600}
-.layer-1{background:linear-gradient(150deg,#0b1a38,#143066);color:#fff}
-.layer-1 .plan{background:var(--green);color:#0b1a38}
-.layer-1 li{border:1px solid rgba(47,208,160,.6);background:rgba(255,255,255,.08);color:#fff}
-.layer-2{background:#fff;border:1px solid #d7e3f4;color:var(--navy)}
-.layer-2 .plan{background:var(--teal);color:#fff}
-.layer-2 li{border:1px solid rgba(18,163,131,.5);background:rgba(18,163,131,.07);color:var(--navy)}
-.layer-3{background:#eaf1fb;color:var(--navy)}
-.layer-3 .plan{background:var(--blue);color:#fff}
-.layer-3 li{border:1px solid rgba(42,79,246,.45);background:#fff;color:var(--navy)}
-.stone{display:grid;grid-template-columns:1fr 1.3fr;gap:24px;align-items:center;border-radius:18px;padding:26px 28px;background:linear-gradient(110deg,var(--teal),#1781b8 60%,var(--blue));color:#fff}
-[dir="rtl"] .stone{background:linear-gradient(250deg,var(--teal),#1781b8 60%,var(--blue))}
-.stone .kicker{color:rgba(255,255,255,.85);margin-bottom:6px;text-align:start!important}
-.stone strong{font-size:clamp(24px,2.6vw,32px);font-weight:600}
-.stone p{margin:0;color:#eef8ff;font-size:16px;line-height:1.6;max-width:none}
 
 /* From accountant to value analyst */
 .paths{display:grid;gap:16px;margin-top:8px}
@@ -609,12 +571,12 @@ section.block > .wrap > .kicker{text-align:center}
   .parts{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:860px){
-  .deck-cards.three,.deck-cards.two,.mission-cards,.equals-band,.stone{grid-template-columns:1fr}
-  .timeline{grid-template-columns:1fr;gap:0}
-  .timeline li{padding:0 0 26px;padding-inline-start:34px}
-  .timeline li::before{top:8px;bottom:-8px;height:auto;width:2px;inset-inline-start:7px;inset-inline-end:auto}
-  .timeline li::after{top:4px}
-  .timeline strong{position:static;display:block;font-size:20px;margin-bottom:4px}
+  .deck-cards.three,.deck-cards.two,.mission-cards,.equals-band{grid-template-columns:1fr}
+  
+  
+  
+  
+  
   .layer{grid-template-columns:1fr}
   .layer ul{grid-template-columns:repeat(2,minmax(0,1fr))}
   .carry{grid-template-columns:1fr 1fr}
@@ -672,8 +634,6 @@ header.top .bar nav.pages{justify-self:start;margin-inline-start:clamp(16px,3vw,
 .office .flag{flex:none;width:32px;height:24px;border-radius:4px;object-fit:cover;box-shadow:0 0 0 1px rgba(12,31,61,.08)}
 
 /* Each milestone: the date, a sharp title, one line */
-.timeline b{display:block;font-size:17px;font-weight:600;color:var(--navy);margin-bottom:6px}
-.timeline span{font-size:15px}
 
 /* A deliberately crafted experience: the eight parts as premium cards, each with its own icon and tint */
 section[id^="parts-"]{background:radial-gradient(900px 380px at 50% 0%,rgba(79,214,222,.10),transparent 70%),linear-gradient(180deg,#f7f9fc,#ffffff 60%)}
@@ -906,15 +866,6 @@ section[id^="parts-"] h2{max-width:none}
 @keyframes sync-beat-3{0%,36.5%{width:8px;background:rgba(12,31,61,.14)}38.5%,84%{width:28px;background:var(--navy)}86%,100%{width:8px;background:rgba(12,31,61,.14)}}
 
 /* The journey in six moments; COACTA is the last and gets its own light */
-.timeline.six{grid-template-columns:repeat(6,minmax(0,1fr))}
-.timeline li.coacta-moment::after{width:22px;height:22px;top:34px;background:linear-gradient(135deg,var(--blue),var(--green));box-shadow:0 0 0 4px #fff,0 0 0 9px rgba(47,208,160,.18),0 0 22px rgba(47,208,160,.55)}
-.timeline li.coacta-moment::before{background:linear-gradient(90deg,var(--green),rgba(47,208,160,0))}
-[dir="rtl"] .timeline li.coacta-moment::before{background:linear-gradient(270deg,var(--green),rgba(47,208,160,0))}
-.timeline li.coacta-moment strong{color:var(--teal)}
-.timeline li.coacta-moment b{font-size:20px;background:linear-gradient(90deg,var(--blue),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
-[dir="rtl"] .timeline li.coacta-moment b{background:linear-gradient(270deg,var(--blue),var(--teal));-webkit-background-clip:text;background-clip:text}
-.timeline li.coacta-moment span{color:var(--navy);font-weight:500}
-@media (max-width:1100px) and (min-width:861px){ .timeline.six{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px} }
 
 /* The sign, crisp and true to the brand (founder, 5 Nov 2026):
    no colour haze around or inside it; the circle at its exact place (centre 43.91, 298.92; radius 40.98 of 524 x 345);
@@ -1031,14 +982,13 @@ section[id^="parts-"] h2{max-width:none}
 .mobile-p{text-align:center;color:var(--ink-2);margin:0 auto 34px;max-width:52ch}
 .phones{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 28px}
 .phones figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:16px}
-.phone{width:min(240px,100%);padding:9px;border-radius:40px;background:#0b1f3f;box-shadow:0 1px 2px rgba(12,31,61,.05),0 28px 56px -28px rgba(11,31,63,.55)}
-.phone img{display:block;width:100%;height:auto;border-radius:32px}
+
 .phones figcaption{max-width:28ch;text-align:center;font-size:16px;font-weight:600;color:var(--navy);line-height:1.45}
 @media (max-width:860px){
   .moments{grid-template-columns:1fr}
   .phones{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 18px}
 }
-@media (max-width:520px){ .phone{border-radius:30px;padding:7px} .phone img{border-radius:24px} .phones figcaption{font-size:14.5px} }
+@media (max-width:520px){   .phones figcaption{font-size:14.5px} }
 /* Watch strap visible above and below the case; Arabic ring fills right to left; chat sides follow the reading direction */
 .watch{isolation:isolate;margin:18px 0}
 .watch::before,.watch::after{z-index:-1;left:40px;right:40px}
@@ -1291,7 +1241,7 @@ section[id^="parts-"] h2{max-width:none}
 .value-cards.deck .quals li + li::before{content:"";margin:0}
 
 /* ===== What we do, premium pass ===== */
-.nowrap{white-space:nowrap}
+
 .ci{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;color:var(--navy);background:#f1f4f9;flex:none}
 
 /* One card system: white, one soft shadow, a quiet icon, equal heights */
@@ -1622,22 +1572,17 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 .parts li.part:not(.digital) .pi{color:var(--navy)!important;background:#f1f4f9!important}
 
 /* The DBP finance organisation as a calm pyramid: strategy at the top, the foundation widest, items as quiet text */
-.layers{gap:12px;justify-items:center}
+
 .layer{width:100%;grid-template-columns:240px 1fr;padding:22px 28px;border:0!important;background:#fff;color:var(--navy);
   box-shadow:0 1px 1px rgba(12,31,61,.03),0 18px 40px -26px rgba(12,31,61,.30)}
-.layer-1{max-width:76%;background:linear-gradient(120deg,#0b1a38,#143066);color:#fff}
-.layer-2{max-width:88%}
-.layer-3{max-width:100%}
+
 .layer ul{display:flex;flex-wrap:wrap;gap:6px 0}
-.layer li,.layer-1 li,.layer-2 li,.layer-3 li{padding:0;border:0!important;border-radius:0;background:none!important;text-align:start;font-size:15px;font-weight:500;color:inherit}
+.layer li{padding:0;border:0!important;border-radius:0;background:none!important;text-align:start;font-size:15px;font-weight:500;color:inherit}
 .layer li + li::before{content:"·";margin:0 10px;color:#9fb1cf;font-weight:700}
-.layer-1 li{color:#dfe8f6}
-.layer-2 li,.layer-3 li{color:var(--ink-2)}
+
 .layer .plan{font-size:12.5px;padding:5px 14px}
-.layer-2 .plan,.layer-3 .plan{background:#eef2f8;color:var(--navy)}
-.layer-1 .plan{background:var(--green);color:#0b1a38}
-.stone{max-width:100%;width:100%}
-@media (max-width:860px){ .layer,.layer-1,.layer-2{max-width:100%} .layer{grid-template-columns:1fr} }
+
+@media (max-width:860px){ .layer{max-width:100%} .layer{grid-template-columns:1fr} }
 
 /* From accountant to value analyst: two tracks, each role a step on the line, the destination highlighted */
 .paths{gap:34px;margin-top:20px}
@@ -1657,14 +1602,9 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 @media (max-width:860px){ .path{grid-template-columns:1fr 1fr;row-gap:44px} .path::before{display:none} }
 
 /* Deep BUILD: one quiet style, the letters in a single gradient, no colour bars */
-.deck-cards.lettered > li{border:0;box-shadow:0 1px 1px rgba(12,31,61,.03),0 18px 40px -26px rgba(12,31,61,.30)}
-.deck-cards.lettered > li::before{display:none!important}
-.deck-cards.lettered h3 b,.deck-cards.lettered .tone-2 h3 b,.deck-cards.lettered .tone-3 h3 b,.deck-cards.lettered .tone-4 h3 b,.deck-cards.lettered .tone-5 h3 b,.deck-cards.lettered .tone-6 h3 b{
-  font-size:34px;background:linear-gradient(135deg,var(--blue),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+
 #s-1 h1,#s-5 h1{max-width:14ch}
-.hero h1:has(.nowrap){max-width:20ch}
-.hero h1:has(.nowrap){max-width:none;font-size:clamp(38px,5.6vw,78px)}
-.hero h1:has(.nowrap) .accent{display:block}
+
 .hero h1.wide{max-width:none!important;font-size:clamp(36px,5.4vw,76px)}
 .hero h1.wide .accent{display:block}
 
@@ -1683,14 +1623,7 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 .loop-runner{transform-origin:200px 200px}
 @media (prefers-reduced-motion:no-preference){ .loop-runner{animation:loop-run 10s linear infinite} }
 @keyframes loop-run{to{transform:rotate(360deg)}}
-.loop-step{position:absolute;width:42%;display:grid;gap:4px;padding:14px 16px;border-radius:18px;background:#fff;text-align:center;
-  box-shadow:0 1px 1px rgba(12,31,61,.03),0 16px 36px -22px rgba(12,31,61,.32);transform:translate(-50%,-50%)}
-.loop-step b{font-size:clamp(18px,1.7vw,22px);font-weight:600;background:linear-gradient(135deg,var(--blue),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
-.loop-step span{font-size:13px;line-height:1.45;color:var(--ink-2)}
-.loop-step.st1{left:50%;top:12.5%}
-.loop-step.st2{left:87.5%;top:50%}
-.loop-step.st3{left:50%;top:87.5%}
-.loop-step.st4{left:12.5%;top:50%}
+
 .loop-core{position:absolute;left:50%;top:50%;width:36%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);display:grid;place-content:center;gap:2px;text-align:center;color:#fff;
   background:radial-gradient(circle at 30% 25%,rgba(47,208,160,.45),transparent 60%),linear-gradient(150deg,#0b1a38,#143066);box-shadow:0 22px 50px -24px rgba(11,31,63,.7),0 0 0 8px rgba(42,79,246,.07)}
 .loop-core strong{font-size:clamp(17px,1.6vw,21px);font-weight:600}
@@ -1704,7 +1637,7 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 .phase-list li span{display:block;margin-top:2px;font-size:14px;line-height:1.5;color:var(--ink-2)}
 .build-band{margin-top:28px}
 @media (max-width:980px){ .build-grid{grid-template-columns:1fr} }
-@media (max-width:560px){ .loop-step{width:46%;padding:10px 10px} .loop-step span{font-size:11.5px} }
+
 .hero h1.wide{font-size:clamp(34px,4.6vw,66px);max-width:22ch!important;margin-inline:auto}
 .hero h1.wide + .lead{max-width:60ch}
 .hero h1.wide{font-size:clamp(30px,3.8vw,54px);max-width:none!important;line-height:1.12}
@@ -1731,15 +1664,10 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 @media (max-width:560px){ .loop-label{width:38%} .loop-label span{font-size:12px} .loop-node{width:42px;height:42px;margin:-21px 0 0 -21px;font-size:17px} }
 
 /* Strategic clients first: a still row, seen at once, above the moving logos */
-.featured-clients{list-style:none;margin:28px auto 6px;padding:0 16px;max-width:1180px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;direction:ltr}
-.featured-clients li{display:grid;place-items:center;height:116px;padding:20px 26px;border-radius:20px;background:#fff;box-shadow:0 1px 1px rgba(12,31,61,.03),0 16px 36px -22px rgba(12,31,61,.32)}
-.featured-clients img{max-width:100%;max-height:62px;width:auto;height:auto;border-radius:8px}
-@media (max-width:860px){ .featured-clients{grid-template-columns:repeat(3,minmax(0,1fr))} }
-@media (max-width:520px){ .featured-clients{grid-template-columns:repeat(2,minmax(0,1fr))} .featured-clients li{height:96px} }
 
 /* The wall waits, still, until the visitor reaches it */
 .marquee.waiting .track{animation-play-state:paused}
-.featured-clients{display:none}
+
 .marquee .track > li.lead{margin-inline-start:150px}
 @media (max-width:860px){.marquee .track > li.lead{margin-inline-start:24px}}
 
@@ -1823,7 +1751,7 @@ section.block:not(.alt) .pillars.iconed .pillar{background:#fff}
 /* type-plex: IBM Plex replaces Readex Pro (review, 6 Nov 2026). Body text at 400, never the light 300, and Arabic gets more line height. */
 body{font-weight:400}
 [dir="rtl"] body,[dir="rtl"] p{line-height:1.8}
-.num,.stat b,.price b{font-variant-numeric:tabular-nums}
+.stat b,.price b{font-variant-numeric:tabular-nums}
 
 /* footer-reg */
 /* The registration line: small, quiet, always readable. */
