@@ -2528,3 +2528,16 @@ header.top .bar nav.pages{justify-self:center;margin-inline:0}
 .door:nth-child(2) .door-ic{color:#1f4596}
 .door:nth-child(3) .door-ic{color:#2c55f5}
 .door-ic svg{width:26px;height:26px}
+
+/* wwd-lean: one idea per screen on What we do. */
+.prod-line,.adv-line{margin:30px auto 0;max-width:980px;text-align:center;font-size:15.5px;line-height:2;color:var(--ink-2)}
+.prod-line span,.adv-line span{display:block;margin-bottom:4px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+[dir="rtl"] .prod-line span,[dir="rtl"] .adv-line span{letter-spacing:0;font-size:14px}
+.prod-line b,.adv-line b{font-weight:600;color:var(--navy)}
+.prod-line i,.adv-line i{font-style:normal;margin:0 10px;color:#b8c4d8}
+.adv-line{margin-top:34px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);color:#c9d6ee}
+.adv-line span{color:#9fb1cf}
+.adv-line b{color:#fff}
+.adv-line i{color:rgba(255,255,255,.35)}
+.build-grid.solo{grid-template-columns:1fr;justify-items:center}
+.prod-line b,.adv-line b{white-space:nowrap}
