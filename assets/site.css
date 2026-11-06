@@ -2751,3 +2751,14 @@ section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;
 .scf-b span{padding:6px 12px;border-radius:999px;font-size:14px;color:#fff;background:rgba(255,255,255,.08)}
 @media (max-width:620px){ .sc-flow{flex-direction:column} .sc-flow > i{transform:rotate(90deg)} }
 @media (max-width:620px){ [dir="rtl"] .sc-flow > i{transform:rotate(-90deg)} }
+/* pricing-mobile: the two product tabs side by side; the currency switch as a tidy grid that never spills. */
+@media (max-width:640px){
+  .pr-bar{flex-direction:column;align-items:stretch;gap:12px}
+  .pr-bar .ptabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
+  .pr-bar .ptabs button{flex:none;min-width:0;justify-content:center;padding:0 10px;white-space:nowrap}
+  .pr-bar .ptabs button strong{font-size:14.5px}
+  .pr-bar .cur-wrap{width:100%;justify-items:stretch}
+  .pr-bar .cur{height:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:6px;border-radius:18px}
+  .pr-bar .cur span{grid-column:1 / -1;width:auto;padding:4px 0 2px;text-align:center}
+  .pr-bar .cur button{border-radius:12px;padding:0 6px;min-height:36px;white-space:nowrap}
+}
