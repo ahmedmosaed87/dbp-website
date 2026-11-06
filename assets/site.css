@@ -2205,3 +2205,49 @@ section.block.svp-block > .wrap > h2 + p.svp-lead{margin:14px auto 0;max-width:6
 .svp-proof{margin:26px auto 0;text-align:center;font-size:15.5px;max-width:none}
 .svp-proof a{font-weight:600;color:var(--blue)}
 @media (max-width:700px){ .svp-layers li{grid-template-columns:auto 1fr;margin-inline:0!important} .svp-act{grid-column:2;justify-self:start} }
+
+/* premium-pass */
+/* Proof strip: a quiet line and the moving wall, right after the opening. */
+.clients-block.strip{padding-block:40px 34px}
+.strip-h{margin:0 auto 18px;text-align:center;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);max-width:none}
+[dir="rtl"] .strip-h{letter-spacing:0;font-size:15px}
+.clients-block.strip .note{display:none}
+/* The product as the solution. */
+.sol-shot{margin:40px auto 10px;max-width:1080px;border-radius:24px;padding:14px;background:linear-gradient(160deg,#0e2550,#0a1836);box-shadow:0 50px 100px -50px rgba(11,26,56,.55)}
+.sol-shot img{display:block;width:100%;height:auto;border-radius:14px}
+.sol-shot figcaption{margin:12px 6px 2px;font-size:13px;color:#9fb1cf;text-align:center}
+/* Stories: the signal in view, the rest on request. */
+.st-more{margin:0 0 20px}
+.st-more summary{cursor:pointer;width:fit-content;font-size:14.5px;font-weight:600;color:var(--blue);list-style:none;padding:4px 0}
+.st-more summary::-webkit-details-marker{display:none}
+.st-more summary::after{content:" +";}
+.st-more[open] summary::after{content:" −";}
+.st-more .st-steps{margin-top:12px}
+.story > .st-steps{flex:0;margin-bottom:12px}
+.story.featured .sf-text .st-steps{margin-bottom:10px}
+/* Track record: experience joins the journey. */
+.track{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+.track-lead{margin:0;font-size:16px;line-height:1.7;color:var(--ink-2);max-width:none}
+.track-lead strong{display:block;margin-bottom:6px;font-size:19px;font-weight:600;color:var(--ink)}
+.track-chips .kicker{display:block;margin:0 0 8px}
+.track-chips .chips{margin:0 0 16px}
+@media (max-width:860px){ .track{grid-template-columns:1fr} }
+/* Mission and vision as a tab, on the light ground. */
+.mv-panel{max-width:980px;margin-inline:auto}
+.mv-panel .mission-text{color:var(--ink);max-width:26ch;margin-inline:auto;text-align:center}
+.mv-panel .mission-sub{color:var(--ink-2);text-align:center;margin-inline:auto}
+.mv-panel .mission-cards{margin-top:26px}
+.mv-panel .mission-cards > div{background:#fff;border-color:#e1e8f3;box-shadow:0 24px 48px -38px rgba(11,26,56,.3)}
+.mv-panel .mission-cards span{color:var(--teal)}
+.mv-panel .mission-cards p{color:var(--ink-2)}
+/* Why now: four forces. */
+.nows.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1080px){ .nows.four{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:600px){ .nows.four{grid-template-columns:1fr} }
+/* Founder facts: four figures. */
+.wu-facts{gap:28px 36px}
+/* Readable card text everywhere: nothing important below 15px. */
+.walls p,.shifts .sh-was,.eco-card p,.nows p,.st-steps dd,.value-cards.deck > li > p{font-size:15px}
+/* Gentle arrival. */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}

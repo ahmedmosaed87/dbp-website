@@ -127,3 +127,17 @@
     });
   });
 })();
+
+/* reveal-on-scroll: sections below the first screen rise gently into place as the visitor reaches them. */
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var items = document.querySelectorAll('main section.block > .wrap');
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  items.forEach(function (el) {
+    if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('reveal'); io.observe(el); }
+  });
+  setTimeout(function () { items.forEach(function (el) { el.classList.add('in'); }); }, 4000);
+})();
