@@ -201,7 +201,17 @@
       cap.textContent = st[2];
       // The line also appears beside the actor who acts, where the eye already is.
       var actor = stage.querySelector("[data-node=\"" + (st[0] === "core" ? st[1] : st[0]) + "\"]");
-      if (actor) { if (!say) { say = document.createElement("span"); say.className = "af-say"; say.setAttribute("aria-hidden", "true"); } say.textContent = st[2]; actor.appendChild(say); say.classList.remove("af-say-in"); void say.offsetWidth; say.classList.add("af-say-in"); }
+      if (actor) {
+        if (!say) { say = document.createElement("span"); say.className = "af-say"; say.setAttribute("aria-hidden", "true"); stage.appendChild(say); }
+        say.textContent = st[2]; say.classList.remove("af-say-in"); void say.offsetWidth; say.classList.add("af-say-in");
+        // Keep the bubble clear of the outer ring and of the actor name: beside and below the name, outside the ring.
+        var W = stage.clientWidth, nx = parseFloat(actor.style.left) / 100 * W, ny = parseFloat(actor.style.top) / 100 * W;
+        var ic = actor.querySelector(".af-ic"), ih = ic ? ic.offsetWidth / 2 : 24, sw = say.offsetWidth, ring = 0.88 * W + 24;
+        say.style.transform = "";
+        if (actor.classList.contains("af-r")) { say.style.left = Math.max(nx + ih + 14, ring) + "px"; say.style.top = (ny + 20) + "px"; }
+        else if (actor.classList.contains("af-l")) { say.style.left = (Math.min(nx - ih - 14, W - ring) - sw) + "px"; say.style.top = (ny + 20) + "px"; }
+        else { say.style.left = (nx - sw / 2) + "px"; say.style.top = (ny - ih - 16) + "px"; say.style.transform = "translateY(-100%)"; }
+      }
       var p0 = at(segs[i], reduce ? 1 : 0); place(p0); if (acta) acta.classList.toggle("af-rest", !!reduce);
       if (reduce) return;
       var t0 = null;

@@ -2876,3 +2876,14 @@ section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;
   .actors-flow::after{display:block;margin:10px auto 0;width:fit-content;padding:4px 12px;border-radius:999px;font-size:12.5px;font-weight:600;color:#b9a8ff;background:rgba(124,92,255,.12);box-shadow:inset 0 0 0 1px rgba(159,140,255,.45);content:"◌ Enterprise Brain · Acta orchestrates"}
   [dir="rtl"] .actors-flow::after{content:"◌ العقل المؤسسي · أكتا ينسّق"}
 }
+/* actors-flow-large: on wide screens the circle grows into the space, layers stand apart, and the bubble sits outside the ring. */
+@media (min-width:1024px){
+  .actors-flow{max-width:none;width:min(1400px,calc(100vw - 48px));margin-left:calc((100% - min(1400px,calc(100vw - 48px))) / 2);margin-right:calc((100% - min(1400px,calc(100vw - 48px))) / 2);padding-block:120px 40px}
+  .actors-flow .af-stage{width:clamp(560px,44vw,720px)}
+  .actors-flow .af-core{width:29%}
+  .af-say,.af-r .af-say,.af-l .af-say,.af-c .af-say{right:auto;bottom:auto;margin-left:0;width:260px}
+  .af-c .af-say{width:320px}
+  .af-say-in{animation:af-say-fade .45s both}
+  @keyframes af-say-fade{from{opacity:0}to{opacity:1}}
+}
+@media (min-width:1024px){ .actors-flow{padding-block:56px 16px} }
