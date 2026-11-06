@@ -2024,3 +2024,12 @@ section.ask-block .wrap > h2{color:#fff}
 /* phone-stage */
 /* On phones the home logo story is skipped (the logo is already in the header); the COACTA screen stays, full size. */
 @media (max-width:760px){ .stage-scroll:not(.dark){display:none} .stage-scroll.dark .stage-panel{width:100%!important;height:auto!important;border-radius:0!important;padding-block:24px} .stage-scroll.dark .hero-frame{width:calc(100% - 32px)!important} .stage-scroll.dark .hero-frame img{max-height:none!important} }
+
+/* answers */
+/* Zero onboarding fees: one bright band above the plans. */
+.zero-fee{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:6px 12px;width:fit-content;max-width:100%;margin:0 auto 22px;padding:12px 22px;border-radius:999px;background:rgba(95,227,192,.12);box-shadow:inset 0 0 0 1px rgba(95,227,192,.45);text-align:center}
+.zero-fee strong{font-size:16px;font-weight:600;color:#5fe3c0}
+.zero-fee span{font-size:14.5px;color:#dbe6fb}
+@media (max-width:640px){ .zero-fee{border-radius:18px} }
+/* COACTA status: when early access opens. */
+.status-pill{display:inline-block;margin:14px auto 0;padding:6px 16px;border-radius:999px;font-size:14px;font-weight:600;color:#5fe3c0;background:rgba(95,227,192,.12);box-shadow:inset 0 0 0 1px rgba(95,227,192,.4)}
