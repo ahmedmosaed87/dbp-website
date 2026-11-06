@@ -2283,3 +2283,9 @@ section.block.svp-block > .wrap > h2 + p.svp-lead{margin:14px auto 0;max-width:6
 @keyframes fin-lab-2{0%,18%{color:#9aa6ba}20%,38.5%{color:#0f8f74}40%,100%{color:#9aa6ba}}
 @keyframes fin-lab-3{0%,40%{color:#9aa6ba}42%,83%{color:var(--navy)}85%,100%{color:#9aa6ba}}
 @media (prefers-reduced-motion:reduce){ .cap-steps span:nth-child(3){color:var(--navy)} .cap-steps span:nth-child(3)::after{width:28px;background:var(--navy)} }
+
+/* arabic-labels: Arabic needs more size than Latin to read at the same weight; small labels grow, never stretched with tatweel. */
+[lang="ar"] .eyebrow{font-size:18px;font-weight:600;letter-spacing:0}
+[lang="ar"] .kicker{font-size:16px;font-weight:600}
+[lang="ar"] .chapter{font-size:15px}
+[lang="ar"] .strip-h{font-size:17px}
