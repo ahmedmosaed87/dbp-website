@@ -2781,3 +2781,8 @@ section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;
   .plan-compare.v2 .pc-sub::after{display:block;margin-top:6px;font-size:13px;font-weight:600;color:var(--blue,#2c55f5);content:"Swipe to see every plan →"}
   [lang="ar"] .plan-compare.v2 .pc-sub::after,[dir="rtl"] .plan-compare.v2 .pc-sub::after{content:"اسحب لترى كل الخطط ←"}
 }
+/* compare-sticky-head: the plan names and prices stay on top while the features scroll beneath them. */
+.plan-compare.v2 .pc-scroll{max-height:calc(100svh - 150px);overflow:auto;overscroll-behavior:contain}
+.plan-compare.v2 thead th{position:sticky;top:0;z-index:3;background:#fff;box-shadow:inset 0 -1px 0 #e1e8f3}
+.plan-compare.v2 thead th.pc-rec{background:#eef3ff}
+.plan-compare.v2 thead tr > th:first-child{z-index:4}
