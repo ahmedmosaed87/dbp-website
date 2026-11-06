@@ -45,7 +45,7 @@
       prices: { startup: 0, core: 375, coreplus: 750, optimize: 1500, grow: 2250 }
     }
   };
-  var EGYPT_NOTE = { en: ' In Egypt? Ask us for local pricing.', ar: ' في مصر؟ اسألنا عن الأسعار المحلية.' };
+  var EGYPT_NOTE = { en: ' In Egypt? Ask us for local pricing.', ar: ' في مصر؟ اسألنا عن التسعير المحلي.' };
 
   // Which time zones belong to a region with its own list; every other place sees the international list.
   var EURO_ZONES = ['Amsterdam', 'Andorra', 'Athens', 'Berlin', 'Bratislava', 'Brussels', 'Dublin', 'Helsinki', 'Lisbon', 'Ljubljana', 'Luxembourg', 'Madrid', 'Malta', 'Monaco', 'Paris', 'Podgorica', 'Riga', 'Rome', 'San_Marino', 'Tallinn', 'Vatican', 'Vienna', 'Vilnius', 'Zagreb', 'Mariehamn'];
