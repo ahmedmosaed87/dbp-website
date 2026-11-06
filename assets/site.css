@@ -3043,3 +3043,6 @@ section.block:has(+ section.block.joined){padding-bottom:clamp(40px,5vw,72px)}
 /* ways-to-pay: equity is available, chosen case by case. */
 .way.sel{background:#fff8ea;box-shadow:inset 0 0 0 1px #f0cf8a}
 .way.sel i{color:#a26a00}
+.sample-tag{max-width:calc(100% - 28px);white-space:normal;line-height:1.35;text-align:center}
+@media (max-width:560px){ .sample-tag{font-size:10.5px;padding:4px 9px;top:8px;inset-inline-end:8px;max-width:calc(100% - 16px)} }
+@media (max-width:700px){ .hero-frame .sample-tag{position:static;display:block;width:fit-content;margin:10px auto 0;font-size:11px} }
