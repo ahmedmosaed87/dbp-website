@@ -1,0 +1,5 @@
+# Local tool caches and secrets never go to the public site repository.
+.wrangler/
+**/.wrangler/
+.dev.vars
+.env
