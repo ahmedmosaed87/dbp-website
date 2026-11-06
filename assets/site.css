@@ -2541,3 +2541,38 @@ header.top .bar nav.pages{justify-self:center;margin-inline:0}
 .adv-line i{color:rgba(255,255,255,.35)}
 .build-grid.solo{grid-template-columns:1fr;justify-items:center}
 .prod-line b,.adv-line b{white-space:nowrap}
+
+/* people-story */
+/* How Deepers work: six principles as one compact strip. */
+.work-strip .pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.work-strip .pillar{padding:18px 20px;border-radius:16px}
+.work-strip .pillar h3{font-size:17px;margin:8px 0 4px}
+.work-strip .pillar p{font-size:14.5px;margin:0}
+@media (max-width:860px){ .work-strip .pillars{grid-template-columns:1fr 1fr} }
+@media (max-width:560px){ .work-strip .pillars{grid-template-columns:1fr} }
+/* The AI-era organisation design: a dark band, the claim, then the paths. */
+.ai-org{background:radial-gradient(900px 420px at 80% 0%,rgba(124,92,255,.25),transparent 60%),linear-gradient(170deg,#081329,#0d1d40);color:#fff}
+.ai-org .kicker{color:#9fd8ff}
+.ai-org h2{color:#fff}
+section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;text-align:center;color:#c9d6ee!important;font-size:18px}
+.ai-path{margin:30px auto 12px;width:fit-content;padding:6px 16px;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#5fe3c0;background:rgba(95,227,192,.1);box-shadow:inset 0 0 0 1px rgba(95,227,192,.35)}
+[dir="rtl"] .ai-path{letter-spacing:0;font-size:14px}
+.ai-org .paths-line{color:#c9d6ee}
+.ai-org .path li{background:rgba(255,255,255,.06);color:#e6edf9;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.ai-org .path li:last-child{background:linear-gradient(120deg,#2c55f5,#1f9e86);color:#fff;box-shadow:none}
+.ai-org .deck-cards li{background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.ai-org .deck-cards .kicker{color:#5fe3c0}
+.ai-org .deck-cards .big{color:#fff}
+/* Join the Deepers. */
+.join-block{text-align:center}
+.join-block p{margin:12px auto 0;max-width:52ch;color:var(--ink-2);font-size:18px}
+.join-block .ask-actions{margin-top:24px}
+/* ai-path-readable: on the dark AI-era band the steps read in light text; the destination role glows. */
+.ai-org .path li{background:none!important;box-shadow:none;color:#c9d6ee!important}
+.ai-org .path li:last-child{color:#5fe3c0!important;font-weight:700}
+.ai-org .path-2 li:last-child{color:#8fb4ff!important}
+.ai-org .path::before{background:linear-gradient(90deg,rgba(255,255,255,.25),#5fe3c0)}
+.ai-org .path-2::before{background:linear-gradient(90deg,rgba(255,255,255,.25),#8fb4ff)}
+[dir="rtl"] .ai-org .path::before{background:linear-gradient(270deg,rgba(255,255,255,.25),#5fe3c0)}
+[dir="rtl"] .ai-org .path-2::before{background:linear-gradient(270deg,rgba(255,255,255,.25),#8fb4ff)}
+.ai-org .paths-line{color:#9fb1cf!important}
