@@ -105,3 +105,25 @@
   }, { threshold: 0.6 });
   walls.forEach(function (w) { io.observe(w); });
 })();
+
+/* Two-tab blocks (values and principles): click or arrow keys switch, one panel shows at a time. */
+(function () {
+  document.querySelectorAll('.btabs').forEach(function (list) {
+    var tabs = list.querySelectorAll('[data-btab]');
+    function open(btn) {
+      tabs.forEach(function (b) {
+        var on = b === btn;
+        b.setAttribute('aria-selected', on ? 'true' : 'false'); b.tabIndex = on ? 0 : -1;
+        var p = document.querySelector('[data-bpanel="' + b.getAttribute('data-btab') + '"]'); if (p) p.hidden = !on;
+      });
+    }
+    tabs.forEach(function (b, i) {
+      b.addEventListener('click', function () { open(b); });
+      b.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+        var rtl = b.closest('[dir="rtl"]') !== null, step = (e.key === 'ArrowRight') !== rtl ? 1 : -1;
+        var n = tabs[(i + step + tabs.length) % tabs.length]; n.focus(); open(n); e.preventDefault();
+      });
+    });
+  });
+})();
