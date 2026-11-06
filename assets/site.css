@@ -2720,3 +2720,14 @@ section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;
 @media (min-width:821px){ .hc2 .hc-cost{position:sticky;top:110px} }
 .six-caps .sc-int{background:linear-gradient(160deg,rgba(95,227,192,.22),rgba(95,227,192,.06));box-shadow:inset 0 0 0 1px rgba(95,227,192,.55)}
 .six-caps .sc-int .sc-ic{color:#0b1a38;background:#5fe3c0}
+/* problem-fit: the scene never grows wider than the phone screen; the capital claim leads the week. */
+.night-grid > *{min-width:0}
+.np-thread li{min-width:0}
+.np-thread p{overflow-wrap:anywhere}
+@media (max-width:820px){ .night-grid{grid-template-columns:minmax(0,1fr)} }
+@media (max-width:520px){ .pain-block .scene.night{padding:14px} .night-phone{padding:12px 10px 16px;border-radius:24px} .np-thread li{max-width:92%} }
+.hc-claim{margin:0 auto 10px;max-width:24ch;text-align:center;font-size:clamp(24px,3vw,36px);line-height:1.25;color:#fff;text-wrap:balance}
+.hc-cost{min-width:0}
+.cost-figs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cost-list li > div{min-width:0}
+@media (max-width:520px){ .cost-figs > div{padding:12px 8px} .cost-figs b{font-size:36px} .cost-figs s{font-size:22px} .cost-figs p{gap:6px;flex-wrap:wrap} .cost-figs em{font-size:12.5px} }
