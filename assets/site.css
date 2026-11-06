@@ -1917,11 +1917,11 @@ nav.pages a{white-space:nowrap}
 @media (max-width:900px){ .doors{grid-template-columns:1fr;max-width:620px;margin-inline:auto} }
 
 /* hero-themes */
-/* Three themes under the hero buttons, each with the proof beneath it. */
-.hero-facts.themed{gap:14px 40px;margin-top:30px}
-.hero-facts.themed li{display:grid;gap:3px;justify-items:center;text-align:center}
-.hero-facts.themed li::before{display:none}
-.hero-facts.themed b{display:flex;align-items:center;gap:8px;font-size:15.5px;font-weight:600;color:var(--ink)}
-.hero-facts.themed b::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
-.hero-facts.themed span{font-size:14px;color:var(--ink-2)}
-@media (max-width:640px){ .hero-facts.themed{flex-direction:column;align-items:center} }
+/* Three themes under the hero buttons: equal columns, fine dividers, each title centred over its proof. */
+.hero-facts.themed{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;max-width:980px;margin:38px auto 0;padding:22px 0 0;border-top:1px solid var(--line)}
+.hero-facts.themed li{display:grid;align-content:start;gap:6px;justify-items:center;text-align:center;padding:2px 22px}
+.hero-facts.themed li + li{border-inline-start:1px solid var(--line)}
+.hero-facts.themed li::before,.hero-facts.themed b::before{display:none}
+.hero-facts.themed b{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.005em}
+.hero-facts.themed span{font-size:14px;line-height:1.5;color:var(--ink-2);text-wrap:balance}
+@media (max-width:700px){ .hero-facts.themed{grid-template-columns:1fr;max-width:420px;gap:16px} .hero-facts.themed li + li{border-inline-start:0;border-top:1px solid var(--line);padding-top:16px} }
