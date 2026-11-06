@@ -142,19 +142,21 @@
   setTimeout(function () { items.forEach(function (el) { el.classList.add('in'); }); }, 4000);
 })();
 
-/* runway-countdown: when the night scene comes into view, the runway counts down 14 to 11 and the thread appears message by message. */
+/* runway-correction: the thread plays when the scene arrives; the 14 is struck and 11 written once the runway is in view. */
 (function () {
   var figs = document.querySelectorAll('.night');
-  if (!figs.length) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function settle(f) { f.classList.add('played'); var b = f.querySelector('.nr-figure b'); if (b) b.textContent = '11'; }
-  function play(f) {
-    if (reduce) { settle(f); return; }
-    f.classList.add('playing');
-    var b = f.querySelector('.nr-figure b'), n = 14;
-    setTimeout(function step() { n -= 1; if (b) b.textContent = String(n); if (n > 11) setTimeout(step, 520); else f.classList.add('played'); }, 2600);
-  }
-  if (!('IntersectionObserver' in window)) { figs.forEach(settle); return; }
-  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { play(e.target); io.unobserve(e.target); } }); }, { threshold: 0.35 });
-  figs.forEach(function (f) { io.observe(f); });
+  if (!figs.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  figs.forEach(function (f) {
+    var runway = f.querySelector('.night-runway'), started = 0;
+    f.classList.add('armed');
+    var io1 = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { f.classList.add('playing'); started = Date.now(); io1.disconnect(); } }); }, { threshold: 0.2 });
+    var io2 = new IntersectionObserver(function (es) { es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var wait = Math.max(600, 2600 - (started ? Date.now() - started : 0));
+      setTimeout(function () { f.classList.add('played'); }, wait); io2.disconnect();
+    }); }, { threshold: 0.6 });
+    io1.observe(f); if (runway) io2.observe(runway);
+    setTimeout(function () { f.classList.add('playing', 'played'); }, 12000);
+  });
 })();

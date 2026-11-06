@@ -2350,3 +2350,35 @@ footer h2{color:var(--ink)}
 .walls.voice .wall-q{font-size:18px;line-height:1.45}
 .walls.voice li::after{content:"\201C";position:absolute;top:8px;inset-inline-end:16px;font-size:64px;line-height:1;color:rgba(255,158,138,.22);font-family:Georgia,serif}
 [dir="rtl"] .walls.voice li::after{content:"\00AB";font-family:inherit;font-size:44px;top:14px}
+
+/* night-v2 */
+/* The correction, as an accountant writes it: 14 struck, 11 beside it. At rest the final state shows. */
+.nr-figure{display:flex;align-items:baseline;gap:16px}
+.nr-old{position:relative;font-size:clamp(60px,6vw,84px);font-weight:600;line-height:1;color:#7f8fb0;text-decoration:none}
+.nr-old::after{content:"";position:absolute;inset-inline:-6%;top:52%;height:5px;border-radius:3px;background:#ff9e8a;transform:rotate(-8deg);transform-origin:left center}
+[dir="rtl"] .nr-old::after{transform-origin:right center}
+.nr-new{font-size:clamp(96px,11vw,150px);font-weight:600;line-height:1;color:#ff9e8a}
+.nr-figure > span{font-size:20px;color:#dbe6fb}
+.nr-tag{margin:4px 0 0;font-size:15px;font-weight:600;color:#dbe6fb}
+.night.armed:not(.played) .nr-new,.night.armed:not(.played) .nr-tag{opacity:0}
+.night.armed:not(.played) .nr-old{color:#fff}
+.night.armed:not(.played) .nr-old::after{transform:scaleX(0) rotate(-8deg)}
+@media (prefers-reduced-motion:no-preference){
+  .nr-new,.nr-tag{transition:opacity .6s .45s}
+  .nr-old{transition:color .5s}
+  .nr-old::after{transition:transform .5s cubic-bezier(.6,0,.2,1)}
+}
+/* The bridge and the way forward. */
+.pain-bridge{margin:40px auto 0;max-width:36ch;text-align:center;font-size:clamp(19px,1.9vw,23px);line-height:1.5;color:#dbe6fb}
+.pain-block .pain-close{margin-top:18px}
+.pain-link{display:block;width:fit-content;margin:14px auto 0;font-size:16px;font-weight:600;color:#9fd8ff}
+/* The walls: three then two, with a drawn quote mark. */
+.pains.walls{grid-template-columns:repeat(6,minmax(0,1fr))}
+.pains.walls li{grid-column:span 2}
+.pains.walls li:nth-child(4),.pains.walls li:nth-child(5){grid-column:span 3}
+.walls.voice li::after{content:"";top:16px;inset-inline-end:18px;width:30px;height:24px;font-size:0;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 24'%3E%3Cpath fill='%23ff9e8a' fill-opacity='.35' d='M0 24V14C0 6 4 1 11 0l1 3c-4 1-6 4-6 8h6v13zm17 0V14c0-8 4-13 11-14l1 3c-4 1-6 4-6 8h6v13z'/%3E%3C/svg%3E")}
+[dir="rtl"] .walls.voice li::after{content:"";font-size:0;top:16px;transform:scaleX(-1)}
+@media (max-width:1000px){ .pains.walls{grid-template-columns:1fr 1fr} .pains.walls li,.pains.walls li:nth-child(4),.pains.walls li:nth-child(5){grid-column:auto} .pains.walls li:nth-child(5){grid-column:1 / -1} }
+@media (max-width:600px){ .pains.walls{grid-template-columns:1fr} .pains.walls li:nth-child(5){grid-column:auto} .pain-block{padding-bottom:110px} }
+/* A calmer, more opaque header so colours behind it never smudge through. */
+header.top{background:rgba(255,255,255,.94)}
