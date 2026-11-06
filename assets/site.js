@@ -160,3 +160,20 @@
     setTimeout(function () { f.classList.add('playing', 'played'); }, 12000);
   });
 })();
+
+/* search-focus-trap: while search is open, the keyboard stays inside it, Escape closes it, and focus returns to the search button. */
+(function () {
+  var ov = document.getElementById("search"), opener = document.getElementById("search-open");
+  if (!ov || !opener) return;
+  ov.setAttribute("role", "dialog"); ov.setAttribute("aria-modal", "true");
+  var mo = new MutationObserver(function () { if (ov.hidden) opener.focus(); });
+  mo.observe(ov, { attributes: true, attributeFilter: ["hidden"] });
+  ov.addEventListener("keydown", function (e) {
+    if (e.key !== "Tab") return;
+    var f = Array.prototype.filter.call(ov.querySelectorAll("a[href],button,input,[tabindex]:not([tabindex=\"-1\"])"), function (el) { return el.offsetParent !== null; });
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+    else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+  });
+})();
