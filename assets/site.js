@@ -142,22 +142,17 @@
   setTimeout(function () { items.forEach(function (el) { el.classList.add('in'); }); }, 4000);
 })();
 
-/* runway-correction: the thread plays when the scene arrives; the 14 is struck and 11 written once the runway is in view. */
+/* thread-play: the investor thread plays message by message once the phone is in view, on every screen size; the cost panel and the week bars play once they are in view. */
 (function () {
   var figs = document.querySelectorAll('.night');
   if (!figs.length || !('IntersectionObserver' in window)) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   figs.forEach(function (f) {
-    var runway = f.querySelector('.night-runway'), started = 0;
+    var phone = f.querySelector('.night-phone') || f, runway = f.querySelector('.night-runway');
     f.classList.add('armed');
-    var io1 = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { f.classList.add('playing'); started = Date.now(); io1.disconnect(); } }); }, { threshold: 0.2 });
-    var io2 = new IntersectionObserver(function (es) { es.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      var wait = Math.max(600, 2600 - (started ? Date.now() - started : 0));
-      setTimeout(function () { f.classList.add('played'); }, wait); io2.disconnect();
-    }); }, { threshold: 0.6 });
-    io1.observe(f); if (runway) io2.observe(runway);
-    setTimeout(function () { f.classList.add('playing', 'played'); }, 12000);
+    var io1 = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { f.classList.add('playing'); io1.disconnect(); } }); }, { threshold: 0.35 });
+    var io2 = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { setTimeout(function () { f.classList.add('played'); }, 900); io2.disconnect(); } }); }, { threshold: 0.5 });
+    io1.observe(phone); if (runway) io2.observe(runway);
   });
 })();
 

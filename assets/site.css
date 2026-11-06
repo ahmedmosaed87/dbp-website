@@ -2796,3 +2796,20 @@ section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;
   .path-1 li:last-child::before,.path-2 li:last-child::before{top:4px;inset-inline-start:-35px}
   [dir="rtl"] .path{padding:22px 0 22px 20px;padding-inline-start:52px}
 }
+
+/* thread-fix: a quiet time marker in the chat; the sources beside it; messages arrive one by one. */
+.np-thread li.np-gap{max-width:100%;justify-self:center;margin:4px 0}
+.np-gap span{display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:600;color:#ffb4a3;background:rgba(255,158,138,.1)}
+.hc-hunt{display:grid;gap:10px}
+.hc-hunt > .nr-label{text-align:center}
+.hc-hunt .np-hunt{display:grid;gap:6px;padding:12px;border-radius:16px;background:rgba(255,158,138,.06);box-shadow:inset 0 0 0 1px rgba(255,158,138,.22)}
+.hc-hunt .np-hunt > span{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:8px;align-items:center;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.05);text-align:start}
+.hc-hunt .np-hunt i{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;color:#fff}
+.hc-hunt .nh-sheet i{background:#1f9e5a}.hc-hunt .nh-mail i{background:#2c55f5}.hc-hunt .nh-chat i{background:#25a366}.hc-hunt .nh-bank i{background:#7c5cff}
+.hc-hunt .np-hunt em{font-style:normal;font-size:11.5px;font-weight:600;color:#9fb1cf;white-space:nowrap}
+.hc-hunt .np-hunt b{font-size:13px;font-weight:500;color:#e6edf9;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hc-hunt .nh-bank b{white-space:normal}
+@media (prefers-reduced-motion:no-preference){
+  .night.armed:not(.playing) .np-thread li{opacity:0}
+  .night.playing .np-thread li{animation:np-in .55s both;animation-delay:calc(var(--d) * .9s)}
+}
