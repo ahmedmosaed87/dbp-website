@@ -166,7 +166,7 @@
     var stage = fig.querySelector(".af-stage"), lines = fig.querySelector(".af-lines"), pulse = fig.querySelector(".af-pulse"), acta = fig.querySelector(".af-acta"), cap = fig.querySelector(".af-caption");
     var nodes = fig.querySelectorAll(".af-node"), ang = {};
     nodes.forEach(function (n, i) {
-      var d = -90 + i * (360 / nodes.length); if (rtl) d = 180 - d;
+      var d = -90 + (i + 0.5) * (360 / nodes.length); if (rtl) d = 180 - d;
       var a = d * Math.PI / 180; ang[n.getAttribute("data-node")] = a;
       n.style.left = (50 + R * Math.cos(a)) + "%"; n.style.top = (50 + R * Math.sin(a)) + "%";
       var nx = 50 + R * Math.cos(a); n.classList.add(nx > 56 ? "af-r" : nx < 44 ? "af-l" : "af-c");
@@ -191,6 +191,18 @@
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches, say = null;
     function at(seg, e) { return seg.kind === "spoke" ? pt(seg.a, seg.from + (seg.to - seg.from) * e) : pt(seg.a1 + seg.d * e, R); }
     function place(q) { pulse.setAttribute("cx", q[0]); pulse.setAttribute("cy", q[1]); if (acta) { acta.style.left = q[0] + "%"; acta.style.top = q[1] + "%"; } }
+    var tags = []; try { tags = JSON.parse(fig.getAttribute("data-tags") || "[]"); } catch (e) { tags = []; }
+    // Two layers: why it matters (the goal), then what is happening (the action).
+    function twoLayer(el, st, tagged) {
+      el.textContent = "";
+      var g = document.createElement("span"); g.className = "afc-goal";
+      if (tagged && tags[0]) { var gt = document.createElement("em"); gt.textContent = tags[0]; g.appendChild(gt); }
+      g.appendChild(document.createTextNode(st[3] || ""));
+      var a = document.createElement("span"); a.className = "afc-act";
+      if (tagged && tags[1]) { var at2 = document.createElement("em"); at2.textContent = tags[1]; a.appendChild(at2); }
+      a.appendChild(document.createTextNode(st[2]));
+      el.appendChild(g); el.appendChild(a);
+    }
     function show(i) {
       var st = steps[i];
       fig.querySelectorAll(".is-from,.is-to").forEach(function (n) { n.classList.remove("is-from", "is-to"); });
@@ -198,19 +210,21 @@
       var f = stage.querySelector("[data-node=\"" + st[0] + "\"]"), to = stage.querySelector("[data-node=\"" + st[1] + "\"]");
       if (f) f.classList.add("is-from"); if (to) to.classList.add("is-to");
       if (st[1] === "investors") { var bd = stage.querySelector("[data-node=\"board\"]"); if (bd) bd.classList.add("is-to"); }
-      cap.textContent = st[2];
+      twoLayer(cap, st, false);
       // The line also appears beside the actor who acts, where the eye already is.
       var actor = stage.querySelector("[data-node=\"" + (st[0] === "core" ? st[1] : st[0]) + "\"]");
       if (actor) {
         if (!say) { say = document.createElement("span"); say.className = "af-say"; say.setAttribute("aria-hidden", "true"); stage.appendChild(say); }
-        say.textContent = st[2]; say.classList.remove("af-say-in"); void say.offsetWidth; say.classList.add("af-say-in");
+        twoLayer(say, st, true); say.classList.remove("af-say-in"); void say.offsetWidth; say.classList.add("af-say-in");
         // Keep the bubble clear of the outer ring and of the actor name: beside and below the name, outside the ring.
         var W = stage.clientWidth, nx = parseFloat(actor.style.left) / 100 * W, ny = parseFloat(actor.style.top) / 100 * W;
-        var ic = actor.querySelector(".af-ic"), ih = ic ? ic.offsetWidth / 2 : 24, sw = say.offsetWidth, ring = 0.88 * W + 24;
+        var ic = actor.querySelector(".af-ic"), ih = ic ? ic.offsetWidth / 2 : 24, sw = say.offsetWidth, sh = say.offsetHeight, top = ny + 20;
         say.style.transform = "";
-        if (actor.classList.contains("af-r")) { say.style.left = Math.max(nx + ih + 14, ring) + "px"; say.style.top = (ny + 20) + "px"; }
-        else if (actor.classList.contains("af-l")) { say.style.left = (Math.min(nx - ih - 14, W - ring) - sw) + "px"; say.style.top = (ny + 20) + "px"; }
-        else { say.style.left = (nx - sw / 2) + "px"; say.style.top = (ny - ih - 16) + "px"; say.style.transform = "translateY(-100%)"; }
+        // Clear the outer ring where the bubble sits: find the ring edge at the bubble height nearest the centre.
+        var yy = Math.min(Math.max(W / 2, top), top + sh), dy = Math.abs(yy - W / 2), rr = R / 100 * W;
+        var edge = dy < rr ? Math.sqrt(rr * rr - dy * dy) + 18 : 0;
+        if (actor.classList.contains("af-l")) { say.style.left = (Math.min(nx - ih - 14, W / 2 - edge) - sw) + "px"; say.style.top = top + "px"; }
+        else { say.style.left = Math.max(nx + ih + 14, W / 2 + edge) + "px"; say.style.top = top + "px"; }
       }
       var p0 = at(segs[i], reduce ? 1 : 0); place(p0); if (acta) acta.classList.toggle("af-rest", !!reduce);
       if (reduce) return;
@@ -223,7 +237,7 @@
     if (reduce) return;
     var timer = null;
     // Each step stays long enough to read its caption: longer lines hold longer.
-    function dwell(i) { return Math.max(3400, 1600 + steps[i][2].length * 38); }
+    function dwell(i) { return Math.max(4200, 1800 + (steps[i][2].length + (steps[i][3] || "").length) * 36); }
     function next() { timer = setTimeout(function () { k = (k + 1) % steps.length; show(k); next(); }, dwell(k)); }
     function start() { if (!timer) next(); }
     function stop() { clearTimeout(timer); timer = null; }
