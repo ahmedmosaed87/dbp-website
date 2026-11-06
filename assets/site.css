@@ -2731,3 +2731,11 @@ section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;
 .cost-figs{grid-template-columns:repeat(2,minmax(0,1fr))}
 .cost-list li > div{min-width:0}
 @media (max-width:520px){ .cost-figs > div{padding:12px 8px} .cost-figs b{font-size:36px} .cost-figs s{font-size:22px} .cost-figs p{gap:6px;flex-wrap:wrap} .cost-figs em{font-size:12.5px} }
+
+/* value-pass: capital labels on the last-mile story; how the six capitals act together. */
+.st-vis.shift em i{display:block;font-style:normal;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4b9c86;margin-bottom:1px}
+[dir="rtl"] .st-vis.shift em i{letter-spacing:0;font-size:11.5px}
+.st-vis.shift em{border-radius:12px;padding:6px 11px}
+.sc-sum{margin:22px auto 0;max-width:62ch;font-size:16.5px;line-height:1.6;color:#c9d6ee;text-align:center}
+.sc-sum b{color:#5fe3c0;font-weight:600}
+.why .why-grid > li:not(.featured){min-height:0;justify-content:flex-start}
