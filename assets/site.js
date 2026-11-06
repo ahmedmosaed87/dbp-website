@@ -163,7 +163,7 @@
 (function () {
   document.querySelectorAll(".actors-flow").forEach(function (fig) {
     var rtl = fig.closest("[dir=\"rtl\"]") !== null, R = 38;
-    var stage = fig.querySelector(".af-stage"), lines = fig.querySelector(".af-lines"), pulse = fig.querySelector(".af-pulse"), cap = fig.querySelector(".af-caption");
+    var stage = fig.querySelector(".af-stage"), lines = fig.querySelector(".af-lines"), pulse = fig.querySelector(".af-pulse"), acta = fig.querySelector(".af-acta"), cap = fig.querySelector(".af-caption");
     var nodes = fig.querySelectorAll(".af-node"), ang = {};
     nodes.forEach(function (n, i) {
       var d = -90 + i * (360 / nodes.length); if (rtl) d = 180 - d;
@@ -190,6 +190,7 @@
     });
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches, say = null;
     function at(seg, e) { return seg.kind === "spoke" ? pt(seg.a, seg.from + (seg.to - seg.from) * e) : pt(seg.a1 + seg.d * e, R); }
+    function place(q) { pulse.setAttribute("cx", q[0]); pulse.setAttribute("cy", q[1]); if (acta) { acta.style.left = q[0] + "%"; acta.style.top = q[1] + "%"; } }
     function show(i) {
       var st = steps[i];
       fig.querySelectorAll(".is-from,.is-to").forEach(function (n) { n.classList.remove("is-from", "is-to"); });
@@ -201,11 +202,11 @@
       // The line also appears beside the actor who acts, where the eye already is.
       var actor = stage.querySelector("[data-node=\"" + (st[0] === "core" ? st[1] : st[0]) + "\"]");
       if (actor) { if (!say) { say = document.createElement("span"); say.className = "af-say"; say.setAttribute("aria-hidden", "true"); } say.textContent = st[2]; actor.appendChild(say); say.classList.remove("af-say-in"); void say.offsetWidth; say.classList.add("af-say-in"); }
-      var p0 = at(segs[i], reduce ? 1 : 0); pulse.setAttribute("cx", p0[0]); pulse.setAttribute("cy", p0[1]);
+      var p0 = at(segs[i], reduce ? 1 : 0); place(p0); if (acta) acta.classList.toggle("af-rest", !!reduce);
       if (reduce) return;
       var t0 = null;
       function frame(ts) { if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / 1300), e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2, q = at(segs[i], e);
-        pulse.setAttribute("cx", q[0]); pulse.setAttribute("cy", q[1]); if (p < 1) requestAnimationFrame(frame); }
+        place(q); if (p < 1) requestAnimationFrame(frame); else if (acta) { acta.classList.add("af-rest"); } }
       requestAnimationFrame(frame);
     }
     var k = 0; show(0);

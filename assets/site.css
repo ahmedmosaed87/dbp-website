@@ -2857,3 +2857,22 @@ section.block.ai-org > .wrap > h2 + p.ai-lead{margin:14px auto 0;max-width:62ch;
   .actors-flow .af-caption{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 }
 @media (min-width:1024px) and (prefers-reduced-motion:reduce){ .af-say-in{animation:none} }
+
+/* orchestration-layer: the Enterprise Brain and Acta around finance; Acta carries each piece of work. */
+.af-orch{fill:rgba(124,92,255,.07);stroke:rgba(159,140,255,.55);stroke-width:.45;stroke-dasharray:.6 1.1}
+.af-orch-label{font-size:2.35px;font-weight:600;letter-spacing:.12px;fill:#b9a8ff}
+[dir="rtl"] .af-orch-label{font-size:2.7px;letter-spacing:0}
+.af-pulse{opacity:0}
+.af-acta{position:absolute;left:50%;top:50%;z-index:4;transform:translate(-50%,-50%);display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#7c5cff,#2c55f5);box-shadow:0 0 0 4px rgba(124,92,255,.25),0 0 18px rgba(124,92,255,.7);pointer-events:none}
+.af-acta i{font-style:normal;font-size:13px;font-weight:700;color:#fff;font-family:var(--font)}
+@media (max-width:560px){ .af-acta{width:20px;height:20px} .af-acta i{font-size:11px} }
+.af-orch{stroke:rgba(159,140,255,.7)}
+.af-orch-label{font-size:2.7px}
+[dir="rtl"] .af-orch-label{font-size:3px}
+.af-acta{transition:opacity .5s .4s}
+.af-acta.af-rest{opacity:0}
+@media (max-width:700px){
+  .af-orch-label{display:none}
+  .actors-flow::after{display:block;margin:10px auto 0;width:fit-content;padding:4px 12px;border-radius:999px;font-size:12.5px;font-weight:600;color:#b9a8ff;background:rgba(124,92,255,.12);box-shadow:inset 0 0 0 1px rgba(159,140,255,.45);content:"◌ Enterprise Brain · Acta orchestrates"}
+  [dir="rtl"] .actors-flow::after{content:"◌ العقل المؤسسي · أكتا ينسّق"}
+}
