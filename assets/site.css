@@ -3046,3 +3046,9 @@ section.block:has(+ section.block.joined){padding-bottom:clamp(40px,5vw,72px)}
 .sample-tag{max-width:calc(100% - 28px);white-space:normal;line-height:1.35;text-align:center}
 @media (max-width:560px){ .sample-tag{font-size:10.5px;padding:4px 9px;top:8px;inset-inline-end:8px;max-width:calc(100% - 16px)} }
 @media (max-width:700px){ .hero-frame .sample-tag{position:static;display:block;width:fit-content;margin:10px auto 0;font-size:11px} }
+
+/* why-strong: the why, said plainly and strongly. */
+.wu-why{margin:22px 0 0;font-size:clamp(17px,1.5vw,19px);line-height:1.6;color:var(--ink-2);max-width:56ch}
+.wu-why b{color:var(--navy);font-weight:700}
+section.block.why > .wrap > h2 + p.why-lead{margin:16px auto 0;max-width:64ch;text-align:center;font-size:clamp(17px,1.5vw,19px);line-height:1.6;color:var(--ink-2)!important}
+.wu-why{font-size:clamp(18px,1.6vw,20px);color:var(--ink);font-weight:500;line-height:1.55}
